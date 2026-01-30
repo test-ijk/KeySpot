@@ -1,0 +1,12 @@
+defaults:
+  - default
+
+name: pettingzoo_mw_llm
+
+env_tweak: 
+  n_walkers: 3
+  max_cycles: 500
+  reward_factor: 10.0
+  # move_idle_reward: 0.0
+  terminate_reward: -10.0
+

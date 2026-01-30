@@ -1,0 +1,11 @@
+defaults:
+  - defaults/default_multiwalker@_here_
+  - _self_
+
+custom:
+  scenario: move
+
+  disturbs:
+    skill_move_speed:
+      disturb_enabled: True
+      obs_enabled: True

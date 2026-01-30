@@ -1,0 +1,34 @@
+defaults:
+  - default
+  - _self_
+
+run_group: 250722_llm_env
+save_group: handpicked/sumo/max_reward # 0710/0322
+steps:
+  - type: eval
+    multirun: False
+    config_name: sumo
+    args:
+      - algorithm=mappo
+      - environment=sumo_llm
+      - ++environment.env_tweak.tweak_types=[]
+      - eval_scenario=sumo/lane_closed
+  - type: eval
+    multirun: False
+    config_name: sumo
+    args:
+      - algorithm=happo
+      - environment=sumo_llm
+      - ++environment.env_tweak.tweak_types=[]
+      - eval_scenario=sumo/lane_closed
+  # - type: eval
+  #   multirun: False
+  #   config_name: sumo
+  #   args:
+  #     - algorithm=hasac
+  #     - environment=sumo
+  #     - ++environment.env_tweak.tweak_types=[]
+  #     - eval_scenario=sumo/lane_closed
+hydra:
+  searchpath: 
+    - file://sources/skill/0.run

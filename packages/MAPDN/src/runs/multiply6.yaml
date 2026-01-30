@@ -1,0 +1,27 @@
+defaults:
+  - default
+  - _self_
+
+run_group: 250509_6t
+save_group: ori_8t
+
+description: 扰动8
+
+steps:
+  - type: train
+    config_name: 250509_6t
+    multirun: True
+    args:
+      - train_config.alg=mappo,maddpg,matd3,coma,ippo
+      - train_config.alias=dis_6t
+  - type: eval
+    config_name: 250509_ori_6t
+    multirun: True
+    args:
+      - eval_config.alg=mappo,maddpg,matd3,coma,ippo
+      - eval_config.alias=original,dis_6t
+  - type: bark
+    config_name: default
+    multirun: False
+    args:
+      - 6t

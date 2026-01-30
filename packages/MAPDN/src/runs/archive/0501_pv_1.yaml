@@ -1,0 +1,33 @@
+defaults:
+  - default
+  - _self_
+
+run_group: 0503_pv_1_50eps
+save_group: 0501/1504
+
+description: pv_只屏蔽0
+
+steps:
+  - type: eval
+    config_name: 0501_pv
+    multirun: True
+    args:
+      - eval_config.alg=mappo,maddpg,matd3
+      - eval_config.alias=original
+  # - type: train
+  #   config_name: 0501_pv
+  #   multirun: True
+  #   args:
+  #     - train_config.alg=mappo,maddpg,matd3
+  #     - train_config.alias=pv_stop_1
+  - type: eval
+    config_name: 0501_pv
+    multirun: True
+    args:
+      - eval_config.alg=maddpg,mappo
+      - eval_config.alias=original,pv_stop_1
+  - type: bark
+    config_name: default
+    multirun: False
+    args:
+      - pv扰动的训练已经完成

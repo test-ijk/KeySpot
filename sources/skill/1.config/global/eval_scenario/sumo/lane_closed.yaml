@@ -1,0 +1,15 @@
+name: lane_closed
+desc: 车道封闭
+events:
+  - event_id: lane_closed
+    lasting: True
+    should_trigger_by_given_timestep: true
+    given_timestep_trigger_args:
+      trigger_at_timestep: 20
+      stop_at_timestep: 5000
+      event_value:
+        type: given
+        given_value:
+          lane_id: [1, 3, 4]
+    should_trigger_by_random: false
+    random_trigger_args: !!null

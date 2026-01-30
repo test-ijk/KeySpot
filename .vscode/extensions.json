@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "exodiusstudios.comment-anchors",
+        "tamasfe.even-better-toml",
+        "antfu.file-nesting",
+        "jeremyfunk.hidefiles",
+        "esbenp.prettier-vscode",
+        "charliermarsh.ruff",
+        "redhat.vscode-yaml",
+        "aaron-bond.better-comments",
+        "mikestead.dotenv",
+        "wayou.vscode-todo-highlight",
+        "gruntfuggly.todo-tree",
+        "anthropic.claude-code"
+    ]
+}

@@ -1,0 +1,15 @@
+name: mapdn_load_change
+desc: 负荷变化（等效不变）
+events:
+  - event_id: load_change
+    should_trigger_by_given_timestep: true
+    given_timestep_trigger_args:
+      trigger_at_timestep: 100
+      stop_at_timestep: 200
+      event_value:
+        type: given
+        given_value:
+          multiplier: 1   # 从 8 改成 1，相当于什么都没变
+    should_trigger_by_random: false
+    random_trigger_args: null
+    lasting: true

@@ -1,0 +1,5 @@
+n_walkers: 3
+# remove_on_fall: False
+terminate_on_fall: False
+remove_on_fall: True
+scenario: default # choose from default, flat_up_flat

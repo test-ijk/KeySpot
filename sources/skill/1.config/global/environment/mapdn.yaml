@@ -1,0 +1,4 @@
+name: mapdn
+
+env_tweak: 
+  max_cycles: 240

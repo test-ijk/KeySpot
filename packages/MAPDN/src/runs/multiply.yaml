@@ -1,0 +1,27 @@
+defaults:
+  - default
+  - _self_
+
+run_group: 250507_full_8t
+save_group: ori_8t
+
+description: 扰动8
+
+steps:
+  - type: eval
+    config_name: 250507_ori_6t
+    multirun: True
+    args:
+      - eval_config.alg=mappo,maddpg,matd3,coma,ippo
+      - eval_config.alias=original,dis_6t # original
+  - type: eval
+    config_name: 250507_ori_10t
+    multirun: True
+    args:
+      - eval_config.alg=mappo,maddpg,matd3,coma,ippo
+      - eval_config.alias=original,dis_10t # original
+  - type: bark
+    config_name: default
+    multirun: False
+    args:
+      - 新扰动/重新测试完成

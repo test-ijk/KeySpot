@@ -1,0 +1,23 @@
+defaults:
+  - default
+  - _self_
+
+group_name: case322
+
+train_config:
+  alias: "disturb"
+  save_path: reproduction
+  alg: mappo
+  env: var_voltage_control
+  mode: distributed
+
+  scenario: case322_3min_final
+  voltage_barrier_type: bowl
+
+disturbances:
+  - type: load_change
+    is_random: True
+    random_probability: 0.005
+    random_duration: 100
+    disturbance_args:
+      multiplier: 10

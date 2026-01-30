@@ -1,0 +1,1240 @@
+version = 1
+revision = 1
+requires-python = "==3.7.*"
+resolution-markers = [
+    "sys_platform == 'linux'",
+    "sys_platform != 'linux'",
+]
+
+[[package]]
+name = "absl-py"
+version = "0.10.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "six" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/49/7c/1d9fa17c363b5ff395cc6f5fd03219b9d303f31268983325974570d0d500/absl-py-0.10.0.tar.gz", hash = "sha256:b20f504a7871a580be5268a18fbad48af4203df5d33dbc9272426cb806245a45" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/b9/07/f69dd3367368ad69f174bfe426a973651412ec11d48ec05c000f19fe0561/absl_py-0.10.0-py3-none-any.whl", hash = "sha256:ea07d7d437798bffc14f39fccec3909d251a1e76e233205ded72b71c267e0178" },
+]
+
+[[package]]
+name = "antlr4-python3-runtime"
+version = "4.9.3"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/3e/38/7859ff46355f76f8d19459005ca000b6e7012f2f1ca597746cbcd1fbfe5e/antlr4-python3-runtime-4.9.3.tar.gz", hash = "sha256:f224469b4168294902bb1efa80a8bf7855f24c99aef99cbefc1bcd3cce77881b" }
+
+[[package]]
+name = "cachetools"
+version = "4.1.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/fc/c8/0b52cf3132b4b85c9e83faa3e4d375575afeb3a1710c40b2b2cd2a3e5635/cachetools-4.1.1.tar.gz", hash = "sha256:bbaa39c3dede00175df2dc2b03d0cf18dd2d32a7de7beb68072d13043c9edb20" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/cd/5c/f3aa86b6d5482f3051b433c7616668a9b96fbe49a622210e2c9781938a5c/cachetools-4.1.1-py3-none-any.whl", hash = "sha256:513d4ff98dd27f85743a8dc0e92f55ddb1b49e060c2d5961512855cda2c01a98" },
+]
+
+[[package]]
+name = "certifi"
+version = "2020.6.20"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz", hash = "sha256:5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/5e/c4/6c4fe722df5343c33226f0b4e0bb042e4dc13483228b4718baf286f86d87/certifi-2020.6.20-py2.py3-none-any.whl", hash = "sha256:8fc0819f1f30ba15bdb34cceffb9ef04d99f420f68eb75d901e9560b8749fc41" },
+]
+
+[[package]]
+name = "cffi"
+version = "1.14.3"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "pycparser" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz", hash = "sha256:f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/f1/4f/c961a0f75b2305a64acd34eaceabb75a60065bd9ba9b3175fa2744dbc1ee/cffi-1.14.3-2-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:c53af463f4a40de78c58b8b2710ade243c81cbca641e34debf3396a9640d6ec1" },
+    { url = "https://pypi.cstcloud.cn/packages/21/8f/85ab94cf7151bd2bfc81c3595fb821ac819ac93dff4c90f9bfb5d99298fd/cffi-1.14.3-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:f92cdecb618e5fa4658aeb97d5eb3d2f47aa94ac6477c6daf0f306c5a3b9e6b1" },
+    { url = "https://pypi.cstcloud.cn/packages/26/d7/1c485a42d59d45f14f27bb93769e56142518c85ddf379dbdad7e42d0ffcd/cffi-1.14.3-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:22399ff4870fb4c7ef19fff6eeb20a8bbf15571913c181c78cb361024d574579" },
+    { url = "https://pypi.cstcloud.cn/packages/ad/5d/cb9ee1de1ce3bfdfa43be2ed9ef7fe1733eadc856944a7cc1396e4a1c05a/cffi-1.14.3-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:f4eae045e6ab2bb54ca279733fe4eb85f1effda392666308250714e01907f394" },
+    { url = "https://pypi.cstcloud.cn/packages/47/31/5010e0d27f77de5245c157d322e91aaf159698cac12218a2e1b5bb9f7f73/cffi-1.14.3-cp37-cp37m-win32.whl", hash = "sha256:b0358e6fefc74a16f745afa366acc89f979040e0cbc4eec55ab26ad1f6a9bfbc" },
+    { url = "https://pypi.cstcloud.cn/packages/87/f0/a4ec0ac56fa09d0cf6440dfa817562e8bea181b4bbb6cde3a86271e78097/cffi-1.14.3-cp37-cp37m-win_amd64.whl", hash = "sha256:6642f15ad963b5092d65aed022d033c77763515fdc07095208f15d3563003869" },
+]
+
+[[package]]
+name = "chardet"
+version = "3.0.4"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz", hash = "sha256:84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl", hash = "sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691" },
+]
+
+[[package]]
+name = "click"
+version = "8.1.7"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "importlib-metadata" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz", hash = "sha256:ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/00/2e/d53fa4befbf2cfa713304affc7ca780ce4fc1fd8710527771b58311a3229/click-8.1.7-py3-none-any.whl", hash = "sha256:ae74fb96c20a0277a1d615f1e4d73c8414f5a98db8b799a7931d1582f3390c28" },
+]
+
+[[package]]
+name = "cloudpickle"
+version = "1.2.2"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/1f/2d/a6b35415360b3d49c169ad7717966749fe18bb4295a1040955e2f6fce485/cloudpickle-1.2.2.tar.gz", hash = "sha256:922401d7140e133253ff5fab4faa4a1166416066453a783b00b507dca93f8859" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/c1/49/334e279caa3231255725c8e860fa93e72083567625573421db8875846c14/cloudpickle-1.2.2-py2.py3-none-any.whl", hash = "sha256:f3ef2c9d438f1553ce7795afb18c1f190d8146132496169ef6aa9b7b65caa4c3" },
+]
+
+[[package]]
+name = "colorama"
+version = "0.4.4"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz", hash = "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/44/98/5b86278fbbf250d239ae0ecb724f8572af1c91f4a11edf4d36a206189440/colorama-0.4.4-py2.py3-none-any.whl", hash = "sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2" },
+]
+
+[[package]]
+name = "colorlog"
+version = "6.9.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/d3/7a/359f4d5df2353f26172b3cc39ea32daa39af8de522205f512f458923e677/colorlog-6.9.0.tar.gz", hash = "sha256:bfba54a1b93b94f54e1f4fe48395725a3d92fd2a4af702f6bd70946bdc0c6ac2" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/e3/51/9b208e85196941db2f0654ad0357ca6388ab3ed67efdbfc799f35d1f83aa/colorlog-6.9.0-py3-none-any.whl", hash = "sha256:5906e71acd67cb07a71e779c47c4bcb45fb8c2993eebe9e5adcd6a6f1b283eff" },
+]
+
+[[package]]
+name = "cryptography"
+version = "3.1.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "cffi" },
+    { name = "six" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/5d/4b/7bb135c5787c003cdbc44990c5f41908f0f37135e0bb554e880d90fd5f6f/cryptography-3.1.1.tar.gz", hash = "sha256:9d9fc6a16357965d282dd4ab6531013935425d0dc4950df2e0cf2a1b1ac1017d" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/d3/48/99888a2c33a8addbb6c6dfeeb440425b9fbfa77cc37729d4dfde89cf0245/cryptography-3.1.1-cp35-abi3-macosx_10_10_x86_64.whl", hash = "sha256:f0e099fc4cc697450c3dd4031791559692dd941a95254cb9aeded66a7aa8b9bc" },
+    { url = "https://pypi.cstcloud.cn/packages/70/d2/ae380f16d025459d282878e094518664a13a0e740cc957b1ada59590991d/cryptography-3.1.1-cp35-abi3-manylinux1_x86_64.whl", hash = "sha256:a7597ffc67987b37b12e09c029bd1dc43965f75d328076ae85721b84046e9ca7" },
+    { url = "https://pypi.cstcloud.cn/packages/33/62/30f6936941d87a5ed72efb24249437824f6b2c953901245b58c91fde2f27/cryptography-3.1.1-cp35-abi3-manylinux2010_x86_64.whl", hash = "sha256:4549b137d8cbe3c2eadfa56c0c858b78acbeff956bd461e40000b2164d9167c6" },
+    { url = "https://pypi.cstcloud.cn/packages/bd/23/bb27adc3ae9046fe188d0171e10e26263e6236647ec9cc2578a9aae89cf8/cryptography-3.1.1-cp35-abi3-manylinux2014_aarch64.whl", hash = "sha256:89aceb31cd5f9fc2449fe8cf3810797ca52b65f1489002d58fe190bfb265c536" },
+    { url = "https://pypi.cstcloud.cn/packages/49/54/721742f06b04cf89b4c8908abdfb21562ed00d0793fc3b2066aeff2338e2/cryptography-3.1.1-cp36-abi3-win32.whl", hash = "sha256:762bc5a0df03c51ee3f09c621e1cee64e3a079a2b5020de82f1613873d79ee70" },
+    { url = "https://pypi.cstcloud.cn/packages/3f/4d/a01d154e818c643ade94ac0e68dbe82758918fc3c1e1308a93392755679f/cryptography-3.1.1-cp36-abi3-win_amd64.whl", hash = "sha256:b12e715c10a13ca1bd27fbceed9adc8c5ff640f8e1f7ea76416352de703523c8" },
+    { url = "https://pypi.cstcloud.cn/packages/ee/66/8f0095474f348feed17db0afd2e8046f0b255d43cfbc034a1b1154ac7e30/cryptography-3.1.1-cp37-cp37m-win32.whl", hash = "sha256:b2bded09c578d19e08bd2c5bb8fed7f103e089752c9cf7ca7ca7de522326e921" },
+    { url = "https://pypi.cstcloud.cn/packages/eb/62/5baf58c2d89b712b193f6bb5e9077bc34d71996c94fd5299594709e2395f/cryptography-3.1.1-cp37-cp37m-win_amd64.whl", hash = "sha256:f99317a0fa2e49917689b8cf977510addcfaaab769b3f899b9c481bbd76730c2" },
+]
+
+[[package]]
+name = "cycler"
+version = "0.10.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "six" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/c2/4b/137dea450d6e1e3d474e1d873cd1d4f7d3beed7e0dc973b06e8e10d32488/cycler-0.10.0.tar.gz", hash = "sha256:cd7b2d1018258d7247a71425e9f26463dfb444d411c39569972f4ce586b0c9d8" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/f7/d2/e07d3ebb2bd7af696440ce7e754c59dd546ffe1bbe732c8ab68b9c834e61/cycler-0.10.0-py2.py3-none-any.whl", hash = "sha256:1d8a5ae1ff6c5cf9b93e8811e581232ad8920aeec647c37316ceac982b08cb2d" },
+]
+
+[[package]]
+name = "decorator"
+version = "4.4.2"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/da/93/84fa12f2dc341f8cf5f022ee09e109961055749df2d0c75c5f98746cfe6c/decorator-4.4.2.tar.gz", hash = "sha256:e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/ed/1b/72a1821152d07cf1d8b6fce298aeb06a7eb90f4d6d41acec9861e7cc6df0/decorator-4.4.2-py2.py3-none-any.whl", hash = "sha256:41fa54c2a0cc4ba648be4fd43cff00aedf5b9465c9bf18d64325bc225f08f760" },
+]
+
+[[package]]
+name = "docker-pycreds"
+version = "0.4.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "six" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/c5/e6/d1f6c00b7221e2d7c4b470132c931325c8b22c51ca62417e300f5ce16009/docker-pycreds-0.4.0.tar.gz", hash = "sha256:6ce3270bcaf404cc4c3e27e4b6c70d3521deae82fb508767870fdbf772d584d4" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/f5/e8/f6bd1eee09314e7e6dee49cbe2c5e22314ccdb38db16c9fc72d2fa80d054/docker_pycreds-0.4.0-py2.py3-none-any.whl", hash = "sha256:7266112468627868005106ec19cd0d722702d2b7d5912a28e19b826c3d37af49" },
+]
+
+[[package]]
+name = "et-xmlfile"
+version = "1.1.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/3d/5d/0413a31d184a20c763ad741cc7852a659bf15094c24840c5bdd1754765cd/et_xmlfile-1.1.0.tar.gz", hash = "sha256:8eb9e2bc2f8c97e37a2dc85a09ecdcdec9d8a396530a6d5a33b30b9a92da0c5c" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/96/c2/3dd434b0108730014f1b96fd286040dc3bcb70066346f7e01ec2ac95865f/et_xmlfile-1.1.0-py3-none-any.whl", hash = "sha256:a2ba85d1d6a74ef63837eed693bcb89c3f752169b0e3e7ae5b16ca5e1b3deada" },
+]
+
+[[package]]
+name = "gitdb"
+version = "4.0.7"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "smmap" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/34/fe/9265459642ab6e29afe734479f94385870e8702e7f892270ed6e52dd15bf/gitdb-4.0.7.tar.gz", hash = "sha256:96bf5c08b157a666fec41129e6d327235284cca4c81e92109260f353ba138005" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/ea/e8/f414d1a4f0bbc668ed441f74f44c116d9816833a48bf81d22b697090dba8/gitdb-4.0.7-py3-none-any.whl", hash = "sha256:6c4cc71933456991da20917998acbe6cf4fb41eeaab7d6d67fbc05ecd4c865b0" },
+]
+
+[[package]]
+name = "gitpython"
+version = "3.1.14"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "gitdb" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/5f/f2/ea3242d97695451ab1521775a85253e002942d2c8f4519ae1172c0f5f979/GitPython-3.1.14.tar.gz", hash = "sha256:be27633e7509e58391f10207cd32b2a6cf5b908f92d9cd30da2e514e1137af61" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/a6/99/98019716955ba243657daedd1de8f3a88ca1f5b75057c38e959db22fb87b/GitPython-3.1.14-py3-none-any.whl", hash = "sha256:3283ae2fba31c913d857e12e5ba5f9a7772bbc064ae2bb09efafa71b0dd4939b" },
+]
+
+[[package]]
+name = "google-auth"
+version = "1.22.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "cachetools" },
+    { name = "pyasn1-modules" },
+    { name = "rsa" },
+    { name = "setuptools" },
+    { name = "six" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/dc/fa/a22e99cf47b2d8fd5e7e17a2a6500a6b1feb3187c1e41bf411e4c54097ef/google-auth-1.22.1.tar.gz", hash = "sha256:9c0f71789438d703f77b94aad4ea545afaec9a65f10e6cc1bc8b89ce242244bb" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/1f/cf/724b6436967a8be879c8de16b09fd80e0e7b0bcad462f5c09ee021605785/google_auth-1.22.1-py2.py3-none-any.whl", hash = "sha256:712dd7d140a9a1ea218e5688c7fcb04af71b431a29ec9ce433e384c60e387b98" },
+]
+
+[[package]]
+name = "google-auth-oauthlib"
+version = "0.4.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "google-auth" },
+    { name = "requests-oauthlib" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/cd/5a/2b5a4c1294a4e8903bdba122083bd505dc51688a95d4670cde89dc45e6ed/google-auth-oauthlib-0.4.1.tar.gz", hash = "sha256:88d2cd115e3391eb85e1243ac6902e76e77c5fe438b7276b297fbe68015458dd" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/7b/b8/88def36e74bee9fce511c9519571f4e485e890093ab7442284f4ffaef60b/google_auth_oauthlib-0.4.1-py2.py3-none-any.whl", hash = "sha256:a92a0f6f41a0fb6138454fbc02674e64f89d82a244ea32f98471733c8ef0e0e1" },
+]
+
+[[package]]
+name = "grpcio"
+version = "1.32.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "six" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/0e/5f/eeb402746a65839acdec78b7e757635f5e446138cc1d68589dfa32cba593/grpcio-1.32.0.tar.gz", hash = "sha256:01d3046fe980be25796d368f8fc5ff34b7cf5e1444f3789a017a7fe794465639" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/48/16/d229a9d7d45bafecfe6b4c9ebf2053ec929efc2ffbed0b1a89ef190ef4d9/grpcio-1.32.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:1ada89326a364a299527c7962e5c362dbae58c67b283fe8383c4d952b26565d5" },
+    { url = "https://pypi.cstcloud.cn/packages/d6/18/04a0c50482cb503e56afa0bb08fbb7cd1c2bd7b27e58132cd5b2b67ed774/grpcio-1.32.0-cp37-cp37m-manylinux2010_i686.whl", hash = "sha256:1d384a61f96a1fc6d5d3e0b62b0a859abc8d4c3f6d16daba51ebf253a3e7df5d" },
+    { url = "https://pypi.cstcloud.cn/packages/99/da/8dc10aab771e01937aaf10cd28d1fcf861bca48c570ee6a5cee00f7be111/grpcio-1.32.0-cp37-cp37m-manylinux2010_x86_64.whl", hash = "sha256:e811ce5c387256609d56559d944a974cc6934a8eea8c76e7c86ec388dc06192d" },
+    { url = "https://pypi.cstcloud.cn/packages/a5/25/9a006d8c6e0cf9c7903f224b3fcf6ff219426645c1fcb9b5bd6e0ace4ba5/grpcio-1.32.0-cp37-cp37m-manylinux2014_i686.whl", hash = "sha256:07b430fa68e5eecd78e2ad529ab80f6a234b55fc1b675fe47335ccbf64c6c6c8" },
+    { url = "https://pypi.cstcloud.cn/packages/06/54/1c8be62beafe7fb1548d2968e518ca040556b46b0275399d4f3186c56d79/grpcio-1.32.0-cp37-cp37m-manylinux2014_x86_64.whl", hash = "sha256:0e3edd8cdb71809d2455b9dbff66b4dd3d36c321e64bfa047da5afdfb0db332b" },
+    { url = "https://pypi.cstcloud.cn/packages/d2/e7/0f825fed05ab81bc7d118d8d1b3b6e3d29bf2d53c47034fed9fa3f2ede85/grpcio-1.32.0-cp37-cp37m-win32.whl", hash = "sha256:6f7947dad606c509d067e5b91a92b250aa0530162ab99e4737090f6b17eb12c4" },
+    { url = "https://pypi.cstcloud.cn/packages/67/5f/bf822211f7f94a2f6d0f8fd3bda3b804d7b24b6d5c84dbc6e6c9df4c74c2/grpcio-1.32.0-cp37-cp37m-win_amd64.whl", hash = "sha256:7cda998b7b551503beefc38db9be18c878cfb1596e1418647687575cdefa9273" },
+]
+
+[[package]]
+name = "gymnasium"
+version = "0.26.3"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "cloudpickle" },
+    { name = "gymnasium-notices" },
+    { name = "importlib-metadata" },
+    { name = "numpy" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/d2/98/7453b05467682cd6461636fad4b15aa3ef975e0762719268bb9ec74681da/Gymnasium-0.26.3.tar.gz", hash = "sha256:2a918e321fc0bb48f4ebf2936ccd8f20a049658f1509dea9c6e768b8030392ed" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/e7/d8/95bc547d57d7661b00809b0714dff7690a79cfafdbc4812c93790fea5add/Gymnasium-0.26.3-py3-none-any.whl", hash = "sha256:4be0085252759c65b09c9fb83970ceedd02fab03b075024d8ba22eaa1a11eda1" },
+]
+
+[[package]]
+name = "gymnasium-notices"
+version = "0.0.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/27/57/257106672b5eeb5735a239c54f0e74a0e2e69ebec592f3643c0ee1a08d5e/gymnasium-notices-0.0.1.tar.gz", hash = "sha256:3e8c868046f56dea84c949cc7e97383cccfab27152fc3f4968754e4c9c087ab9" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/d4/88/2520e5851ac21a66e32c7be2f718f3a329253c018a8781e1143fe27c8065/gymnasium_notices-0.0.1-py3-none-any.whl", hash = "sha256:be68c8399e88b554b6db1eb3c484b00f229cbe5c930f64f6ae9cd1a6e93db1c5" },
+]
+
+[[package]]
+name = "hydra-colorlog"
+version = "1.2.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "colorlog" },
+    { name = "hydra-core" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/2b/fc/ab5ca078d5184ae3280d5654734860198c643cd2caaaaaece63283d9f76d/hydra-colorlog-1.2.0.tar.gz", hash = "sha256:d44f85008fabd2448c7e3b496c31b44d7610560f6fff74f3673afaa949870899" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/40/50/a08b0453c18088da369991d015ef3902a9ab532b515a41f1bfbe1394854d/hydra_colorlog-1.2.0-py3-none-any.whl", hash = "sha256:33d05fc11ca9bc7a5d69cfb3c8fb395a1bc52fa1dfe7aca6a6f5ffb57f6e7c4b" },
+]
+
+[[package]]
+name = "hydra-core"
+version = "1.3.2"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "antlr4-python3-runtime" },
+    { name = "importlib-resources" },
+    { name = "omegaconf" },
+    { name = "packaging" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/6d/8e/07e42bc434a847154083b315779b0a81d567154504624e181caf2c71cd98/hydra-core-1.3.2.tar.gz", hash = "sha256:8a878ed67216997c3e9d88a8e72e7b4767e81af37afb4ea3334b269a4390a824" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/c6/50/e0edd38dcd63fb26a8547f13d28f7a008bc4a3fd4eb4ff030673f22ad41a/hydra_core-1.3.2-py3-none-any.whl", hash = "sha256:fa0238a9e31df3373b35b0bfb672c34cc92718d21f81311d8996a16de1141d8b" },
+]
+
+[[package]]
+name = "hydra-joblib-launcher"
+version = "1.2.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "hydra-core" },
+    { name = "joblib" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/d0/94/6d81cd0858295b6efaa420624f120a594a90e54f36b165de8b47b62e0f76/hydra-joblib-launcher-1.2.0.tar.gz", hash = "sha256:b4dc8b990221a0df048c094954356c6532585557e708e8198c46a877b379a6d5" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/bd/50/40613fdf65f9227bc0b073c1ee9db2e2298f7b6cd248e8b4825eedc292eb/hydra_joblib_launcher-1.2.0-py3-none-any.whl", hash = "sha256:57bfd042b015056157297de93e8ec1c6bc75fd39bd3b300e1599db0c5d992eee" },
+]
+
+[[package]]
+name = "hydra-submitit-launcher"
+version = "1.2.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "hydra-core" },
+    { name = "submitit" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/4f/93/8f19eba16318fe79f17ae5a86ed4efc9641c33151f67a0f172fbd15ddd41/hydra-submitit-launcher-1.2.0.tar.gz", hash = "sha256:e14c8eb46d020fac60ba25f82bcc368dc55851d2683dc95c88631ffcf15e4a34" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/d1/9b/0ea17f1780004c52f83566b5ca78a0844c93f5abdbbf625e40962af1ffcc/hydra_submitit_launcher-1.2.0-py3-none-any.whl", hash = "sha256:51ce468fbc91211c3a46677eefde94bbb9f721c9545af0be6dd0a95658515613" },
+]
+
+[[package]]
+name = "idna"
+version = "2.10"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz", hash = "sha256:b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl", hash = "sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0" },
+]
+
+[[package]]
+name = "imageio"
+version = "2.9.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "pillow" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/c3/73/f37f428748c4f10a7991ac5bff00f113a34bcc0d0a78957d6e1cdc29a94e/imageio-2.9.0.tar.gz", hash = "sha256:52ddbaeca2dccf53ba2d6dec5676ca7bc3b2403ef8b37f7da78b7654bb3e10f0" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/6e/57/5d899fae74c1752f52869b613a8210a2480e1a69688e65df6cb26117d45d/imageio-2.9.0-py3-none-any.whl", hash = "sha256:3604d751f03002e8e0e7650aa71d8d9148144a87daf17cb1f3228e80747f2e6b" },
+]
+
+[[package]]
+name = "importlib-metadata"
+version = "6.7.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "typing-extensions" },
+    { name = "zipp" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/a3/82/f6e29c8d5c098b6be61460371c2c5591f4a335923639edec43b3830650a4/importlib_metadata-6.7.0.tar.gz", hash = "sha256:1aaf550d4f73e5d6783e7acb77aec43d49da8017410afae93822cc9cca98c4d4" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/ff/94/64287b38c7de4c90683630338cf28f129decbba0a44f0c6db35a873c73c4/importlib_metadata-6.7.0-py3-none-any.whl", hash = "sha256:cb52082e659e97afc5dac71e79de97d8681de3aa07ff18578330904a9d18e5b5" },
+]
+
+[[package]]
+name = "importlib-resources"
+version = "5.12.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "zipp" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/4e/a2/3cab1de83f95dd15297c15bdc04d50902391d707247cada1f021bbfe2149/importlib_resources-5.12.0.tar.gz", hash = "sha256:4be82589bf5c1d7999aedf2a45159d10cb3ca4f19b2271f8792bc8e6da7b22f6" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/38/71/c13ea695a4393639830bf96baea956538ba7a9d06fcce7cef10bfff20f72/importlib_resources-5.12.0-py3-none-any.whl", hash = "sha256:7b1deeebbf351c7578e09bf2f63fa2ce8b5ffec296e0d349139d43cca061a81a" },
+]
+
+[[package]]
+name = "joblib"
+version = "0.17.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/ef/e9/80bdaef3848e8aa5e518f516bdfb79cc5d81c57ead939c541c20eecd7633/joblib-0.17.0.tar.gz", hash = "sha256:9e284edd6be6b71883a63c9b7f124738a3c16195513ad940eae7e3438de885d5" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/fc/c9/f58220ac44a1592f79a343caba12f6837f9e0c04c196176a3d66338e1ea8/joblib-0.17.0-py3-none-any.whl", hash = "sha256:698c311779f347cf6b7e6b8a39bb682277b8ee4aba8cf9507bc0cf4cd4737b72" },
+]
+
+[[package]]
+name = "kiwisolver"
+version = "1.2.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/62/b8/db619d97819afb52a3ff5ff6ad3f7de408cc83a8ec2dfb31a1731c0a97c2/kiwisolver-1.2.0.tar.gz", hash = "sha256:247800260cd38160c362d211dcaf4ed0f7816afb5efe56544748b21d6ad6d17f" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/81/c5/9831f281c6fb57945e83fdf39ff036cacfdc84aa1988bb3150b330533050/kiwisolver-1.2.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:7cc095a4661bdd8a5742aaf7c10ea9fac142d76ff1770a0f84394038126d8fc7" },
+    { url = "https://pypi.cstcloud.cn/packages/72/ae/11ccfd6902d980d4d5c2af1c8c42462f70b376d499ab9e340ac852872e07/kiwisolver-1.2.0-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:c955791d80e464da3b471ab41eb65cf5a40c15ce9b001fdc5bbc241170de58ec" },
+    { url = "https://pypi.cstcloud.cn/packages/31/b9/6202dcae729998a0ade30e80ac00f616542ef445b088ec970d407dfd41c0/kiwisolver-1.2.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:603162139684ee56bcd57acc74035fceed7dd8d732f38c0959c8bd157f913fec" },
+    { url = "https://pypi.cstcloud.cn/packages/30/42/45dc9db6b370a23acb70ad001a8a0272d93310eb8fb4e86a462028c87eb9/kiwisolver-1.2.0-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:63f55f490b958b6299e4e5bdac66ac988c3d11b7fafa522800359075d4fa56d1" },
+    { url = "https://pypi.cstcloud.cn/packages/12/40/5fa3b161a602848754d1e760b77f47497ed2c2f0a6401474b96b00d885e3/kiwisolver-1.2.0-cp37-none-win32.whl", hash = "sha256:03662cbd3e6729f341a97dd2690b271e51a67a68322affab12a5b011344b973c" },
+    { url = "https://pypi.cstcloud.cn/packages/7e/e5/d8bd2d063da3b6761270f29038d2bb9785c88ff385009bf61589cde6e6ef/kiwisolver-1.2.0-cp37-none-win_amd64.whl", hash = "sha256:4eadb361baf3069f278b055e3bb53fa189cea2fd02cb2c353b7a99ebb4477ef1" },
+]
+
+[[package]]
+name = "llvmlite"
+version = "0.39.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/14/27/1468111538f33bd9fb13c0b2c1534c7a487cec8fadf14e318d73be18e4e1/llvmlite-0.39.1.tar.gz", hash = "sha256:b43abd7c82e805261c425d50335be9a6c4f84264e34d6d6e475207300005d572" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/07/31/a5f5f578a2b19938e1bb91dcd79bd436557baf582dde23845cb0e76a2241/llvmlite-0.39.1-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:6546bed4e02a1c3d53a22a0bced254b3b6894693318b16c16c8e43e29d6befb6" },
+    { url = "https://pypi.cstcloud.cn/packages/31/4e/412c9f557ac007e5cac75c3593fe159db7f44d8caea4122b9251216737e1/llvmlite-0.39.1-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1578f5000fdce513712e99543c50e93758a954297575610f48cb1fd71b27c08a" },
+    { url = "https://pypi.cstcloud.cn/packages/e3/0b/68d4a88f76a6e11cc8701c48f63240ee1ce3be7463554212b4adaae1d2a8/llvmlite-0.39.1-cp37-cp37m-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:3803f11ad5f6f6c3d2b545a303d68d9fabb1d50e06a8d6418e6fcd2d0df00959" },
+    { url = "https://pypi.cstcloud.cn/packages/6f/78/15e11f84531c3e4e078ed2faa4e6e078ef2a0c06c6275020bc10c3865e9c/llvmlite-0.39.1-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:50aea09a2b933dab7c9df92361b1844ad3145bfb8dd2deb9cd8b8917d59306fb" },
+    { url = "https://pypi.cstcloud.cn/packages/df/e3/2e07af7ad70187756f28e480dec5e34701e44012f587fa9e5d0b61003a6d/llvmlite-0.39.1-cp37-cp37m-win32.whl", hash = "sha256:b1a0bbdb274fb683f993198775b957d29a6f07b45d184c571ef2a721ce4388cf" },
+    { url = "https://pypi.cstcloud.cn/packages/be/05/af5fd325c52b73255a51691300f00b06177dfe1088b90ea20dd49c6e0c23/llvmlite-0.39.1-cp37-cp37m-win_amd64.whl", hash = "sha256:e172c73fccf7d6db4bd6f7de963dedded900d1a5c6778733241d878ba613980e" },
+]
+
+[[package]]
+name = "mapdn"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "gymnasium" },
+    { name = "hydra-colorlog" },
+    { name = "hydra-core" },
+    { name = "hydra-joblib-launcher" },
+    { name = "hydra-submitit-launcher" },
+    { name = "imageio" },
+    { name = "joblib" },
+    { name = "matplotlib" },
+    { name = "numba" },
+    { name = "numpy" },
+    { name = "numpy-stl" },
+    { name = "omegaconf" },
+    { name = "pandapower" },
+    { name = "pandas" },
+    { name = "plotly" },
+    { name = "pyglet" },
+    { name = "python-dotenv" },
+    { name = "pyyaml" },
+    { name = "rich" },
+    { name = "ruff" },
+    { name = "six" },
+    { name = "tensorboard" },
+    { name = "tensorboard-data-server" },
+    { name = "tensorboard-plugin-wit" },
+    { name = "tensorboardx" },
+    { name = "torch" },
+    { name = "tqdm" },
+    { name = "wandb", version = "0.13.5", source = { registry = "https://pypi.cstcloud.cn/simple" }, marker = "sys_platform != 'linux'" },
+    { name = "wandb", version = "0.18.3", source = { registry = "https://pypi.cstcloud.cn/simple" }, marker = "sys_platform == 'linux'" },
+    { name = "xvfbwrapper" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "gymnasium", specifier = ">=0.26.3" },
+    { name = "hydra-colorlog", specifier = ">=1.2.0" },
+    { name = "hydra-core", specifier = ">=1.3.2" },
+    { name = "hydra-joblib-launcher", specifier = ">=1.2.0" },
+    { name = "hydra-submitit-launcher", specifier = ">=1.2.0" },
+    { name = "imageio", specifier = ">=2.9.0" },
+    { name = "joblib", specifier = "==0.17.0" },
+    { name = "matplotlib", specifier = "==2.2.5" },
+    { name = "numba", specifier = ">=0.56.4" },
+    { name = "numpy", specifier = "==1.19.5" },
+    { name = "numpy-stl", specifier = "==2.16.0" },
+    { name = "omegaconf", specifier = ">=2.3.0" },
+    { name = "pandapower", specifier = "==2.7.0" },
+    { name = "pandas", specifier = "==1.1.3" },
+    { name = "plotly", specifier = "==5.3.1" },
+    { name = "pyglet", specifier = "==2.0.dev0" },
+    { name = "python-dotenv", specifier = ">=0.21.1" },
+    { name = "pyyaml", specifier = "==6.0.1" },
+    { name = "rich", specifier = ">=0.3.3" },
+    { name = "ruff", specifier = ">=0.7.3" },
+    { name = "six", specifier = "==1.15.0" },
+    { name = "tensorboard", specifier = "==2.1.1" },
+    { name = "tensorboard-data-server", specifier = "==0.6.0" },
+    { name = "tensorboard-plugin-wit", specifier = "==1.7.0" },
+    { name = "tensorboardx", specifier = "==2.2" },
+    { name = "torch", specifier = "==1.10.0+cu113", index = "https://download.pytorch.org/whl" },
+    { name = "tqdm", specifier = ">=4.67.0" },
+    { name = "wandb", specifier = ">=0.13.5" },
+    { name = "xvfbwrapper", specifier = ">=0.2.9" },
+]
+
+[[package]]
+name = "markdown"
+version = "3.3.2"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "importlib-metadata" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/a1/c4/baa09aa2da7281e3da5137b1073e6ebfd6acf52ac885a363b7b3b5556402/Markdown-3.3.2.tar.gz", hash = "sha256:4b71fbd2db30c1dfb400f22b25f41cb823fc1db0aa8b7b67d120644f92cc1011" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/a0/34/4d6b7e3044044e89eaa25ed5395656cc351163c625fda0656d2729de399f/Markdown-3.3.2-py3-none-any.whl", hash = "sha256:77b7bff443b1f97b4814fa438c181fd5882e31edb01b422856b3feca91475f3e" },
+]
+
+[[package]]
+name = "matplotlib"
+version = "2.2.5"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "cycler" },
+    { name = "kiwisolver" },
+    { name = "numpy" },
+    { name = "pyparsing" },
+    { name = "python-dateutil" },
+    { name = "pytz" },
+    { name = "six" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/10/5f/10c310c943f29e67976dcc26dccf9305a5a9bc7483e631ee74a0f95aa5b2/matplotlib-2.2.5.tar.gz", hash = "sha256:a3037a840cd9dfdc2df9fee8af8f76ca82bfab173c0f9468193ca7a89a2b60ea" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/a5/aa/1e7161110095dc8540cc0ec9564bad624c1d5dd3f40ec376b89d00134a5f/matplotlib-2.2.5-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:a3c1c62db6469cf8eb778c5c4c020d6a35424b9a4cb385db7486b77ae35be358" },
+    { url = "https://pypi.cstcloud.cn/packages/d3/38/64d5579936b9058c39c443f186e3ee20c0a4bb0ccc9d3618a1be93b01d05/matplotlib-2.2.5-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:59b219991e5ebf858cd0d35cdd97c3db30b7fd003fe9321aac0355aa8ae665b1" },
+    { url = "https://pypi.cstcloud.cn/packages/93/a7/af15e87aadbafc53ad57f789148930625edde8dfaa001ff984ea341927d7/matplotlib-2.2.5-cp37-cp37m-win32.whl", hash = "sha256:7f78529a92242b4adc1db9daf5b71362a35cd9a5cd8cb4db2b83349df2b0dbb8" },
+    { url = "https://pypi.cstcloud.cn/packages/0e/b0/7ead7e56bc81f3da558adc31d9e0fbe7c7ac72a379d8e38a7e3f9de792fa/matplotlib-2.2.5-cp37-cp37m-win_amd64.whl", hash = "sha256:240565f560ff35f1c8bb5449a51c420c926478e087db89237a47ec92a29b32d1" },
+]
+
+[[package]]
+name = "networkx"
+version = "2.5"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "decorator" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/ef/d0/f706a9e5814a42c544fa1b2876fc33e5d17e1f2c92a5361776632c4f41ab/networkx-2.5.tar.gz", hash = "sha256:7978955423fbc9639c10498878be59caf99b44dc304c2286162fd24b458c1602" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/9b/cd/dc52755d30ba41c60243235460961fc28022e5b6731f16c268667625baea/networkx-2.5-py3-none-any.whl", hash = "sha256:8c5812e9f798d37c50570d15c4a69d5710a18d77bafc903ee9c5fba7454c616c" },
+]
+
+[[package]]
+name = "numba"
+version = "0.56.4"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "importlib-metadata" },
+    { name = "llvmlite" },
+    { name = "numpy" },
+    { name = "setuptools" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/e2/1e/de917b683bb5f0b6078fb1397293eab84c4eaa825fbf94d73d6488eb354f/numba-0.56.4.tar.gz", hash = "sha256:32d9fef412c81483d7efe0ceb6cf4d3310fde8b624a9cecca00f790573ac96ee" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/a9/28/2babef91a7c2f84718d8c47ecd89216913cf9e130d302208c3cfd0d17122/numba-0.56.4-cp37-cp37m-macosx_10_14_x86_64.whl", hash = "sha256:3cb1a07a082a61df80a468f232e452d818f5ae254b40c26390054e4e868556e0" },
+    { url = "https://pypi.cstcloud.cn/packages/db/e4/8ab9e0cde9efe95a1c1f9ecbf91ac897aae36e1ca5667a5c54e089d2bfb2/numba-0.56.4-cp37-cp37m-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:d69ad934e13c15684e7887100a8f5f0f61d7a8e57e0fd29d9993210089a5b531" },
+    { url = "https://pypi.cstcloud.cn/packages/34/1a/bd24676dd4677045f9772b0f2cc9adc7a27332c0b8c82353621f86935d6a/numba-0.56.4-cp37-cp37m-manylinux2014_i686.manylinux_2_17_i686.whl", hash = "sha256:dbcc847bac2d225265d054993a7f910fda66e73d6662fe7156452cac0325b073" },
+    { url = "https://pypi.cstcloud.cn/packages/6b/b5/b0a0af320c43f2925c699e8613382d3669829b585717ef2d795a06187564/numba-0.56.4-cp37-cp37m-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:8a95ca9cc77ea4571081f6594e08bd272b66060634b8324e99cd1843020364f9" },
+    { url = "https://pypi.cstcloud.cn/packages/32/75/9a2c33670e3c95530472c3f89f1f6617d68f47101f9e765c0892170b22df/numba-0.56.4-cp37-cp37m-win32.whl", hash = "sha256:fcdf84ba3ed8124eb7234adfbb8792f311991cbf8aed1cad4b1b1a7ee08380c1" },
+    { url = "https://pypi.cstcloud.cn/packages/ad/5a/b79eda6012461c4dea6c5c4122c7438843d617f960d2d635f044a97ab912/numba-0.56.4-cp37-cp37m-win_amd64.whl", hash = "sha256:42f9e1be942b215df7e6cc9948cf9c15bb8170acc8286c063a9e57994ef82fd1" },
+]
+
+[[package]]
+name = "numpy"
+version = "1.19.5"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/51/60/3f0fe5b7675a461d96b9d6729beecd3532565743278a9c3fe6dd09697fa7/numpy-1.19.5.zip", hash = "sha256:a76f502430dd98d7546e1ea2250a7360c065a5fdea52b2dffe8ae7180909b6f4" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/39/ba/f3db2b5bb36fee2478b1cf47e7f9664b9c27241be80acd31c844404da297/numpy-1.19.5-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:603aa0706be710eea8884af807b1b3bc9fb2e49b9f4da439e76000f3b3c6ff0f" },
+    { url = "https://pypi.cstcloud.cn/packages/ca/8d/cfeab2119d6c94e1c6ad7753853773a142109a5f8f56e1d8c940886814bc/numpy-1.19.5-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:cae865b1cae1ec2663d8ea56ef6ff185bad091a5e33ebbadd98de2cfa3fa668f" },
+    { url = "https://pypi.cstcloud.cn/packages/b1/e1/8c4c5632adaffc18dba4e03e97458dc1cb00583811e6982fc620b9d88515/numpy-1.19.5-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:36674959eed6957e61f11c912f71e78857a8d0604171dfd9ce9ad5cbf41c511c" },
+    { url = "https://pypi.cstcloud.cn/packages/0b/2c/b20e49628109f1f6aa56c5a283dc6001276b0b8853712dc66f2243abddfe/numpy-1.19.5-cp37-cp37m-manylinux2010_i686.whl", hash = "sha256:06fab248a088e439402141ea04f0fffb203723148f6ee791e9c75b3e9e82f080" },
+    { url = "https://pypi.cstcloud.cn/packages/08/d6/a6aaa29fea945bc6c61d11f6e0697b325ff7446de5ffd62c2fa02f627048/numpy-1.19.5-cp37-cp37m-manylinux2010_x86_64.whl", hash = "sha256:6149a185cece5ee78d1d196938b2a8f9d09f5a5ebfbba66969302a778d5ddd1d" },
+    { url = "https://pypi.cstcloud.cn/packages/fe/93/b0b203c693d621d6ee9577fc650bab49434c6d23c809dc4eb49db6a339af/numpy-1.19.5-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:50a4a0ad0111cc1b71fa32dedd05fa239f7fb5a43a40663269bb5dc7877cfd28" },
+    { url = "https://pypi.cstcloud.cn/packages/c4/4c/2be94fa407a0df1ac54b6ee2e42d002b1ea957748fda1b7775e224db12ce/numpy-1.19.5-cp37-cp37m-win32.whl", hash = "sha256:d051ec1c64b85ecc69531e1137bb9751c6830772ee5c1c426dbcfe98ef5788d7" },
+    { url = "https://pypi.cstcloud.cn/packages/ff/18/60ac053857fb924b0324c81200b59c00317ebaa3c14b7478266b50ffed19/numpy-1.19.5-cp37-cp37m-win_amd64.whl", hash = "sha256:a12ff4c8ddfee61f90a1633a4c4afd3f7bcb32b11c52026c92a12e1325922d0d" },
+]
+
+[[package]]
+name = "numpy-stl"
+version = "2.16.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "python-utils" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/77/28/5c83386749ab4c0a7d495e8e839947cc2f7c0fc8c4472d0f41f80ccf47e3/numpy-stl-2.16.0.tar.gz", hash = "sha256:411c633d2a03c295d98fb26023a6e7f574ceead04015d06e80cdab20b630a742" }
+
+[[package]]
+name = "oauthlib"
+version = "3.1.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/fc/c7/829c73c64d3749da7811c06319458e47f3461944da9d98bb4df1cb1598c2/oauthlib-3.1.0.tar.gz", hash = "sha256:bee41cc35fcca6e988463cacc3bcb8a96224f470ca547e697b604cc697b2f889" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/05/57/ce2e7a8fa7c0afb54a0581b14a65b56e62b5759dbc98e80627142b8a3704/oauthlib-3.1.0-py2.py3-none-any.whl", hash = "sha256:df884cd6cbe20e32633f1db1072e9356f53638e4361bef4e8b03c9127c9328ea" },
+]
+
+[[package]]
+name = "omegaconf"
+version = "2.3.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "antlr4-python3-runtime" },
+    { name = "pyyaml" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/09/48/6388f1bb9da707110532cb70ec4d2822858ddfb44f1cdf1233c20a80ea4b/omegaconf-2.3.0.tar.gz", hash = "sha256:d5d4b6d29955cc50ad50c46dc269bcd92c6e00f5f90d23ab5fee7bfca4ba4cc7" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/e3/94/1843518e420fa3ed6919835845df698c7e27e183cb997394e4a670973a65/omegaconf-2.3.0-py3-none-any.whl", hash = "sha256:7b4df175cdb08ba400f45cae3bdcae7ba8365db4d165fc65fd04b050ab63b46b" },
+]
+
+[[package]]
+name = "openpyxl"
+version = "3.0.7"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "et-xmlfile" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/f1/7d/fb475cd963bd9d244f95a90c98f518f5c834fefe749f25f9f479ca2d8a51/openpyxl-3.0.7.tar.gz", hash = "sha256:6456a3b472e1ef0facb1129f3c6ef00713cebf62e736cd7a75bcc3247432f251" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/39/08/595298c9b7ced75e7d23be3e7596459980d63bc35112ca765ceccafbe9a4/openpyxl-3.0.7-py2.py3-none-any.whl", hash = "sha256:46af4eaf201a89b610fcca177eed957635f88770a5462fb6aae4a2a52b0ff516" },
+]
+
+[[package]]
+name = "packaging"
+version = "20.4"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "pyparsing" },
+    { name = "six" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/55/fd/fc1aca9cf51ed2f2c11748fa797370027babd82f87829c7a8e6dbe720145/packaging-20.4.tar.gz", hash = "sha256:4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/46/19/c5ab91b1b05cfe63cccd5cfc971db9214c6dd6ced54e33c30d5af1d2bc43/packaging-20.4-py2.py3-none-any.whl", hash = "sha256:998416ba6962ae7fbd6596850b80e17859a5753ba17c32284f67bfff33784181" },
+]
+
+[[package]]
+name = "pandapower"
+version = "2.7.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "cryptography" },
+    { name = "networkx" },
+    { name = "numpy" },
+    { name = "openpyxl" },
+    { name = "packaging" },
+    { name = "pandas" },
+    { name = "scipy" },
+    { name = "xlrd" },
+    { name = "xlsxwriter" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/83/fe/8b5d61e3fce95aaf2963119aab2cac79aac39a3394cead79b018e4b5b263/pandapower-2.7.0.zip", hash = "sha256:abd64ade5bbaa107df2f5b69769ac7747c1190c7c8b7a03d83ef3a14da29f1cd" }
+
+[[package]]
+name = "pandas"
+version = "1.1.3"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "python-dateutil" },
+    { name = "pytz" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/1b/e5/552ba65835ab43e12b299458fea94ee23886125b8b8aabc91edb03f2ba65/pandas-1.1.3.tar.gz", hash = "sha256:babbeda2f83b0686c9ad38d93b10516e68cdcd5771007eb80a763e98aaf44613" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/5b/c8/8a75e942e7b2c433f0b9641d6e693afa11551c0465dbbd04cbdc50faac30/pandas-1.1.3-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:3a038cd5da602b955d335aa80cbaa0e5774f68501ff47b9c21509906981478da" },
+    { url = "https://pypi.cstcloud.cn/packages/e8/c7/17cb07f9a1e5518cbe913f543a233be3745cb4aedde581a7ba913f1ef8e3/pandas-1.1.3-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:24f61f40febe47edac271eda45d683e42838b7db2bd0f82574d9800259d2b182" },
+    { url = "https://pypi.cstcloud.cn/packages/25/47/22fc373440e144e2111363adaa07abb09ec1f03fbc071b6d9fc0bbf65f68/pandas-1.1.3-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:427be9938b2f79ab298de84f87693914cda238a27cf10580da96caf3dff64115" },
+    { url = "https://pypi.cstcloud.cn/packages/e4/60/f34ad85688215543186638dfb91129f600142fd3e61a2f8d58030eb501ef/pandas-1.1.3-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:5a8a84b75ca3a29bb4263b35d5ed9fcaae2b062f014feed8c5daa897339c7d85" },
+    { url = "https://pypi.cstcloud.cn/packages/f6/d5/2fc6f830ccf448aebce88f3d7e3884362e175138e19b65c13743d7dc29ef/pandas-1.1.3-cp37-cp37m-win32.whl", hash = "sha256:c22e40f1b4d162ca18eb6b2c572e63eef220dbc9cc3de0241cefb77972621bb7" },
+    { url = "https://pypi.cstcloud.cn/packages/8d/6f/b1d18ef1ae6d8d8e43ce6e69c4960a0a147c7b852c763d4d2bee9499889f/pandas-1.1.3-cp37-cp37m-win_amd64.whl", hash = "sha256:920d30fdff65a079f071db635d282b4f583c2b26f2b58d5dca218aac7c59974d" },
+]
+
+[[package]]
+name = "pathtools"
+version = "0.1.2"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/e7/7f/470d6fcdf23f9f3518f6b0b76be9df16dcc8630ad409947f8be2eb0ed13a/pathtools-0.1.2.tar.gz", hash = "sha256:7c35c5421a39bb82e58018febd90e3b6e5db34c5443aaaf742b3f33d4655f1c0" }
+
+[[package]]
+name = "pillow"
+version = "8.0.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/2b/06/93bf1626ef36815010e971a5ce90f49919d84ab5d2fa310329f843a74bc1/Pillow-8.0.1.tar.gz", hash = "sha256:11c5c6e9b02c9dac08af04f093eb5a2f84857df70a7d4a6a6ad461aca803fb9e" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/30/aa/4254943b3e9caedd1736b0158a242d4f733f14f75203862ee828a033648c/Pillow-8.0.1-cp37-cp37m-macosx_10_10_x86_64.whl", hash = "sha256:795e91a60f291e75de2e20e6bdd67770f793c8605b553cb6e4387ce0cb302e09" },
+    { url = "https://pypi.cstcloud.cn/packages/e5/69/370bef9cb3c465af49a206e75f03ce5b6a122cb3300adb5087b4bd146d2b/Pillow-8.0.1-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:0a2e8d03787ec7ad71dc18aec9367c946ef8ef50e1e78c71f743bc3a770f9fae" },
+    { url = "https://pypi.cstcloud.cn/packages/af/fa/c1302a26d5e1a17fa8e10e43417b6cf038b0648c4b79fcf2302a4a0c5d30/Pillow-8.0.1-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:006de60d7580d81f4a1a7e9f0173dc90a932e3905cc4d47ea909bc946302311a" },
+    { url = "https://pypi.cstcloud.cn/packages/71/e4/90f558173613881c8cda258c9679e69a34e857283f8a80bcee3c811779f1/Pillow-8.0.1-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:bd7bf289e05470b1bc74889d1466d9ad4a56d201f24397557b6f65c24a6844b8" },
+    { url = "https://pypi.cstcloud.cn/packages/29/a5/eadf48e731582b166f132ef25fc124b7a6a2995408fb0318446724cd9831/Pillow-8.0.1-cp37-cp37m-win32.whl", hash = "sha256:95edb1ed513e68bddc2aee3de66ceaf743590bf16c023fb9977adc4be15bd3f0" },
+    { url = "https://pypi.cstcloud.cn/packages/2b/65/e4a5130b4162d20ed99ff096549a04d18f050cfcdb16fe1643ac751c0181/Pillow-8.0.1-cp37-cp37m-win_amd64.whl", hash = "sha256:e38d58d9138ef972fceb7aeec4be02e3f01d383723965bfcef14d174c8ccd039" },
+    { url = "https://pypi.cstcloud.cn/packages/25/8a/218f08cf22e95573c598846324d8c973d217e49b5abd37aacc0c14af3fa8/Pillow-8.0.1-pp37-pypy37_pp73-win32.whl", hash = "sha256:8de332053707c80963b589b22f8e0229f1be1f3ca862a932c1bcd48dafb18dd8" },
+]
+
+[[package]]
+name = "platformdirs"
+version = "2.6.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/62/a3/e4dd832d7ab2dcc68787421ed2cd64562b267c7b6e2a04ebd0e9ad6d271e/platformdirs-2.6.1.tar.gz", hash = "sha256:e13f076e0f725f1beb58e7d26f80eff94099941740d3c664db03efecd6561271" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/d4/da/d5c2ca3b83b724853373a2949faf9950aeb33e86b30c84d814fe7ebd88d1/platformdirs-2.6.1-py3-none-any.whl", hash = "sha256:69de5933ec873bd7ddae497f004be17cf200bce048dc987c28fc4e347d5349ff" },
+]
+
+[[package]]
+name = "plotly"
+version = "5.3.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "six" },
+    { name = "tenacity" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/63/67/97fd5c13eed834bb92afd10c794b7148580c55ad55bdd604ea82ad23d01f/plotly-5.3.1.tar.gz", hash = "sha256:6598393e898a9c5ae78397f76f07002ec41fd92e5f746d3b9806248d53885643" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/68/b2/7c7d111affebb281b1085680db7358f6204920bb5574e9e84db05c530688/plotly-5.3.1-py2.py3-none-any.whl", hash = "sha256:c3da90d41cab36722048eaa5d0eee7a286a55982835980e5f183e5536b823f07" },
+]
+
+[[package]]
+name = "pprintpp"
+version = "0.4.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/06/1a/7737e7a0774da3c3824d654993cf57adc915cb04660212f03406334d8c0b/pprintpp-0.4.0.tar.gz", hash = "sha256:ea826108e2c7f49dc6d66c752973c3fc9749142a798d6b254e1e301cfdbc6403" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/4e/d1/e4ed95fdd3ef13b78630280d9e9e240aeb65cc7c544ec57106149c3942fb/pprintpp-0.4.0-py2.py3-none-any.whl", hash = "sha256:b6b4dcdd0c0c0d75e4d7b2f21a9e933e5b2ce62b26e1a54537f9651ae5a5c01d" },
+]
+
+[[package]]
+name = "promise"
+version = "2.3"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "six", marker = "sys_platform != 'linux'" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/cf/9c/fb5d48abfe5d791cd496e4242ebcf87a4bb2e0c3dcd6e0ae68c11426a528/promise-2.3.tar.gz", hash = "sha256:dfd18337c523ba4b6a58801c164c1904a9d4d1b1747c7d5dbf45b693a49d93d0" }
+
+[[package]]
+name = "protobuf"
+version = "3.13.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "setuptools" },
+    { name = "six" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/25/ef/8f36bc7e4c3dcad241a9e7a51520d30712a7abc034343bed841ff4ea3289/protobuf-3.13.0.tar.gz", hash = "sha256:6a82e0c8bb2bf58f606040cc5814e07715b2094caeba281e2e7d0b0e2e397db5" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/9c/d2/10c325d657155ad7bd942f9d2652ae8e3e7a4be66723e9789099283733df/protobuf-3.13.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:0bba42f439bf45c0f600c3c5993666fcb88e8441d011fad80a11df6f324eef33" },
+    { url = "https://pypi.cstcloud.cn/packages/71/dc/5ba56eab7440c62c5f808b4267e2a1d6c136e90293b43fefb1b493c6d704/protobuf-3.13.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:c0c5ab9c4b1eac0a9b838f1e46038c3175a95b0f2d944385884af72876bd6bc7" },
+    { url = "https://pypi.cstcloud.cn/packages/29/c1/f891f56cdede8aa96f2b3701dfa363a0707287ebb0b31063c25c59b4a311/protobuf-3.13.0-cp37-cp37m-win32.whl", hash = "sha256:f68eb9d03c7d84bd01c790948320b768de8559761897763731294e3bc316decb" },
+    { url = "https://pypi.cstcloud.cn/packages/6b/2e/28425c709c26525998be0b7a91c4090c87c38a1a9644fd43fefaea2e16c0/protobuf-3.13.0-cp37-cp37m-win_amd64.whl", hash = "sha256:91c2d897da84c62816e2f473ece60ebfeab024a16c1751aaf31100127ccd93ec" },
+    { url = "https://pypi.cstcloud.cn/packages/3b/ba/276d817d4b0184e544a9295e14e95f6148af5c5652033d30eb63d2c13bfa/protobuf-3.13.0-py2.py3-none-any.whl", hash = "sha256:d69697acac76d9f250ab745b46c725edf3e98ac24763990b24d58c16c642947a" },
+]
+
+[[package]]
+name = "psutil"
+version = "6.1.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/26/10/2a30b13c61e7cf937f4adf90710776b7918ed0a9c434e2c38224732af310/psutil-6.1.0.tar.gz", hash = "sha256:353815f59a7f64cdaca1c0307ee13558a0512f6db064e92fe833784f08539c7a" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/01/9e/8be43078a171381953cfee33c07c0d628594b5dbfc5157847b85022c2c1b/psutil-6.1.0-cp36-abi3-macosx_10_9_x86_64.whl", hash = "sha256:6e2dcd475ce8b80522e51d923d10c7871e45f20918e027ab682f94f1c6351688" },
+    { url = "https://pypi.cstcloud.cn/packages/1d/cb/313e80644ea407f04f6602a9e23096540d9dc1878755f3952ea8d3d104be/psutil-6.1.0-cp36-abi3-macosx_11_0_arm64.whl", hash = "sha256:0895b8414afafc526712c498bd9de2b063deaac4021a3b3c34566283464aff8e" },
+    { url = "https://pypi.cstcloud.cn/packages/65/8e/bcbe2025c587b5d703369b6a75b65d41d1367553da6e3f788aff91eaf5bd/psutil-6.1.0-cp36-abi3-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:9dcbfce5d89f1d1f2546a2090f4fcf87c7f669d1d90aacb7d7582addece9fb38" },
+    { url = "https://pypi.cstcloud.cn/packages/58/4d/8245e6f76a93c98aab285a43ea71ff1b171bcd90c9d238bf81f7021fb233/psutil-6.1.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:498c6979f9c6637ebc3a73b3f87f9eb1ec24e1ce53a7c5173b8508981614a90b" },
+    { url = "https://pypi.cstcloud.cn/packages/27/c2/d034856ac47e3b3cdfa9720d0e113902e615f4190d5d1bdb8df4b2015fb2/psutil-6.1.0-cp36-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d905186d647b16755a800e7263d43df08b790d709d575105d419f8b6ef65423a" },
+    { url = "https://pypi.cstcloud.cn/packages/ea/55/5389ed243c878725feffc0d6a3bc5ef6764312b6fc7c081faaa2cfa7ef37/psutil-6.1.0-cp37-abi3-win32.whl", hash = "sha256:1ad45a1f5d0b608253b11508f80940985d1d0c8f6111b5cb637533a0e6ddc13e" },
+    { url = "https://pypi.cstcloud.cn/packages/11/91/87fa6f060e649b1e1a7b19a4f5869709fbf750b7c8c262ee776ec32f3028/psutil-6.1.0-cp37-abi3-win_amd64.whl", hash = "sha256:a8fb3752b491d246034fa4d279ff076501588ce8cbcdbb62c32fd7a377d996be" },
+]
+
+[[package]]
+name = "pyasn1"
+version = "0.4.8"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/a4/db/fffec68299e6d7bad3d504147f9094830b704527a7fc098b721d38cc7fa7/pyasn1-0.4.8.tar.gz", hash = "sha256:aef77c9fb94a3ac588e87841208bdec464471d9871bd5050a287cc9a475cd0ba" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/62/1e/a94a8d635fa3ce4cfc7f506003548d0a2447ae76fd5ca53932970fe3053f/pyasn1-0.4.8-py2.py3-none-any.whl", hash = "sha256:39c7e2ec30515947ff4e87fb6f456dfc6e84857d34be479c9d4a4ba4bf46aa5d" },
+]
+
+[[package]]
+name = "pyasn1-modules"
+version = "0.2.8"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "pyasn1" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/88/87/72eb9ccf8a58021c542de2588a867dbefc7556e14b2866d1e40e9e2b587e/pyasn1-modules-0.2.8.tar.gz", hash = "sha256:905f84c712230b2c592c19470d3ca8d552de726050d1d1716282a1f6146be65e" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/95/de/214830a981892a3e286c3794f41ae67a4495df1108c3da8a9f62159b9a9d/pyasn1_modules-0.2.8-py2.py3-none-any.whl", hash = "sha256:a50b808ffeb97cb3601dd25981f6b016cbb3d31fbf57a8b8a87428e6158d0c74" },
+]
+
+[[package]]
+name = "pycparser"
+version = "2.20"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz", hash = "sha256:2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/ae/e7/d9c3a176ca4b02024debf82342dab36efadfc5776f9c8db077e8f6e71821/pycparser-2.20-py2.py3-none-any.whl", hash = "sha256:7582ad22678f0fcd81102833f60ef8d0e57288b6b5fb00323d101be910e35705" },
+]
+
+[[package]]
+name = "pyglet"
+version = "2.0.dev0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/aa/f0/2890e4b41e079abee17c36adcb3f1204b4f2b4e8ca52ef46d9d314aacca1/pyglet-2.0.dev0.zip", hash = "sha256:83dbbcd9c7ff0b755a8249bfcb370dd832092f4ee2cc9993dd298f47c18c04eb" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/5d/53/b5d749e2ea0c1dc7f25256d78af042bd71d63a3896ce18dc4adfde8d34ab/pyglet-2.0.dev0-py2.py3-none-any.whl", hash = "sha256:9e0349a6c523c0e61553582ebd5ea88661adab840985c465a315c0a9a0d2853d" },
+]
+
+[[package]]
+name = "pyparsing"
+version = "3.0.0a2"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/d3/89/2cbab1ef01af61af3dd0cb7a0009394d74fe1290e8fc28f81b33ecd0a710/pyparsing-3.0.0a2.tar.gz", hash = "sha256:56a551039101858c9e189ac9e66e330a03fb7079e97ba6b50193643905f450ce" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/17/34/9e3d46b0b87417c1b42f0bee7ff8f750a8e6fb6a812a6bf5fa15222ae67e/pyparsing-3.0.0a2-py3-none-any.whl", hash = "sha256:1060635ca5ac864c2b7bc7b05a448df4e32d7d8c65e33cbe1514810d339672a2" },
+]
+
+[[package]]
+name = "python-dateutil"
+version = "2.8.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "six" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz", hash = "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/d4/70/d60450c3dd48ef87586924207ae8907090de0b306af2bce5d134d78615cb/python_dateutil-2.8.1-py2.py3-none-any.whl", hash = "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a" },
+]
+
+[[package]]
+name = "python-dotenv"
+version = "0.21.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/f5/d7/d548e0d5a68b328a8d69af833a861be415a17cb15ce3d8f0cd850073d2e1/python-dotenv-0.21.1.tar.gz", hash = "sha256:1c93de8f636cde3ce377292818d0e440b6e45a82f215c3744979151fa8151c49" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/64/62/f19d1e9023aacb47241de3ab5a5d5fedf32c78a71a9e365bb2153378c141/python_dotenv-0.21.1-py3-none-any.whl", hash = "sha256:41e12e0318bebc859fcc4d97d4db8d20ad21721a6aa5047dd59f090391cb549a" },
+]
+
+[[package]]
+name = "python-utils"
+version = "2.5.6"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "six" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/03/d8/3ad4dd157e5a36184df0280857bcaea60b13cb6e945e27ac3d8589f8c2a2/python-utils-2.5.6.tar.gz", hash = "sha256:352d5b1febeebf9b3cdb9f3c87a3b26ef22d3c9e274a8ec1e7048ecd2fac4349" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/62/47/974eb168d5012bc8841d4b5be10e345f3e706e25fa1661b68f193e16ca67/python_utils-2.5.6-py2.py3-none-any.whl", hash = "sha256:18fbc1a1df9a9061e3059a48ebe5c8a66b654d688b0e3ecca8b339a7f168f208" },
+]
+
+[[package]]
+name = "pytz"
+version = "2020.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/f4/f6/94fee50f4d54f58637d4b9987a1b862aeb6cd969e73623e02c5c00755577/pytz-2020.1.tar.gz", hash = "sha256:c35965d010ce31b23eeb663ed3cc8c906275d6be1a34393a1d73a41febf4a048" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/4f/a4/879454d49688e2fad93e59d7d4efda580b783c745fd2ec2a3adf87b0808d/pytz-2020.1-py2.py3-none-any.whl", hash = "sha256:a494d53b6d39c3c6e44c3bec237336e14305e4f29bbf800b599253057fbb79ed" },
+]
+
+[[package]]
+name = "pyyaml"
+version = "6.0.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz", hash = "sha256:bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/c7/d1/02baa09d39b1bb1ebaf0d850d106d1bdcb47c91958557f471153c49dc03b/PyYAML-6.0.1-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:b1275ad35a5d18c62a7220633c913e1b42d44b46ee12554e5fd39c70a243d6a3" },
+    { url = "https://pypi.cstcloud.cn/packages/e5/31/ba812efa640a264dbefd258986a5e4e786230cb1ee4a9f54eb28ca01e14a/PyYAML-6.0.1-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:18aeb1bf9a78867dc38b259769503436b7c72f7a1f1f4c93ff9a17de54319b27" },
+    { url = "https://pypi.cstcloud.cn/packages/4d/f1/08f06159739254c8947899c9fc901241614195db15ba8802ff142237664c/PyYAML-6.0.1-cp37-cp37m-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:596106435fa6ad000c2991a98fa58eeb8656ef2325d7e158344fb33864ed87e3" },
+    { url = "https://pypi.cstcloud.cn/packages/d7/8f/db62b0df635b9008fe90aa68424e99cee05e68b398740c8a666a98455589/PyYAML-6.0.1-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:baa90d3f661d43131ca170712d903e6295d1f7a0f595074f151c0aed377c9b9c" },
+    { url = "https://pypi.cstcloud.cn/packages/cc/5c/fcabd17918348c7db2eeeb0575705aaf3f7ab1657f6ce29b2e31737dd5d1/PyYAML-6.0.1-cp37-cp37m-win32.whl", hash = "sha256:9046c58c4395dff28dd494285c82ba00b546adfc7ef001486fbf0324bc174fba" },
+    { url = "https://pypi.cstcloud.cn/packages/1e/ae/964ccb88a938f20ece5754878f182cfbd846924930d02d29d06af8d4c69e/PyYAML-6.0.1-cp37-cp37m-win_amd64.whl", hash = "sha256:4fb147e7a67ef577a588a0e2c17b6db51dda102c71de36f8549b6816a96e1867" },
+]
+
+[[package]]
+name = "requests"
+version = "2.24.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "certifi" },
+    { name = "chardet" },
+    { name = "idna" },
+    { name = "urllib3" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz", hash = "sha256:b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/45/1e/0c169c6a5381e241ba7404532c16a21d86ab872c9bed8bdcd4c423954103/requests-2.24.0-py2.py3-none-any.whl", hash = "sha256:fe75cc94a9443b9246fc7049224f75604b113c36acb93f87b80ed42c44cbb898" },
+]
+
+[[package]]
+name = "requests-oauthlib"
+version = "1.3.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "oauthlib" },
+    { name = "requests" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/23/eb/68fc8fa86e0f5789832f275c8289257d8dc44dbe93fce7ff819112b9df8f/requests-oauthlib-1.3.0.tar.gz", hash = "sha256:b4261601a71fd721a8bd6d7aa1cc1d6a8a93b4a9f5e96626f8e4d91e8beeaa6a" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/a3/12/b92740d845ab62ea4edf04d2f4164d82532b5a0b03836d4d4e71c6f3d379/requests_oauthlib-1.3.0-py2.py3-none-any.whl", hash = "sha256:7f71572defaecd16372f9006f33c2ec8c077c3cfa6f5911a9a90202beb513f3d" },
+]
+
+[[package]]
+name = "rich"
+version = "0.3.3"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "colorama" },
+    { name = "pprintpp" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/a5/c9/bc8ed45b392b94cb654a6463c9f6fbe341b6f2d64d332c6c975dbf6c6cae/rich-0.3.3.tar.gz", hash = "sha256:604edf76a2a7d40c7ecc9af5ae41cee3da3e99532c8d0aa54cc42e017ee7f63a" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/b1/45/9eba49ebc4882d6a04d5a1059122848b1ee4614e40f4c8c485ba42d18726/rich-0.3.3-py3-none-any.whl", hash = "sha256:04f1016b1aba52499104b594c17b1481504bbc7314f8b9ba1a7a9dbf3e8869c4" },
+]
+
+[[package]]
+name = "rsa"
+version = "4.6"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "pyasn1" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/a2/d5/04b8a9719149583fec76efdff2e7a81c6e3cc34909ee818d3fbf115edc2e/rsa-4.6.tar.gz", hash = "sha256:109ea5a66744dd859bf16fe904b8d8b627adafb9408753161e766a92e7d681fa" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/1c/df/c3587a667d6b308fadc90b99e8bc8774788d033efcc70f4ecaae7fad144b/rsa-4.6-py3-none-any.whl", hash = "sha256:6166864e23d6b5195a5cfed6cd9fed0fe774e226d8f854fcb23b7bbef0350233" },
+]
+
+[[package]]
+name = "ruff"
+version = "0.7.3"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/4b/06/09d1276df977eece383d0ed66052fc24ec4550a61f8fbc0a11200e690496/ruff-0.7.3.tar.gz", hash = "sha256:e1d1ba2e40b6e71a61b063354d04be669ab0d39c352461f3d789cac68b54a313" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/c0/56/933d433c2489e4642487b835f53dd9ff015fb3d8fa459b09bb2ce42d7c4b/ruff-0.7.3-py3-none-linux_armv6l.whl", hash = "sha256:34f2339dc22687ec7e7002792d1f50712bf84a13d5152e75712ac08be565d344" },
+    { url = "https://pypi.cstcloud.cn/packages/20/ea/1f0a22a6bcdd3fc26c73f63a025d05bd565901b729d56bcb093c722a6c4c/ruff-0.7.3-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:fb397332a1879b9764a3455a0bb1087bda876c2db8aca3a3cbb67b3dbce8cda0" },
+    { url = "https://pypi.cstcloud.cn/packages/16/74/aca75666e0d481fe394e76a8647c44ea919087748024924baa1a17371e3e/ruff-0.7.3-py3-none-macosx_11_0_arm64.whl", hash = "sha256:37d0b619546103274e7f62643d14e1adcbccb242efda4e4bdb9544d7764782e9" },
+    { url = "https://pypi.cstcloud.cn/packages/20/a1/cf446a0d7f78ea1f0bd2b9171c11dfe746585c0c4a734b25966121eb4f5d/ruff-0.7.3-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:5d59f0c3ee4d1a6787614e7135b72e21024875266101142a09a61439cb6e38a5" },
+    { url = "https://pypi.cstcloud.cn/packages/cd/c1/82b27d09286ae855f5d03b1ad37cf243f21eb0081732d4d7b0d658d439cb/ruff-0.7.3-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:44eb93c2499a169d49fafd07bc62ac89b1bc800b197e50ff4633aed212569299" },
+    { url = "https://pypi.cstcloud.cn/packages/b9/42/c0acac22753bf74013d035a5ef6c5c4c40ad4d6686bfb3fda7c6f37d9b37/ruff-0.7.3-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:6d0242ce53f3a576c35ee32d907475a8d569944c0407f91d207c8af5be5dae4e" },
+    { url = "https://pypi.cstcloud.cn/packages/43/18/bb0befb7fb9121dd9009e6a72eb98e24f1bacb07c6f3ecb55f032ba98aed/ruff-0.7.3-py3-none-manylinux_2_17_ppc64.manylinux2014_ppc64.whl", hash = "sha256:6b6224af8b5e09772c2ecb8dc9f3f344c1aa48201c7f07e7315367f6dd90ac29" },
+    { url = "https://pypi.cstcloud.cn/packages/5e/91/04e98d7d6e32eca9d1372be595f9abc7b7f048795e32eb2edbd8794d50bd/ruff-0.7.3-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:c50f95a82b94421c964fae4c27c0242890a20fe67d203d127e84fbb8013855f5" },
+    { url = "https://pypi.cstcloud.cn/packages/f5/dc/3fe99f2ce10b76d389041a1b9f99e7066332e479435d4bebcceea16caff5/ruff-0.7.3-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:7f3eff9961b5d2644bcf1616c606e93baa2d6b349e8aa8b035f654df252c8c67" },
+    { url = "https://pypi.cstcloud.cn/packages/43/7b/1daa712de1c5bc6cbbf9fa60e9c41cc48cda962dc6d2c4f2a224d2c3007e/ruff-0.7.3-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b8963cab06d130c4df2fd52c84e9f10d297826d2e8169ae0c798b6221be1d1d2" },
+    { url = "https://pypi.cstcloud.cn/packages/b6/db/1227a903587432eb569e57a95b15a4f191a71fe315cde4c0312df7bc85da/ruff-0.7.3-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:61b46049d6edc0e4317fb14b33bd693245281a3007288b68a3f5b74a22a0746d" },
+    { url = "https://pypi.cstcloud.cn/packages/db/e2/dc41ee90c3085aadad4da614d310d834f641aaafddf3dfbba08210c616ce/ruff-0.7.3-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:10ebce7696afe4644e8c1a23b3cf8c0f2193a310c18387c06e583ae9ef284de2" },
+    { url = "https://pypi.cstcloud.cn/packages/6f/09/5f6cac1c91542bc5bd33d40b4c13b637bf64d7bb29e091dadb01b62527fe/ruff-0.7.3-py3-none-musllinux_1_2_i686.whl", hash = "sha256:3f36d56326b3aef8eeee150b700e519880d1aab92f471eefdef656fd57492aa2" },
+    { url = "https://pypi.cstcloud.cn/packages/d3/42/89a4b9a24ef7d00269e24086c417a006f9a3ffeac2c80f2629eb5ce140ee/ruff-0.7.3-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:5d024301109a0007b78d57ab0ba190087b43dce852e552734ebf0b0b85e4fb16" },
+    { url = "https://pypi.cstcloud.cn/packages/b0/5c/efdb4777686683a8edce94ffd812783bddcd3d2454d38c5ac193fef7c500/ruff-0.7.3-py3-none-win32.whl", hash = "sha256:4ba81a5f0c5478aa61674c5a2194de8b02652f17addf8dfc40c8937e6e7d79fc" },
+    { url = "https://pypi.cstcloud.cn/packages/bb/b8/28fbc6a4efa50178f973972d1c84b2d0a33cdc731588522ab751ac3da2f5/ruff-0.7.3-py3-none-win_amd64.whl", hash = "sha256:588a9ff2fecf01025ed065fe28809cd5a53b43505f48b69a1ac7707b1b7e4088" },
+    { url = "https://pypi.cstcloud.cn/packages/3f/77/b587cba6febd5e2003374f37eb89633f79f161e71084f94057c8653b7fb3/ruff-0.7.3-py3-none-win_arm64.whl", hash = "sha256:1713e2c5545863cdbfe2cbce21f69ffaf37b813bfd1fb3b90dc9a6f1963f5a8c" },
+]
+
+[[package]]
+name = "scipy"
+version = "1.4.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "numpy" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/04/ab/e2eb3e3f90b9363040a3d885ccc5c79fe20c5b8a3caa8fe3bf47ff653260/scipy-1.4.1.tar.gz", hash = "sha256:dee1bbf3a6c8f73b6b218cb28eed8dd13347ea2f87d572ce19b289d6fd3fbc59" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/85/7a/ae480be23b768910a9327c33517ced4623ba88dc035f9ce0206657c353a9/scipy-1.4.1-cp37-cp37m-macosx_10_6_intel.whl", hash = "sha256:787cc50cab3020a865640aba3485e9fbd161d4d3b0d03a967df1a2881320512d" },
+    { url = "https://pypi.cstcloud.cn/packages/42/49/9c113fc85e1d6a38eb2f4bf8702310a0ed00886def039c1a9a14532196df/scipy-1.4.1-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:0902a620a381f101e184a958459b36d3ee50f5effd186db76e131cbefcbb96f7" },
+    { url = "https://pypi.cstcloud.cn/packages/dd/82/c1fe128f3526b128cfd185580ba40d01371c5d299fcf7f77968e22dfcc2e/scipy-1.4.1-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:00af72998a46c25bdb5824d2b729e7dabec0c765f9deb0b504f928591f5ff9d4" },
+    { url = "https://pypi.cstcloud.cn/packages/17/e8/2aaf518a81bb0bdb0743a21cc7be3fae4101f763b3c8b097d62118d9267f/scipy-1.4.1-cp37-cp37m-win32.whl", hash = "sha256:9508a7c628a165c2c835f2497837bf6ac80eb25291055f56c129df3c943cbaf8" },
+    { url = "https://pypi.cstcloud.cn/packages/61/51/046cbc61c7607e5ecead6ff1a9453fba5e7e47a5ea8d608cc7036586a5ef/scipy-1.4.1-cp37-cp37m-win_amd64.whl", hash = "sha256:a2d6df9eb074af7f08866598e4ef068a2b310d98f87dc23bd1b90ec7bdcec802" },
+]
+
+[[package]]
+name = "sentry-sdk"
+version = "1.9.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "certifi" },
+    { name = "urllib3" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/4c/24/dc6b31bcdf6fcabe92982078e56396225f561285584eaf3159af5477f6c9/sentry-sdk-1.9.0.tar.gz", hash = "sha256:f185c53496d79b280fe5d9d21e6572aee1ab802d3354eb12314d216cfbaa8d30" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/34/ee/92a218cc1563eda06bc50117e1b5d004b46d1a7784c387c9bf91685e1311/sentry_sdk-1.9.0-py2.py3-none-any.whl", hash = "sha256:60b13757d6344a94bf0ccb3c0a006c4de77daab09871b30fbbd05d5ec24e54fb" },
+]
+
+[[package]]
+name = "setproctitle"
+version = "1.3.3"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/ff/e1/b16b16a1aa12174349d15b73fd4b87e641a8ae3fb1163e80938dbbf6ae98/setproctitle-1.3.3.tar.gz", hash = "sha256:c913e151e7ea01567837ff037a23ca8740192880198b7fbb90b16d181607caae" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/38/b7/65c156928857a8ed3922b948d491083a96611a6f56a7933aa41d3a514f26/setproctitle-1.3.3-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:816330675e3504ae4d9a2185c46b573105d2310c20b19ea2b4596a9460a4f674" },
+    { url = "https://pypi.cstcloud.cn/packages/3c/1e/4979dbe11244813e1b31306a1cf62e05e47f7394c5915f3d1923eea665ac/setproctitle-1.3.3-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:68f960bc22d8d8e4ac886d1e2e21ccbd283adcf3c43136161c1ba0fa509088e0" },
+    { url = "https://pypi.cstcloud.cn/packages/ea/fb/97e6a1a77e94f6d8bc20cfe51dc2f727d3604233f56d6e65a812f7b585b4/setproctitle-1.3.3-cp37-cp37m-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:00e6e7adff74796ef12753ff399491b8827f84f6c77659d71bd0b35870a17d8f" },
+    { url = "https://pypi.cstcloud.cn/packages/2e/be/bf32e99ed7bb38bec8ad69970b0d518fc896ee633f6777b476adced6ba38/setproctitle-1.3.3-cp37-cp37m-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:53bc0d2358507596c22b02db079618451f3bd720755d88e3cccd840bafb4c41c" },
+    { url = "https://pypi.cstcloud.cn/packages/66/bf/620ee20caa0c5c1592af7c72dd3339714e2e7b50f97a47e53e3e65b56d6c/setproctitle-1.3.3-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ad6d20f9541f5f6ac63df553b6d7a04f313947f550eab6a61aa758b45f0d5657" },
+    { url = "https://pypi.cstcloud.cn/packages/7a/af/52ca8d562f21aba4910d7a06663cbdfdaf920fd7c37b62a31b752f00bae0/setproctitle-1.3.3-cp37-cp37m-musllinux_1_1_aarch64.whl", hash = "sha256:c1c84beab776b0becaa368254801e57692ed749d935469ac10e2b9b825dbdd8e" },
+    { url = "https://pypi.cstcloud.cn/packages/7e/35/1fa02fbe22a957cd93b15e3ed8049c3a904f5e055558876a24f160ddd483/setproctitle-1.3.3-cp37-cp37m-musllinux_1_1_i686.whl", hash = "sha256:507e8dc2891021350eaea40a44ddd887c9f006e6b599af8d64a505c0f718f170" },
+    { url = "https://pypi.cstcloud.cn/packages/2c/c7/adf5c3cee203f4d1fd9ed3d4387d379e26172ff422b29c355f3befedfbe4/setproctitle-1.3.3-cp37-cp37m-musllinux_1_1_ppc64le.whl", hash = "sha256:b1067647ac7aba0b44b591936118a22847bda3c507b0a42d74272256a7a798e9" },
+    { url = "https://pypi.cstcloud.cn/packages/a6/45/8b2e258420fffb4392856bf0fe32f28386f07e192c032f1b23081f4103d2/setproctitle-1.3.3-cp37-cp37m-musllinux_1_1_x86_64.whl", hash = "sha256:2e71f6365744bf53714e8bd2522b3c9c1d83f52ffa6324bd7cbb4da707312cd8" },
+    { url = "https://pypi.cstcloud.cn/packages/b5/e5/8f93b282c85b92dddaa30685fc426732d4dc6ffb4a84ce9c7ab2c228f037/setproctitle-1.3.3-cp37-cp37m-win32.whl", hash = "sha256:7f1d36a1e15a46e8ede4e953abb104fdbc0845a266ec0e99cc0492a4364f8c44" },
+    { url = "https://pypi.cstcloud.cn/packages/c7/68/c01c388327594810317b7fcfea0e72e30f4ae9e2237f54143a61dc5c1d1d/setproctitle-1.3.3-cp37-cp37m-win_amd64.whl", hash = "sha256:c9a402881ec269d0cc9c354b149fc29f9ec1a1939a777f1c858cdb09c7a261df" },
+    { url = "https://pypi.cstcloud.cn/packages/3b/d9/eb0174fe8e494c895b6cdc818df76a2ef8e192baf849dae9188b1796a193/setproctitle-1.3.3-pp37-pypy37_pp73-macosx_10_9_x86_64.whl", hash = "sha256:0d3a953c50776751e80fe755a380a64cb14d61e8762bd43041ab3f8cc436092f" },
+    { url = "https://pypi.cstcloud.cn/packages/fe/03/df574756d156c5894db922a0801ac4973847ce51da3e579d9ba7d6a2de2c/setproctitle-1.3.3-pp37-pypy37_pp73-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:e5e08e232b78ba3ac6bc0d23ce9e2bee8fad2be391b7e2da834fc9a45129eb87" },
+    { url = "https://pypi.cstcloud.cn/packages/a0/d5/d5149b21c9022d75ed21c1976f5d58cf1114832a549f485bab559f959660/setproctitle-1.3.3-pp37-pypy37_pp73-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f1da82c3e11284da4fcbf54957dafbf0655d2389cd3d54e4eaba636faf6d117a" },
+    { url = "https://pypi.cstcloud.cn/packages/e7/ba/bb0713b244ca053441e578856865c0cb506bac68110cbaf0263617313211/setproctitle-1.3.3-pp37-pypy37_pp73-win_amd64.whl", hash = "sha256:aeaa71fb9568ebe9b911ddb490c644fbd2006e8c940f21cb9a1e9425bd709574" },
+]
+
+[[package]]
+name = "setuptools"
+version = "50.3.2"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/a7/e0/30642b9c2df516506d40b563b0cbd080c49c6b3f11a70b4c7a670f13a78b/setuptools-50.3.2.zip", hash = "sha256:ed0519d27a243843b05d82a5e9d01b0b083d9934eaa3d02779a23da18077bd3c" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/6d/38/c21ef5034684ffc0412deefbb07d66678332290c14bb5269c85145fbd55e/setuptools-50.3.2-py3-none-any.whl", hash = "sha256:2c242a0856fbad7efbe560df4a7add9324f340cf48df43651e9604924466794a" },
+]
+
+[[package]]
+name = "shortuuid"
+version = "1.0.13"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/8c/e2/bcf761f3bff95856203f9559baf3741c416071dd200c0fc19fad7f078f86/shortuuid-1.0.13.tar.gz", hash = "sha256:3bb9cf07f606260584b1df46399c0b87dd84773e7b25912b7e391e30797c5e72" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/c0/44/21d6bf170bf40b41396480d8d49ad640bca3f2b02139cd52aa1e272830a5/shortuuid-1.0.13-py3-none-any.whl", hash = "sha256:a482a497300b49b4953e15108a7913244e1bb0d41f9d332f5e9925dba33a3c5a" },
+]
+
+[[package]]
+name = "six"
+version = "1.15.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz", hash = "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced" },
+]
+
+[[package]]
+name = "smmap"
+version = "4.0.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/dd/d4/2b4f196171674109f0fbb3951b8beab06cd0453c1b247ec0c4556d06648d/smmap-4.0.0.tar.gz", hash = "sha256:7e65386bd122d45405ddf795637b7f7d2b532e7e401d46bbe3fb49b9986d5182" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/68/ee/d540eb5e5996eb81c26ceffac6ee49041d473bc5125f2aa995cf51ec1cf1/smmap-4.0.0-py2.py3-none-any.whl", hash = "sha256:a9a7479e4c572e2e775c404dcd3080c8dc49f39918c2cf74913d30c4c478e3c2" },
+]
+
+[[package]]
+name = "submitit"
+version = "1.4.6"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "cloudpickle" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/6d/90/e42b6bd5a60e214509c475d72187c7d0e97b2f10fad7238e7006de66b848/submitit-1.4.6.tar.gz", hash = "sha256:6f27037e8beacf744e372efa3998dada9f937f375f23e98a24a1207559a665a7" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/c3/e5/f5e8727f052a26b299a7ee7f90eb2543c9e48ff0002b221a579028eaf372/submitit-1.4.6-py3-none-any.whl", hash = "sha256:ec8033959dcbde6d5d2eebeac1be5d38b6d5b906e3b9529345e09d7e0beea22f" },
+]
+
+[[package]]
+name = "tenacity"
+version = "8.0.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/2c/f5/04748914f5c78f7418b803226bd56cdddd70ac369b936b3e24f5158017f1/tenacity-8.0.1.tar.gz", hash = "sha256:43242a20e3e73291a28bcbcacfd6e000b02d3857a9a9fff56b297a27afdc932f" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/f2/a5/f86bc8d67c979020438c8559cc70cfe3a1643fd160d35e09c9cca6a09189/tenacity-8.0.1-py3-none-any.whl", hash = "sha256:f78f4ea81b0fabc06728c11dc2a8c01277bfc5181b321a4770471902e3eb844a" },
+]
+
+[[package]]
+name = "tensorboard"
+version = "2.1.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "absl-py" },
+    { name = "google-auth" },
+    { name = "google-auth-oauthlib" },
+    { name = "grpcio" },
+    { name = "markdown" },
+    { name = "numpy" },
+    { name = "protobuf" },
+    { name = "requests" },
+    { name = "setuptools" },
+    { name = "six" },
+    { name = "werkzeug" },
+    { name = "wheel" },
+]
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/d9/41/bbf49b61370e4f4d245d4c6051dfb6db80cec672605c91b1652ac8cc3d38/tensorboard-2.1.1-py3-none-any.whl", hash = "sha256:3a36da59d4e13fb140d04636aaf544f1a38364a7e3609a15cdaf01a5d3073b37" },
+]
+
+[[package]]
+name = "tensorboard-data-server"
+version = "0.6.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/ff/00/3e8ffeb44502904ace252340ca1f20874e0132599ea0fa8f3d8838a4c148/tensorboard_data_server-0.6.0-py3-none-any.whl", hash = "sha256:a4b8e1c3fc85237b3afeef450db06c9a9b25f5854ad27c21667a90808acd1822" },
+    { url = "https://pypi.cstcloud.cn/packages/dd/19/f5208a94372d67a2b5b647129dc164d840e424ae76bc32c1560a94ed39eb/tensorboard_data_server-0.6.0-py3-none-macosx_10_9_x86_64.whl", hash = "sha256:2d723d73e3a3b0a4498f56c64c39e2e26ac192414891df22c9f152b7058fd6bc" },
+    { url = "https://pypi.cstcloud.cn/packages/12/63/d92b4bc44261b7396558c054f78acf71468b5628bcb14cdaeb2504ea80d3/tensorboard_data_server-0.6.0-py3-none-manylinux2010_x86_64.whl", hash = "sha256:b620e520d3d535ceb896557acca0029fd7fd2f9f408af35abc2d2dad91f0345d" },
+]
+
+[[package]]
+name = "tensorboard-plugin-wit"
+version = "1.7.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/b6/85/5c5ac0a8c5efdfab916e9c6bc18963f6a6996a8a1e19ec4ad8c9ac9c623c/tensorboard_plugin_wit-1.7.0-py3-none-any.whl", hash = "sha256:ee775f04821185c90d9a0e9c56970ee43d7c41403beb6629385b39517129685b" },
+]
+
+[[package]]
+name = "tensorboardx"
+version = "2.2"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "protobuf" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/f1/79/e9a75328e9d7beca802acdf47c609d51deb156ad124f29deb71915b103bf/tensorboardX-2.2.tar.gz", hash = "sha256:b68e08adae2d0c6d09721a9b7a3e22000b7d2b57faec069b5491aeace689f76f" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/07/84/46421bd3e0e89a92682b1a38b40efc22dafb6d8e3d947e4ceefd4a5fabc7/tensorboardX-2.2-py2.py3-none-any.whl", hash = "sha256:236409a0144094b7ed1f7fc003d27c73a529b7fe326194a26b0f98d40c763779" },
+]
+
+[[package]]
+name = "torch"
+version = "1.10.0+cu113"
+source = { registry = "https://download.pytorch.org/whl" }
+dependencies = [
+    { name = "typing-extensions" },
+]
+wheels = [
+    { url = "https://download.pytorch.org/whl/cu113/torch-1.10.0%2Bcu113-cp37-cp37m-linux_x86_64.whl", hash = "sha256:2a90db92579ed875d2aa0ad6af55359e3f0426a523056a7b49b002c3cc6d2ad8" },
+    { url = "https://download.pytorch.org/whl/cu113/torch-1.10.0%2Bcu113-cp37-cp37m-win_amd64.whl", hash = "sha256:28a830123da22b5371d93bf929880e25fec9b1057ac1b20cd0f99ae38f5e390c" },
+]
+
+[[package]]
+name = "tqdm"
+version = "4.67.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+dependencies = [
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/e8/4f/0153c21dc5779a49a0598c445b1978126b1344bab9ee71e53e44877e14e0/tqdm-4.67.0.tar.gz", hash = "sha256:fe5a6f95e6fe0b9755e9469b77b9c3cf850048224ecaa8293d7d2d31f97d869a" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/2b/78/57043611a16c655c8350b4c01b8d6abfb38cc2acb475238b62c2146186d7/tqdm-4.67.0-py3-none-any.whl", hash = "sha256:0cd8af9d56911acab92182e88d763100d4788bdf421d251616040cc4d44863be" },
+]
+
+[[package]]
+name = "typing-extensions"
+version = "3.7.4.3"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/16/06/0f7367eafb692f73158e5c5cbca1aec798cdf78be5167f6415dd4205fa32/typing_extensions-3.7.4.3.tar.gz", hash = "sha256:99d4073b617d30288f569d3f13d2bd7548c3a7e4c8de87db09a9d29bb3a4a60c" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/60/7a/e881b5abb54db0e6e671ab088d079c57ce54e8a01a3ca443f561ccadb37e/typing_extensions-3.7.4.3-py3-none-any.whl", hash = "sha256:7cb407020f00f7bfc3cb3e7881628838e69d8f3fcab2f64742a5e76b2f841918" },
+]
+
+[[package]]
+name = "urllib3"
+version = "1.25.11"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz", hash = "sha256:8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/56/aa/4ef5aa67a9a62505db124a5cb5262332d1d4153462eb8fd89c9fa41e5d92/urllib3-1.25.11-py2.py3-none-any.whl", hash = "sha256:f5321fbe4bf3fefa0efd0bfe7fb14e90909eb62a48ccda331726b4319897dd5e" },
+]
+
+[[package]]
+name = "wandb"
+version = "0.13.5"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+resolution-markers = [
+    "sys_platform != 'linux'",
+]
+dependencies = [
+    { name = "click", marker = "sys_platform != 'linux'" },
+    { name = "docker-pycreds", marker = "sys_platform != 'linux'" },
+    { name = "gitpython", marker = "sys_platform != 'linux'" },
+    { name = "pathtools", marker = "sys_platform != 'linux'" },
+    { name = "promise", marker = "sys_platform != 'linux'" },
+    { name = "protobuf", marker = "sys_platform != 'linux'" },
+    { name = "psutil", marker = "sys_platform != 'linux'" },
+    { name = "pyyaml", marker = "sys_platform != 'linux'" },
+    { name = "requests", marker = "sys_platform != 'linux'" },
+    { name = "sentry-sdk", marker = "sys_platform != 'linux'" },
+    { name = "setproctitle", marker = "sys_platform != 'linux'" },
+    { name = "setuptools", marker = "sys_platform != 'linux'" },
+    { name = "shortuuid", marker = "sys_platform != 'linux'" },
+    { name = "six", marker = "sys_platform != 'linux'" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/ff/f9/5f75770689593ad793cedfb01eff6f0437855270581a3fb72b9568cd37c2/wandb-0.13.5.tar.gz", hash = "sha256:11f30a22e30abaa9c187e8b6aa4c12d76160b40bbe98a6f14b0dde9297bbfbe2" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/67/34/695e3ea6b28a693fcc9f1868a86e67bba33d7c46c4b04a452431d394e1c6/wandb-0.13.5-py2.py3-none-any.whl", hash = "sha256:60d5bcc524b8a314c8e072c03f7702dbd5406261b00a4ce75e7556b805fdc765" },
+]
+
+[[package]]
+name = "wandb"
+version = "0.18.3"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+resolution-markers = [
+    "sys_platform == 'linux'",
+]
+dependencies = [
+    { name = "click", marker = "sys_platform == 'linux'" },
+    { name = "docker-pycreds", marker = "sys_platform == 'linux'" },
+    { name = "gitpython", marker = "sys_platform == 'linux'" },
+    { name = "platformdirs", marker = "sys_platform == 'linux'" },
+    { name = "protobuf", marker = "sys_platform == 'linux'" },
+    { name = "psutil", marker = "sys_platform == 'linux'" },
+    { name = "pyyaml", marker = "sys_platform == 'linux'" },
+    { name = "requests", marker = "sys_platform == 'linux'" },
+    { name = "sentry-sdk", marker = "sys_platform == 'linux'" },
+    { name = "setproctitle", marker = "sys_platform == 'linux'" },
+    { name = "setuptools", marker = "sys_platform == 'linux'" },
+    { name = "typing-extensions", marker = "sys_platform == 'linux'" },
+]
+sdist = { url = "https://pypi.cstcloud.cn/packages/cc/57/8a61979c40a7a0a5206ef3369ed474326135bf292f172019f35dca97a235/wandb-0.18.3.tar.gz", hash = "sha256:eb2574cea72bc908c6ce1b37edf7a889619e6e06e1b4714eecfe0662ded43c06" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/1c/4a/6fa1d584ecd69cea5b9943ec5cfa36276cbd567efa8709135a7e4ab89cfb/wandb-0.18.3-py3-none-any.whl", hash = "sha256:7da64f7da0ff7572439de10bfd45534e8811e71e78ac2ccc3b818f1c0f3a9aef" },
+    { url = "https://pypi.cstcloud.cn/packages/bd/79/2fa554283afa7259e296313160164947daf52e0d42b04d6ecf9c5af01e15/wandb-0.18.3-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d788852bd4739fa18de3918f309c3a955b5cef3247fae1c40df3a63af637e1a0" },
+    { url = "https://pypi.cstcloud.cn/packages/86/a6/11eaa16c96469b4d6fc0fb3271e70d5bbe2c3a93c15fc677de9a1aa4374a/wandb-0.18.3-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ab81424eb207d78239a8d69c90521a70074fb81e3709055484e43c76fe44dc08" },
+    { url = "https://pypi.cstcloud.cn/packages/13/dd/ccaa5a51e2557368300eec9e362b5688151e45a052e33017633baa3011a9/wandb-0.18.3-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:2c91315b8b62423eae18577d66a4b4bb8e4341a7d5c849cb2963e3b3dff0bf6d" },
+]
+
+[[package]]
+name = "werkzeug"
+version = "1.0.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/10/27/a33329150147594eff0ea4c33c2036c0eadd933141055be0ff911f7f8d04/Werkzeug-1.0.1.tar.gz", hash = "sha256:6c80b1e5ad3665290ea39320b91e1be1e0d5f60652b964a3070216de83d2e47c" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/cc/94/5f7079a0e00bd6863ef8f1da638721e9da21e5bacee597595b318f71d62e/Werkzeug-1.0.1-py2.py3-none-any.whl", hash = "sha256:2de2a5db0baeae7b2d2664949077c2ac63fbd16d98da0ff71837f7d1dea3fd43" },
+]
+
+[[package]]
+name = "wheel"
+version = "0.35.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/83/72/611c121b6bd15479cb62f1a425b2e3372e121b324228df28e64cc28b01c2/wheel-0.35.1.tar.gz", hash = "sha256:99a22d87add3f634ff917310a3d87e499f19e663413a52eb9232c447aa646c9f" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/a7/00/3df031b3ecd5444d572141321537080b40c1c25e1caa3d86cdd12e5e919c/wheel-0.35.1-py2.py3-none-any.whl", hash = "sha256:497add53525d16c173c2c1c733b8f655510e909ea78cc0e29d374243544b77a2" },
+]
+
+[[package]]
+name = "xlrd"
+version = "1.2.0"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/aa/05/ec9d4fcbbb74bbf4da9f622b3b61aec541e4eccf31d3c60c5422ec027ce2/xlrd-1.2.0.tar.gz", hash = "sha256:546eb36cee8db40c3eaa46c351e67ffee6eeb5fa2650b71bc4c758a29a1b29b2" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/b0/16/63576a1a001752e34bf8ea62e367997530dc553b689356b9879339cf45a4/xlrd-1.2.0-py2.py3-none-any.whl", hash = "sha256:e551fb498759fa3a5384a94ccd4c3c02eb7c00ea424426e212ac0c57be9dfbde" },
+]
+
+[[package]]
+name = "xlsxwriter"
+version = "1.3.7"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/d9/91/92d6032b2cc80674bacd8cc5c7496a6793df542ad8df0fb8b5acd55b866d/XlsxWriter-1.3.7.tar.gz", hash = "sha256:9b1ade2d1ba5d9b40a6d1de1d55ded4394ab8002718092ae80a08532c2add2e6" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/6b/41/bf1aae04932d1eaffee1fc5f8b38ca47bbbf07d765129539bc4bcce1ce0c/XlsxWriter-1.3.7-py2.py3-none-any.whl", hash = "sha256:b807c2d3e379bf6a925f472955beef3e07495c1bac708640696876e68675b49b" },
+]
+
+[[package]]
+name = "xvfbwrapper"
+version = "0.2.9"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/57/b6/4920eabda9b49630dea58745e79f9919aba6408d460afe758bf6e9b21a04/xvfbwrapper-0.2.9.tar.gz", hash = "sha256:bcf4ae571941b40254faf7a73432dfc119ad21ce688f1fdec533067037ecfc24" }
+
+[[package]]
+name = "zipp"
+version = "3.3.1"
+source = { registry = "https://pypi.cstcloud.cn/simple" }
+sdist = { url = "https://pypi.cstcloud.cn/packages/49/4d/374ccacda17692db1d93b00a637b8255ec97608b0c51f3b66bc9c57fe3e1/zipp-3.3.1.tar.gz", hash = "sha256:c1532a8030c32fd52ff6a288d855fe7adef5823ba1d26a29a68fd6314aa72baa" }
+wheels = [
+    { url = "https://pypi.cstcloud.cn/packages/64/f2/0aa52375e14863b377bc9eb58fde6ec48e0a7f73fdf91c9876669559fe45/zipp-3.3.1-py3-none-any.whl", hash = "sha256:16522f69653f0d67be90e8baa4a46d66389145b734345d68a257da53df670903" },
+]

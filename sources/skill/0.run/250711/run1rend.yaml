@@ -1,0 +1,25 @@
+defaults:
+  - default
+  - _self_
+
+run_group: 250708_test
+# save_group: handpicked/move_base # 0710/0322
+save_group: 0711/0109
+steps:
+  - type: eval
+    multirun: False
+    args:
+      - ++environment.env_tweak.tweak_types=[max_cycles,terminate_reward,reward_factor]
+      - ++environment.env_tweak.max_cycles=1000
+      - ++environment.env_tweak.terminate_reward=-10.0
+      - ++environment.env_tweak.reward_factor=1
+  - type: bark
+    args:
+      - train_finish
+hydra:
+  searchpath: 
+    - file://sources/skill/0.run
+
+# uv run python -m sources.skill.code.eval --multirun ++environment.env_tweak.tweak_types=[max_cycles,terminate_reward] ++env_tweak.terminate_reward=-10.0 ++env_tweak.max_cycles=1000 wandb.wandb_group=250708_test model.save_group=0710/0322 ++wandb.wandb_project=mw_harl_new
+
+#uv run python -m sources.skill.code.eval  ++environment.env_tweak.tweak_types=[max_cycles,terminate_reward,reward_factor] ++environment.env_tweak.max_cycles=1000 ++environment.env_tweak.terminate_reward=-10.0 ++environment.env_tweak.reward_factor=10 wandb.wandb_group=250708_test model.save_group=0710/1209 ++wandb.wandb_project=mw_harl_new

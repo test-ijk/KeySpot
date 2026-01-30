@@ -1,0 +1,23 @@
+defaults:
+  - default
+  - _self_
+
+group_name: case33
+
+train_config:
+  alias: "pv_obs"
+  save_path: reproduction
+  alg: maddpg
+  env: var_voltage_control
+  mode: distributed
+
+  scenario: case33_3min_final
+  voltage_barrier_type: bowl
+
+disturbances:
+  - type: pv_stop
+    is_random: True
+    random_probability: 0.003
+    random_duration: 150
+    disturbance_args:
+      pv_id: [1,5]

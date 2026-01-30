@@ -1,0 +1,33 @@
+defaults:
+  - algorithm: mappo
+  - environment: mapdn
+  - scenario: raw
+
+  - algorithm_parameters: ${algorithm}
+  - environment_parameters: ${environment}
+  - optional environment_scenario: ${environment}/${scenario}
+  - eval_scenario: ${environment}/${scenario}
+  - override hydra/launcher: submitit_local
+  - _self_
+
+wandb:
+  wandb_name: 02s
+  wandb_group: latest
+  wandb_project: mapdn
+
+model:
+  save_group: latest
+
+
+
+hydra:
+  searchpath:
+    - file://sources/skill/1.config/global
+  launcher:
+    timeout_min: 6000
+    gpus_per_node: 1
+  run:
+    dir: ./results/outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: ./results/multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.num}

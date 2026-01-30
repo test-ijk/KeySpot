@@ -1,0 +1,11 @@
+name: raw
+desc: 初始场景
+
+# vanilla
+env_tweak:
+  # terrain_config: [{'type': 'flat', 'length': 35}, {'type': 'up', 'length': 6, 'angle': 13}, {'type': 'flat', 'length': 200}]
+  # terrain_config: [{'type': 'flat', 'length': 30},{"type": "up", "length": 10, "angle": 7},{'type': 'flat', 'length': 960}]
+  terrain_config: [{'type': 'flat', 'length': 1000}]
+
+  n_walkers: 3
+

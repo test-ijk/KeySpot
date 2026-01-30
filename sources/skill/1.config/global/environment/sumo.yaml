@@ -1,0 +1,7 @@
+name: sumo
+
+env_tweak: 
+  tweak_types: []
+  max_cycles: 5000
+  action_perturb_prob: 0
+  perturb_targets: []

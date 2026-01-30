@@ -1,0 +1,40 @@
+defaults:
+  - default
+  - _self_
+
+run_group: 250722_llm_env
+
+
+save_group: handpicked/mw
+steps:
+  - type: eval
+    multirun: False
+    config_name: default
+    args:
+      - algorithm=hasac
+      - ++environment.env_tweak.tweak_types=[]
+      - ++environment.env_tweak.max_cycles=1000
+      - ++environment.env_tweak.terminate_reward=-10.0
+  - type: eval
+    multirun: False
+    config_name: default
+    args:
+      - algorithm=happo
+      - ++environment.env_tweak.tweak_types=[]
+      - ++environment.env_tweak.max_cycles=1000
+      - ++environment.env_tweak.terminate_reward=-10.0
+  - type: eval
+    multirun: False
+    config_name: default
+    args:
+      - algorithm=mappo
+      - ++environment.env_tweak.tweak_types=[]
+      - ++environment.env_tweak.max_cycles=1000
+      - ++environment.env_tweak.terminate_reward=-10.0
+
+
+# llm/2600 #multiwalker/mappo # llm/1659 # 0710/0322
+# save_group: 0711/0109
+hydra:
+  searchpath: 
+    - file://sources/skill/0.run

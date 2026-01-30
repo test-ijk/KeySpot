@@ -1,0 +1,44 @@
+defaults:
+  - default
+  - _self_
+
+run_group: 0430/1905
+save_group: 0430/1905
+
+description: 扰动8
+
+steps:
+  - type: train
+    config_name: case33
+    multirun: True
+    args:
+      - train_config.alg=mappo,maddpg
+      - train_config.alias=original,dis_8t
+  - type: eval
+    config_name: case335
+    multirun: True
+    args:
+      - eval_config.alg=mappo,maddpg
+      - eval_config.alias=original,dis_8t # original
+  - type: bark
+    config_name: default
+    multirun: False
+    args:
+      - 扰动8/mappo与maddpg完成
+  - type: train
+    config_name: case33
+    multirun: True
+    args:
+      - train_config.alg=matd3,coma,ippo
+      - train_config.alias=original,dis_8t
+  - type: eval
+    config_name: case335
+    multirun: True
+    args:
+      - eval_config.alg=matd3,coma,ippo
+      - eval_config.alias=original,dis_8t # original
+  - type: bark
+    config_name: default
+    multirun: False
+    args:
+      - 新扰动/重新测试完成

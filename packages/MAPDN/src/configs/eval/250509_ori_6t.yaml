@@ -1,0 +1,23 @@
+defaults:
+  - default
+  - _self_
+
+group_name: case335
+
+eval_config:
+  save_path: reproduction/models
+  alg: mappo
+  alias: 'original'
+  scenario: case33_3min_final
+  voltage_barrier_type: bowl
+  test_mode: batch
+  test_day: 180
+  eval_episodes: 1000
+
+disturbances:
+  - type: load_change
+    is_random: False
+    start_at: 100
+    end_at: 300
+    disturbance_args:
+      multiplier: 6  # - type: load_change

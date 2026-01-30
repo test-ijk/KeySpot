@@ -1,0 +1,34 @@
+# SUMO环境参数配置
+# 基于sumo_rl库的交通信号控制环境参数
+
+# 必需参数
+net_file: ???  # SUMO .net.xml文件路径
+route_file: ???  # SUMO .rou.xml文件路径
+
+# 可选参数
+out_csv_name: !!null  # 输出CSV文件名，为!!null时不生成输出
+use_gui: True  # 是否使用SUMO GUI运行仿真
+virtual_display: [1600, 900]  # 虚拟显示分辨率
+begin_time: 0  # 仿真开始时间步（秒）
+num_seconds: 3600  # 仿真持续时间（秒）
+max_depart_delay: -1  # 车辆插入最大延迟时间，-1表示无延迟
+waiting_time_memory: 1000  # 车辆等待时间记忆秒数
+time_to_teleport: 1000  # 车辆卡住时传送到边末端的等待时间，-1表示不传送
+delta_time: 5  # 动作间的仿真秒数
+yellow_time: 2  # 黄灯持续时间（秒）
+min_green: 5  # 最小绿灯时间（秒）
+max_green: 50  # 最大绿灯时间（秒）
+enforce_max_green: false  # 是否强制执行最大绿灯时间
+single_agent: false  # 是否为单智能体环境
+
+reward_fn: "diff-waiting-time"  # 奖励函数
+reward_weights: !!null  # 奖励函数权重列表
+
+observation_class: "DefaultObservationFunction"  # 观测函数类
+add_system_info: true  # 是否添加系统信息
+add_per_agent_info: true  # 是否添加每个智能体的信息
+sumo_seed: "random"  # SUMO随机种子
+fixed_ts: false  # 是否使用固定交通信号
+sumo_warnings: True  # 是否显示SUMO警告
+additional_sumo_cmd: !!null  # 额外的SUMO命令行参数
+render_mode: !!null  # 渲染模式

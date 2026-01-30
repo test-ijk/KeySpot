@@ -1,0 +1,17 @@
+defaults:
+  - default
+  - _self_
+
+group_name: case33
+
+eval_config:
+  save_path: reproduction/models
+  alg: maddpg
+  alias: 'original'
+  scenario: case33_3min_final
+  voltage_barrier_type: bowl
+  test_mode: batch
+  test_day: 180
+  eval_episodes: 100
+
+disturbances: []

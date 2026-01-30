@@ -1,0 +1,24 @@
+defaults:
+  - default
+  - _self_
+
+run_group: latest
+save_group: latest # 0710/0322 "./results/models/0716/1659"
+# save_group: 0711/0109
+steps:
+  - type: train
+    config_name: sumo
+    multirun: False
+    args:
+      - algorithm_parameters.algo.actor_num_mini_batch=4
+      - algorithm_parameters.algo.ppo_epoch=3
+      - algorithm_parameters.model.lr=0.008
+      - algorithm_parameters.train.n_rollout_threads=20
+      - algorithm_parameters.train.num_env_steps=50000000
+hydra:
+  searchpath: 
+    - file://sources/skill/0.run
+
+# uv run python -m sources.skill.code.eval --multirun ++environment.env_tweak.tweak_types=[max_cycles,terminate_reward] ++env_tweak.terminate_reward=-10.0 ++env_tweak.max_cycles=1000 wandb.wandb_group=250708_test model.save_group=0710/0322 ++wandb.wandb_project=mw_harl_new
+
+#uv run python -m sources.skill.code.eval  ++environment.env_tweak.tweak_types=[max_cycles,terminate_reward,reward_factor] ++environment.env_tweak.max_cycles=1000 ++environment.env_tweak.terminate_reward=-10.0 ++environment.env_tweak.reward_factor=10 wandb.wandb_group=250708_test model.save_group=0710/1209 ++wandb.wandb_project=mw_harl_new

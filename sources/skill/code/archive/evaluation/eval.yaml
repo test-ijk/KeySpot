@@ -1,0 +1,45 @@
+defaults:
+  - disturbances: ???
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+  - override hydra/launcher: submitit_local
+  - _self_
+
+algorithm: ???
+
+basic_config:
+  run_group: ???
+  save_group: ???
+
+  seed: 42
+  eval_episodes: 1000
+  eval_threads: 50
+
+  load_results: False
+  result_file_name: hi
+
+  render: False
+
+  ablation: False
+
+  use_gpu: False
+
+env_tweak:
+  tweak_types: [forward_reward, n_walkers]
+  n_walkers: 3
+  forward_reward: 1.0
+  max_cycles: 500
+  terminate_reward: -100.0
+
+cherry_pick:
+  export_angle_data: False
+
+hydra:
+  launcher:
+    timeout_min: 6000
+    gpus_per_node: 1
+  run:
+    dir: ./results/outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: ./results/multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.num}

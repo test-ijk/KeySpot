@@ -1,0 +1,29 @@
+defaults:
+  - default
+  - _self_
+
+run_group: 0511_more_alg_seed
+save_group: 0511_more_alg_seed
+
+description: pv_obs
+
+steps:
+  # # 1. 更长的训练有效果么
+  - type: train
+    config_name: 250507_pv_obs
+    multirun: True
+    args:
+      - train_config.alg=ippo,mappo
+      - train_config.alias=original,pv_obs
+  # 3. 测试
+  - type: eval
+    config_name: 0506_pv_obs
+    multirun: True
+    args:
+      - eval_config.alg=ippo,mappo
+      - eval_config.alias=original,pv_obs
+  - type: bark
+    config_name: default
+    multirun: False
+    args:
+      - pvobs_test

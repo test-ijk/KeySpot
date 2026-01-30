@@ -1,0 +1,35 @@
+program: sources.skill.code.train
+method: bayes
+project: sumo_harl
+name: 250721_fewer_steps
+metric:
+  goal: maximize
+  name: eval_average_episode_rewards.max
+parameters:
+  algorithm_parameters.model.lr:
+    values: [0.001, 0.0001]
+  algorithm_parameters.algo.ppo_epoch:
+    values: [5, 10, 15]
+  algorithm_parameters.algo.actor_num_mini_batch:
+    values: [1, 2, 4]
+  algorithm_parameters.train.n_rollout_threads:
+    values: [5, 10, 20]
+command:
+  - ${env}
+  - uv
+  - "run"
+  - "python"
+  - "-m"
+  - ${program}
+  - "wandb.wandb_group=250721_sumo_harl"
+  - "++wandb.wandb_project=sumo_harl"
+  - "model.save_group=latest"
+  - "algorithm=mappo"
+  - "environment=sumo"
+  - "scenario=raw"
+  - "algorithm_parameters.train.num_env_steps=4000000"
+  - "algorithm_parameters.train.eval_interval=1"
+  - "algorithm_parameters.train.log_interval=1"
+  - ${args_no_hyphens}
+
+# uv run python -m sources.skill.code.train --config-name=train  algorithm=mappo environment=pettingzoo_mw wandb.wandb_group=250708_test model.save_group=0708/1703 ++wandb.wandb_project=mw_harl_new

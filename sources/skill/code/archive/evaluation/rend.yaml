@@ -1,0 +1,12 @@
+defaults:
+  - eval
+  - disturbances: ???
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+  - override hydra/launcher: submitit_local
+  - _self_
+
+basic_config:
+  eval_episodes: 5
+  eval_threads: 5
+  render: True

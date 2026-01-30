@@ -1,0 +1,1 @@
+uv run wandb sweep $1

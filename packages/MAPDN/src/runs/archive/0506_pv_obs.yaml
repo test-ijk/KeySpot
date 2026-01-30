@@ -1,0 +1,50 @@
+defaults:
+  - default
+  - _self_
+
+run_group: 0506_pv_obs
+save_group: 0506/0958
+
+description: pv_obs
+
+steps:
+  # - type: eval
+  #   config_name: 0501_pv
+  #   multirun: True
+  #   args:
+  #     - eval_config.alg=mappo,maddpg,matd3
+  #     - eval_config.alias=original
+  # - type: train
+  #   config_name: 0506_pv_obs
+  #   multirun: True
+  #   args:
+  #     - train_config.alg=maddpg #,matd3
+  #     - train_config.alias=pv_obs
+  # - type: eval
+  #   config_name: 0506_pv_obs
+  #   multirun: True
+  #   args:
+  #     - eval_config.alg=maddpg #,mappo
+  #     - eval_config.alias=original,pv_obs
+  # - type: bark
+  #   config_name: default
+  #   multirun: False
+  #   args:
+  #     - pvobs_maddpg
+  # - type: train
+  #   config_name: 0506_pv_obs
+  #   multirun: True
+  #   args:
+  #     - train_config.alg=mappo,matd3
+  #     - train_config.alias=pv_obs
+  - type: eval
+    config_name: 0506_pv_obs
+    multirun: True
+    args:
+      - eval_config.alg=maddpg,matd3,mappo
+      - eval_config.alias=pv_obs
+  - type: bark
+    config_name: default
+    multirun: False
+    args:
+      - pvobs_on_raw

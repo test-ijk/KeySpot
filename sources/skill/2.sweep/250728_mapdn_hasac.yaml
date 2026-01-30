@@ -1,0 +1,37 @@
+program: sources.skill.code.train
+method: bayes
+project: mapdn_hasac
+name: 250725_mw_hasac
+metric:
+  goal: maximize
+  name: eval_average_episode_rewards.max
+parameters:
+  algorithm_parameters.model.lr:
+    values: [5e-4, 1e-3]
+  algorithm_parameters.model.critic_lr:
+    values: [5e-4, 1e-3]
+  algorithm_parameters.algo.alpha:
+    values: [0.2, 1e-3, 5e-3]
+  algorithm_parameters.algo.batch_size:
+    values: [1000, 2000]
+  algorithm_parameters.algo.n_step:
+    values: [5, 10, 20]
+  algorithm_parameters.algo.gamma:
+    values: [0.95, 0.99]
+  algorithm:
+    values: [hasac]
+command:
+  - ${env}
+  - uv
+  - "run"
+  - "python"
+  - "-m"
+  - ${program}
+  - "wandb.wandb_group=250709_sweep2_1"
+  - "++wandb.wandb_project=mw_harl_sweep2_1"
+  - "model.save_group=latest"
+  - "scenario=raw"
+  - "environment=mapdn"
+  - "++algorithm_parameters.train.n_rollout_threads=1"
+  - "algorithm_parameters.train.num_env_steps=96000"
+  - ${args_no_hyphens}

@@ -1,0 +1,14 @@
+defaults:
+  - default
+  - _self_
+
+motor:
+  name: motor
+  is_raw: False
+  disturbances:
+    - name: "walker_motor_speed_change"
+      start_at: 200
+      end_at: 202
+      disturbance_args:
+        speed_factor_hip: 20
+        speed_factor_knee: 20 

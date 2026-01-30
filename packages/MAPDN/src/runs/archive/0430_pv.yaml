@@ -1,0 +1,33 @@
+defaults:
+  - default
+  - _self_
+
+run_group: 0430_1745_pv_eval
+save_group: 0429/1308
+
+description: pv扰动的训练已经完成
+
+steps:
+  - type: train
+    config_name: case33-pv
+    multirun: True
+    args:
+      - train_config.alg=mappo,maddpg #,matd3
+      - train_config.alias=dis_pv_stop
+  # - type: eval
+  #   config_name: 33_raw
+  #   multirun: True
+  #   args:
+  #     - eval_config.alg=maddpg,mappo
+  #     - eval_config.alias=original,dis_pv_stop
+  - type: eval
+    config_name: case335-pv
+    multirun: True
+    args:
+      - eval_config.alg=maddpg,mappo
+      - eval_config.alias=original,dis_pv_stop
+  - type: bark
+    config_name: default
+    multirun: False
+    args:
+      - pv扰动的训练已经完成

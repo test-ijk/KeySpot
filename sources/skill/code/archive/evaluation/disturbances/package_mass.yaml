@@ -1,0 +1,13 @@
+defaults:
+  - default
+  - _self_
+
+package_mass:
+  name: package_mass
+  is_raw: False
+  disturbances:
+  - name: "weight_change"
+    start_at: 200
+    end_at: 400
+    disturbance_args:
+      mass: 1 

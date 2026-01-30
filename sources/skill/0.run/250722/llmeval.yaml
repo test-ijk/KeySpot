@@ -1,0 +1,27 @@
+defaults:
+  - default
+  - _self_
+
+run_group: 250722_llm_env
+save_group: llm/1659 # 0710/0322
+# save_group: 0711/0109
+steps:
+  # - type: eval
+  #   multirun: False
+  #   config_name: mw_llm
+  #   args:
+  #     - ++environment.env_tweak.tweak_types=[max_cycles,terminate_reward,reward_factor]
+  #     - ++environment.env_tweak.max_cycles=1000
+  #     - ++environment.env_tweak.terminate_reward=-10.0
+  #     - ++environment.env_tweak.reward_factor=0.5
+  - type: eval
+    multirun: False
+    config_name: default
+    args:
+      - ++environment.env_tweak.tweak_types=[max_cycles,terminate_reward,reward_factor]
+      - ++environment.env_tweak.max_cycles=1000
+      - ++environment.env_tweak.terminate_reward=-10.0
+      - ++environment.env_tweak.reward_factor=0.5
+hydra:
+  searchpath: 
+    - file://sources/skill/0.run

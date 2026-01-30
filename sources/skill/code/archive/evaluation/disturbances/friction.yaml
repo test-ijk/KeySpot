@@ -1,0 +1,13 @@
+defaults:
+  - default
+  - _self_
+
+friction:
+  name: friction
+  is_raw: False
+  disturbances:
+    - name: "world_friction_change"
+      start_at: 200
+      end_at: 400
+      disturbance_args:
+        friction: 0.1 

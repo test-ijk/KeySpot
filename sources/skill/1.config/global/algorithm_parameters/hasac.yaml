@@ -1,0 +1,16 @@
+
+defaults:
+  - defaults/default_hasac@_here_
+  - _self_
+
+seed:
+  seed: 1
+
+device:
+  cuda: False
+  cuda_deterministic: False
+
+train:
+  eval_interval: 250
+  num_env_steps: 20000000
+  n_rollout_threads: 10

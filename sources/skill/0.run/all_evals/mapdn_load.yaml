@@ -1,0 +1,33 @@
+defaults:
+  - default
+  - _self_
+
+use_custom_eval_configs: True
+custom_eval_configs_folder: /root/2507-multiwalker-harl/sources/skill/0.run/all_evals/eval_configs
+run_group: mapdn
+save_group: handpicked/mapdn/best # 0710/0322
+steps:
+  - type: eval
+    multirun: False
+    config_name: mapdn
+    args:
+      - algorithm=mappo
+      - ++environment.env_tweak.tweak_types=[]
+      - eval_scenario=mapdn/mapdn_load_change
+  # - type: eval
+  #   multirun: False
+  #   config_name: mapdn
+  #   args:
+  #     - algorithm=happo
+  #     - ++environment.env_tweak.tweak_types=[]
+  #     - eval_scenario=mapdn/mapdn_load_change
+  # - type: eval
+  #   multirun: False
+  #   config_name: mapdn
+  #   args:
+  #     - algorithm=hasac
+  #     - ++environment.env_tweak.tweak_types=[]
+  #     - eval_scenario=mapdn/mapdn_load_change
+hydra:
+  searchpath: 
+    - file://sources/skill/0.run

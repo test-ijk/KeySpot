@@ -1,0 +1,18 @@
+group_name: ???
+run_group: ???
+save_group: ???
+
+eval_config:
+  save_path: reproduction/models
+  alg: maddpg
+  env: var_voltage_control
+  alias: ""
+  mode: distributed
+  scenario: case33_3min_final
+  voltage_barrier_type: l1
+  test_mode: single
+  test_day: 730
+  render: false
+  eval_episodes: 10
+
+disturbances: ???

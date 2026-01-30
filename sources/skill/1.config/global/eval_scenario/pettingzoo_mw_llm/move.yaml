@@ -1,0 +1,47 @@
+name: move
+desc: 变速场景
+
+env_tweak:
+  # terrain_config: [{'type': 'flat', 'length': 35}, {'type': 'up', 'length': 6, 'angle': 13}, {'type': 'flat', 'length': 200}]
+  terrain_config: [{'type': 'flat', 'length': 20}, {'type': 'up', 'length': 6, 'angle': 13}, {'type': 'flat', 'length': 600}]
+
+
+disturbances:
+  # - name: skill_move_speed
+  #   start_at: 250
+  #   end_at: 350
+  #   disturbance_args:
+  #     on_agent_idx: 1
+  #     speed: 0.1
+
+  # - name: skill_move_speed
+  #   start_at: 351
+  #   end_at: 450
+  #   disturbance_args:
+  #     on_agent_idx: 0
+  #     speed: 0.1
+  # - name: skill_move_speed
+  #   start_at: 351
+  #   end_at: 450
+  #   disturbance_args:
+  #     on_agent_idx: 2
+  #     speed: 0.1
+
+  # - name: skill_move_speed
+  #   start_at: 451
+  #   end_at: 550
+  #   disturbance_args:
+  #     on_agent_idx: 1
+  #     speed: 0.1
+  # - name: skill_move_speed
+  #   start_at: 451
+  #   end_at: 550
+  #   disturbance_args:
+  #     on_agent_idx: 2
+  #     speed: 0.1
+
+  - name: skill_move_speed
+    start_at: 1300
+    end_at: 1000
+    disturbance_args:
+      speed: 0.8

@@ -1,0 +1,37 @@
+defaults:
+  - default
+  - _self_
+
+disturb_value: ${oc.env:ENV_TWEAK_DISTURB,0.5}
+run_group: 250708_test
+save_group: handpicked/mw 
+# save_group: best_mw # 0710/0322 "./results/models/0716/1659"
+# save_group: 0711/0109
+
+# 全局环境配置
+env_tweak:
+  terrain_length: 1200  # 增加地形长度以匹配terrain_config
+  terrain_config: [{"type": "up", "length": 15, "angle": 3},{"type": "flat", "length": 985}]
+
+steps:
+  - type: eval
+    config_name: default
+    multirun: False
+    args:
+      - ++environment.env_tweak.tweak_types=[]
+      - ++environment.env_tweak.max_cycles=2000
+      - ++environment.env_tweak.terminate_reward=-10.0
+      - ++environment.env_tweak.terminate_on_fall=false
+      - ++environment.env_tweak.remove_on_fall=false
+      - ++environment.env_tweak.disabled_walker_id=0
+      # - ++environment.env_tweak.disturb=${disturb_value}
+      - ++environment.env_tweak.disturb=0.28
+
+
+hydra:
+  searchpath: 
+    - file://sources/skill/0.run
+
+# uv run python -m sources.skill.code.eval --multirun ++environment.env_tweak.tweak_types=[max_cycles,terminate_reward] ++env_tweak.terminate_reward=-10.0 ++env_tweak.max_cycles=1000 wandb.wandb_group=250708_test model.save_group=0710/0322 ++wandb.wandb_project=mw_harl_new
+
+#uv run python -m sources.skill.code.eval  ++environment.env_tweak.tweak_types=[max_cycles,terminate_reward,reward_factor] ++environment.env_tweak.max_cycles=1000 ++environment.env_tweak.terminate_reward=-10.0 ++environment.env_tweak.reward_factor=10 wandb.wandb_group=250708_test model.save_group=0710/1209 ++wandb.wandb_project=mw_harl_new

@@ -1,0 +1,39 @@
+program: sources.skill.code.train
+method: bayes
+project: mw_harl_exp_reward
+metric:
+  goal: maximize
+  name: eval_average_episode_rewards.max
+parameters:
+  algorithm_parameters.model.lr:
+    values: [0.001, 0.0001]
+  algorithm_parameters.algo.ppo_epoch:
+    values: [5, 10, 15]
+  algorithm_parameters.algo.actor_num_mini_batch:
+    values: [1, 2, 4]
+  algorithm_parameters.train.n_rollout_threads:
+    values: [20]
+  environment.env_tweak.reward_factor:
+    values: [0.5, 1.0]
+  environment.env_tweak.terminate_reward:
+    values: [-100.0, -10.0, -500.0]
+command:
+  - ${env}
+  - uv
+  - "run"
+  - "python"
+  - "-m"
+  - ${program}
+  - "wandb.wandb_group=250709_sweep2_1"
+  - "++wandb.wandb_project=mw_harl_sweep2_1"
+  - "model.save_group=latest"
+  - "algorithm=mappo"
+  - "scenario=move"
+  - "environment=pettingzoo_mw"
+  - "++environment.scenario=move"
+  - "++environment.env_tweak.max_cycles=1000"
+  - "algorithm_parameters.train.num_env_steps=40000000"
+  # - "++algorithm_parameters.train.model_dir='/root/proj/2507-multiwalker-harl/results/models/handpicked/move_base/pettingzoo_mw/multiwalker/mappo/[mappo]<mw_move><n_walkers=3><max_cycles=1000><terminate_reward=-10.0>/seed-slkjflkadsjdflkajld;k/models'"
+  - ${args_no_hyphens}
+
+# uv run python -m sources.skill.code.train --config-name=train  algorithm=mappo environment=pettingzoo_mw wandb.wandb_group=250708_test model.save_group=0708/1703 ++wandb.wandb_project=mw_harl_new

@@ -1,0 +1,32 @@
+defaults:
+  - default
+  - _self_
+
+group_name: case335
+
+eval_config:
+  save_path: reproduction/models
+  alg: mappo
+  alias: 'original' #'dis_new_q_weight_0.1_20t'
+  # alias: 'dis_new_q_weight_0.1_20t'
+  # alias: 'dis_new_q_weight_0.1_10t'
+  scenario: case33_3min_final
+  voltage_barrier_type: bowl
+  test_mode: batch
+  test_day: 180
+  eval_episodes: 1000
+
+disturbances:
+  - type: pv_stop
+    is_random: False
+    start_at: 10
+    end_at: 150
+    disturbance_args:
+      pv_id: [1,5]
+
+  # - type: load_change
+  #   is_random: True
+  #   random_probability: 0.002 # for 480 episodes length, 480 * 0.002 = 0.96, so on average 1 episode will have 1 disturbance
+  #   disturbance_args:
+  #     multiplier: 2
+# disturbances[0].disturbance_args.multiplier=3,4,5

@@ -1,0 +1,58 @@
+# MultiWalker-HARL Requirements
+# Python 3.11+ recommended
+
+# Core Deep Learning
+torch>=1.9.0
+tensorflow>=2.2.1
+
+# Configuration and CLI
+pyyaml>=5.3.1
+hydra-core>=1.3.2
+omegaconf>=2.3.0
+dacite>=1.9.2
+
+# Logging and Experiment Tracking
+tensorboard>=2.2.1
+tensorboardX
+wandb>=0.18.7
+swanlab>=0.6.3
+neptune>=1.14.0
+neptune-tensorboard>=1.0.3
+tensorflow-io-gcs-filesystem>=0.23.1
+
+# Multi-Agent RL Environments
+pettingzoo[mpe,sisl]==1.24.3
+supersuit>=3.9.3
+ray[rllib]>=2.7.0
+
+# Visualization
+matplotlib>=3.7.5
+seaborn>=0.13.2
+imageio>=2.35.1
+moviepy>=1.0.3
+rich>=13.9.4
+
+# System Utilities
+setproctitle
+python-dotenv>=1.0.1
+pyvirtualdisplay>=3.0
+
+# LLM Integration
+openai>=1.92.2
+prompt-template>=1.2.0
+dotenv>=0.9.0
+
+# Networking
+httpx[socks]>=0.28.1
+protobuf>=3.20
+
+# SUMO Traffic Simulation
+libsumo>=1.24.0
+
+# File Download
+gdown>=5.2.0
+
+# Hydra Launchers
+hydra-submitit-launcher>=1.2.0
+hydra-colorlog>=1.2.0
+hydra-joblib-launcher>=1.2.0

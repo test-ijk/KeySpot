@@ -1,0 +1,25 @@
+
+custom:
+  use_angle_reward: True
+  talk: False
+
+  disturbs:
+    # f
+    friction:
+      disturb_enabled: False
+      obs_enabled: False
+
+    # motor
+    motor:
+      disturb_enabled: False
+      obs_enabled: False
+
+    # package_mass
+    package_mass:
+      disturb_enabled: False
+      obs_enabled: False
+
+    # skill_move_speed
+    skill_move_speed:
+      disturb_enabled: False
+      obs_enabled: False

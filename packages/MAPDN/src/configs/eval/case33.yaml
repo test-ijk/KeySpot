@@ -1,0 +1,29 @@
+defaults:
+  - default
+  - _self_
+
+group_name: case33
+
+eval_config:
+  save_path: reproduction/models
+  alg: maddpg
+  alias: 'original'
+  scenario: case33_3min_final
+  voltage_barrier_type: bowl
+  test_mode: batch
+  test_day: 180
+  eval_episodes: 50
+
+disturbances:
+  - type: load_change
+    is_random: False
+    start_at: 10
+    end_at: 460
+    disturbance_args:
+      multiplier: 1
+  # - type: load_change
+  #   is_random: True
+  #   random_probability: 0.002 # for 480 episodes length, 480 * 0.002 = 0.96, so on average 1 episode will have 1 disturbance
+  #   disturbance_args:
+  #     multiplier: 2
+# disturbances[0].disturbance_args.multiplier=3,4,5

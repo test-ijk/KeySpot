@@ -1,0 +1,27 @@
+defaults:
+  - default
+  - _self_
+
+run_group: latest
+save_group: 0429/1308
+
+description: 重新训练新的扰动
+
+steps:
+  # - type: train
+  #   config_name: case33-pv
+  #   multirun: True
+  #   args:
+  #     - train_config.alg=mappo,maddpg
+  #     - train_config.alias=dis_pv_stop
+  - type: eval
+    config_name: case335 #-pv
+    multirun: True
+    args:
+      - eval_config.alg=maddpg
+      - eval_config.alias=original #,dis_pv_stop
+  # - type: bark
+  #   config_name: default
+  #   multirun: False
+  #   args:
+  #     - 新扰动!/训练完成

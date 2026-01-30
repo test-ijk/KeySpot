@@ -1,0 +1,27 @@
+defaults:
+  - default
+  - _self_
+
+run_group: latest
+save_group: 0425/1617
+
+description: 补充训练ippo和coma
+
+steps:
+  # - type: train
+  #   config_name: case33
+  #   multirun: True
+  #   args:
+  #     - train_config.alg=ippo,coma
+  #     - train_config.alias=original,dis_new_q_weight_0.1_10t
+  - type: eval
+    config_name: case335
+    multirun: True
+    args:
+      - eval_config.alg=mappo,maddpg
+      - eval_config.alias=original,dis_new_q_weight_0.1_10t
+  - type: bark
+    config_name: default
+    multirun: False
+    args:
+      - 测试

@@ -472,7 +472,7 @@ class VoltageControl(MultiAgentEnv):
                 agents_obs_.append(copy.deepcopy(obs_))
                 self.obs_history[i].append(copy.deepcopy(obs))
             agents_obs = agents_obs_
-            print(f"[DEBUG] agents_obs_TIME: {agents_obs}")  # 打印agents_obs
+            print(f"[DEBUG] agents_obs_TIME: {agents_obs}")  # agents_obs
         return agents_obs
 
     def get_obs_agent(self, agent_id):

@@ -3,7 +3,6 @@ from harl.envs.pettingzoo_mw.walker.disturbances.walker import DisturbanceWalker
 
 class DisturbanceWalkerMotorSpeedChange(DisturbanceWalkerBase):
     """
-    对双足机器人电机速度做扰动的类。
 
     disturbance_args: dict = {"speed_factor_hip": 4, "speed_factor_knee": 6}
     """

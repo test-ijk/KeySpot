@@ -1,5 +1,5 @@
 name: move
-desc: 变速场景
+desc: move
 
 env_tweak:
   # terrain_config: [{'type': 'flat', 'length': 35}, {'type': 'up', 'length': 6, 'angle': 13}, {'type': 'flat', 'length': 200}]

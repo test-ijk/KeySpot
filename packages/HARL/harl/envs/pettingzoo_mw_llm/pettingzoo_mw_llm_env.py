@@ -53,7 +53,7 @@ class PettingZooMWLLMEnv(PettingZooMWEnv, HarlEnvWithLLM):
             # import random
             # should_use_llm = random.random() < 0.2
             # if should_use_llm:
-            if "坡道检测：正在上坡" in original_prompt:
+            if "slope detection: slope" in original_prompt:
                 print(f"---------------Step {self.cur_step}-----------------")
                 # print(f"original_prompt: {original_prompt}")
                 self.llm_manager.execute_llm(obs, state[0])

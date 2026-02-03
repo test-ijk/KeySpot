@@ -5,7 +5,7 @@ defaults:
 run_group: latest
 save_group: 0428/1108
 
-description: 补充训练ippo和coma
+description: ippo and coma
 
 steps:
   # - type: train
@@ -24,4 +24,4 @@ steps:
     config_name: default
     multirun: False
     args:
-      - 训练完成
+      - completed

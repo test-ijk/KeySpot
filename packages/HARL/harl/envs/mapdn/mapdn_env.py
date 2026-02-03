@@ -20,32 +20,7 @@ logging.getLogger().setLevel(logging.ERROR)
 
 @dataclass
 class MapdnEnvConfig:
-    """
-    MapDN环境配置类
 
-    包含MapDN电压控制环境的所有配置参数。参数说明参考
-    sources/skill/1.config/global/environment_parameters/defaults/default_mapdn.yaml。
-
-    Args:
-        voltage_barrier_type (Literal): 电压约束类型，可选 "l1", "l2", "bowl", "courant_beltrami", "bump"
-        voltage_weight (float): 电压约束损失权重
-        q_weight (float): 无功功率损失权重
-        line_weight (Optional[float]): 线路损失权重
-        dq_dv_weight (Optional[float]): 电压变化损失权重
-        history (int): 状态历史步数
-        pv_scale (float): 光伏规模缩放因子
-        demand_scale (float): 负荷规模缩放因子
-        state_space (list[str]): 状态空间特征
-        v_upper (float): 电压上限
-        v_lower (float): 电压下限
-        data_path (str): 数据路径
-        episode_limit (int): 每回合步数上限
-        action_scale (Optional[float]): 动作缩放因子
-        action_bias (Optional[float]): 动作偏置
-        mode (Optional[str]): 控制模式（分布式/去中心化）
-        reset_action (bool): 是否重置动作
-        seed (int): 随机种子
-    """
 
     voltage_barrier_type: Literal["l1", "l2", "bowl", "courant_beltrami", "bump"]
     voltage_weight: float = 1.0
@@ -185,18 +160,14 @@ class MapdnWrapperEnv(EnvProtocol):
         self.real_env.render()
 
     def wrap(self, lam: list[T]) -> dict[TAgentId, T]:
-        """
-        将数组转换为字典，key为agent_id，value为数组中的元素
-        """
+
         d = {}
         for i, agent in enumerate(self.agents):
             d[agent] = lam[i]
         return d
 
     def unwrap(self, d: dict[TAgentId, T]) -> list[T]:
-        """
-        将字典转换为数组，数组中的元素为字典中的value
-        """
+
         _tmp = []
         for agent in self.agents:
             _tmp.append(d[agent])
@@ -243,7 +214,6 @@ class MapdnHARLEnv(
         self.n_agents = self.env.n_agents
         self.agents = [f"agent_{i}" for i in range(self.n_agents)]
 
-        # 如果是dict, unwrap
         self.observation_space = self.unwrap(self.env.observation_spaces())  # type: ignore
         self.action_space = self.unwrap(self.env.action_spaces())  # type: ignore
         self.share_observation_space = self.repeat(self.env.global_state_space())
@@ -296,7 +266,6 @@ class MapdnHARLEnv(
         # if self.cur_step >= 101 and self.cur_step <= 200:
         #     acts = [1] * self.n_agents
         obs, rew, term, trunc, info = self.env.step(acts)  # type: ignore
-        # 这里的析构是aec_to_parallel_wrapper负责的
 
         for agent in self.agents:
             info[agent]["curr_step"] = self.cur_step
@@ -320,7 +289,6 @@ class MapdnHARLEnv(
         )
 
     def reset(self):
-        """重置环境并返回初始观测和状态"""
         self._seed += 1
         self.cur_step = 0
         self.seed(self._seed)

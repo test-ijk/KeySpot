@@ -1,4 +1,4 @@
-## 添加一个新env
+## add a new env
 
 ```
 packages/HARL/harl/envs/__init__.py

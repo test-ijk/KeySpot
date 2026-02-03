@@ -5,8 +5,7 @@ defaults:
 run_group: latest
 save_group: 0429/1308
 
-description: 重新训练新的扰动
-
+description: new_disturbance
 steps:
   # - type: train
   #   config_name: case33-pv
@@ -23,5 +22,4 @@ steps:
   # - type: bark
   #   config_name: default
   #   multirun: False
-  #   args:
-  #     - 新扰动!/训练完成
+、

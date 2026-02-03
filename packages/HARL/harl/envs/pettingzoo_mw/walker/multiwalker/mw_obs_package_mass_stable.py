@@ -18,7 +18,7 @@ class BipedalWalker(BipedalWalker_base):
 
         new_state = (
             original_obs[:14]
-            + [self.env.package.mass]  # 添加包裹质量信息
+            + [self.env.package.mass]
             + original_obs[14:]
         )
 
@@ -28,7 +28,7 @@ class BipedalWalker(BipedalWalker_base):
     def observation_space(self):
         # 24 original obs (joints, etc), 2 displacement obs for each neighboring walker, 3 for package
         original_obs_space = 24 + 4 + 3
-        new_obs_space = original_obs_space + 1  # 添加包裹质量信息
+        new_obs_space = original_obs_space + 1 
         return spaces.Box(
             low=np.float32(-np.inf),
             high=np.float32(np.inf),

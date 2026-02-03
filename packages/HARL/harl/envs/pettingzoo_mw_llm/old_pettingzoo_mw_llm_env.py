@@ -22,11 +22,8 @@ logging.basicConfig()
 logging.getLogger().setLevel(logging.DEBUG)
 
 
-# 加载环境变量
 load_dotenv()
 
-
-# 配置OpenAI客户端（同步）
 client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY"),
     base_url=os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1"),
@@ -34,7 +31,6 @@ client = OpenAI(
 
 
 def get_model_response(model, prompt_content):
-    """获取单个模型的响应（同步阻塞版）"""
     try:
         response = client.chat.completions.create(
             model=model,
@@ -84,8 +80,7 @@ class PettingZooMWLLMEnv:
 
         self.cur_step += 1
 
-        if self.cur_step % 50 == 0:  # 每50步调一次llm
-            # 每100步调用一轮llm
+        if self.cur_step % 50 == 0:  
             llm_obses = [obs_unwrapped[agent_id] for agent_id in range(self.n_agents)]
             lidar_obs = self.get_thru_lidar_obs()
             llm_lidar_obses = [lidar_obs[agent_id] for agent_id in range(self.n_agents)]
@@ -108,7 +103,6 @@ class PettingZooMWLLMEnv:
                 self.multiwalker_env.set_t_v_agent(agent_id, target_vs[agent_id])
                 print(f"Changed actor {agent_id}  target_v to {target_vs[agent_id]}")
 
-        # 生成相关info
         for agent in self.agents:
             assert self.multiwalker_env.package is not None
             assert self.multiwalker_env.walkers is not None
@@ -126,13 +120,11 @@ class PettingZooMWLLMEnv:
                 * (VIEWPORT_W / SCALE)
                 / FPS
             )
-        # 判断是否达到max_cycles
         if self.cur_step == self.max_cycles:
             trunc = {agent: True for agent in self.agents}
             for agent in self.agents:
                 info[agent]["bad_transition"] = True
 
-        # 提取其他值
         dones = {agent: term[agent] or trunc[agent] for agent in self.agents}
         s_obs = self.repeat(self.env.state())  # type: ignore
         total_reward = sum([rew[agent] for agent in self.agents])

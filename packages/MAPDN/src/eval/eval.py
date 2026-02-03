@@ -19,12 +19,11 @@ from datetime import datetime
     config_path="../configs/eval", config_name="case335.yaml", version_base=None
 )
 def run(configs: EvalHydraEntryConfig):
-    # 1. 检查配置是否合法
+
     OmegaConf.structured(EvalConfig(**configs.eval_config))
     # for disturbance in configs.disturbances:
     # OmegaConf.structured(DisturbanceConfig(**disturbance))
 
-    # 2. 读取参数
     rich.print(OmegaConf.to_container(configs, resolve=True))
     config_name = HydraConfig.get().job.config_name
     argv = configs.eval_config
@@ -64,7 +63,6 @@ def run(configs: EvalHydraEntryConfig):
     )
     wandb.define_metric("terminate_cnt", summary="min")
 
-    # 3. ENV的参数
     def _read_env_args():
         with open(f"{global_prefix}/args/env_args/{argv.env}.yaml", "r") as f:
             env_config_dict = yaml.safe_load(f)["env_args"]
@@ -104,13 +102,11 @@ def run(configs: EvalHydraEntryConfig):
 
     env_config_dict = _read_env_args()
 
-    # 5. 实例化ENV
     if not configs.disturbances:
         configs.disturbances = []
 
     env = VoltageControl(env_config_dict, configs.disturbances)
 
-    # 4. 算法的参数
     def _read_general_args():
         with open(global_prefix + "/args/default.yaml", "r") as f:
             default_config_dict = yaml.safe_load(f)
@@ -145,7 +141,6 @@ def run(configs: EvalHydraEntryConfig):
     else:
         behaviour_net = model(args)
 
-    # 6. 读取模型checkpoint
     if argv.save_path[-1] == "/":
         save_path = argv.save_path
     else:

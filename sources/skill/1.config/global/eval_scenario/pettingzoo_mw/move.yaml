@@ -1,5 +1,5 @@
 name: move
-desc: 变速场景
+desc: move
 
 # llmasc
 env_tweak:

@@ -8,30 +8,13 @@ save_group: 0511_more_alg_seed
 description: pv_obs
 
 steps:
-  # # 1. 更长的训练有效果么
   - type: train
     config_name: 250507_pv_obs
     multirun: True
     args:
       - train_config.alg=ippo,mappo
       - train_config.alias=pv_obs
-      # - alg_override.max_steps=480 
-  # # 2. mappo改batchsize有效果么
-  # - type: train
-  #   config_name: 250507_pv_obs
-  #   multirun: True
-  #   args:
-  #     - train_config.alg=mappo #,matd3
-  #     - train_config.alias=pv_obs
-  #     - alg_override.max_steps=480 
-  # - type: train
-  #   config_name: case33
-  #   multirun: True
-  #   args:
-  #     - train_config.alg=mappo #,matd3
-  #     - train_config.alias=original
-  
-  # 3. 测试
+
   - type: eval
     config_name: 0506_pv_obs
     multirun: True

@@ -159,7 +159,7 @@ class raw_env(AECEnv, EzPickle):
             "end_at": 0,
             "disturbance_args": {},
         }
-        self.np_random = None  # 添加随机数生成器实例
+        self.np_random = None  
 
     def get_raw_env(self) -> _env_stable:
         return self.env

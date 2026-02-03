@@ -3,8 +3,6 @@ from harl.envs.pettingzoo_mw.walker.disturbances.package import DisturbancePacka
 
 class DisturbancePackageWeightChange(DisturbancePackageBase):
     """
-    对包裹质量做扰动的类。
-
     disturbance_args: dict = {"mass": 4.57}
     """
 

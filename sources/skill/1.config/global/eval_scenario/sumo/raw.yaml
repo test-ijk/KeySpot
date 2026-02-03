@@ -3,7 +3,7 @@
 #   num_seconds: 3600
 
 name: lane_closed
-desc: 车道封闭
+desc: lane_closed
 events:
   - event_id: lane_closed
     lasting: True

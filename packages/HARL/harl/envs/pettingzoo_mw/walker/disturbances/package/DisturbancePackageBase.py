@@ -3,9 +3,6 @@ from harl.envs.pettingzoo_mw.walker.disturbances import DisturbanceBase, MultiWa
 
 class DisturbancePackageBase(DisturbanceBase):
     """
-    对包裹做扰动的基类。
-
-    提供colorize和un_colorize方法，在被扰动时，包裹会变色。
     """
 
     def __init__(self, env: MultiWalkerEnv, disturbance_args: dict):

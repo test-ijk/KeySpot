@@ -125,7 +125,7 @@ class MultiWalkerEnv(MultiWalkerEnv_base):
         rewards, done, obs = super().scroll_subroutine()
 
         def _calc_bowl(ref_point: float, cur_point: float) -> float:
-            sigma = 0.093  # 让差0.2时reward约为0.1
+            sigma = 0.093  
             return exp(-((ref_point - cur_point) ** 2) / (2 * sigma**2))
 
         for i in range(self.n_walkers):
@@ -144,7 +144,7 @@ class MultiWalkerEnv(MultiWalkerEnv_base):
             # pos = self.walkers[i].hull.position[1]
             # reward_h_deviation_penalty = -self.reward_factor * abs(
             #     self.target_h - pos
-            # )  # 最大是能差1
+            # ) 
             # rewards[i] += reward_h_deviation_penalty
 
         return rewards, done, obs

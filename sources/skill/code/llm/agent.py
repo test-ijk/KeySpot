@@ -5,7 +5,7 @@ import numpy as np
 from .advanced_slope_detection import advanced_slope_detection, process_lidar_frame
 from typing import Optional
 import json
-# 支持命令行参数传入观测数据目录
+
 # if len(sys.argv) > 1:
 #     OBS_DIR = sys.argv[1]
 # else:
@@ -13,34 +13,33 @@ import json
 #     OBS_DIR = os.path.dirname(OBS_PATH)
 # AGENT_FILES = [f for f in os.listdir(OBS_DIR) if f.endswith("_observations.csv")]
 
-# 环境与任务简介
+
 ENV_DESC = """"""
-# 计算agent在队伍中的相对位置
-# offset_x越大越靠右，越小越靠左
+
 
 
 def get_agent_position(offset_x_list, idx):
     sorted_idx = np.argsort(offset_x_list)
     if idx == sorted_idx[0]:
-        return "最左（可能掉队）"
+        return "left"
     elif idx == sorted_idx[-1]:
-        return "最右（可能拥挤）"
+        return "right"
     else:
-        return "中间"
+        return "middle"
 
 
 def semantic_observation(row, slope_info=None):
 
     lines = []
-    # 头部角度
+
     angle = row["hull_angle"]
     lines.append(
-        f"头部角度: {angle:.2f} 弧度（0为水平，π/2为竖直，单位: 弧度，世界坐标系）"
+        f"head angle: {angle:.2f} radians (0 is horizontal, π/2 is vertical, unit: radians, world coordinate system)"
     )
-    # x偏移
+
     px = row["package_x_offset"]
     lines.append(
-        f"相对包裹X偏移: {px:.2f}（0为最左，1为最右，单位: 归一化，包裹参考系）"
+        f"relative package x offset: {px:.2f} (0 is left, 1 is right, unit: normalized, package coordinate system)"
     )
     # LIDAR
     lidar_vals = [float(row[f"lidar_{j}"]) for j in range(10)]
@@ -49,99 +48,88 @@ def semantic_observation(row, slope_info=None):
     lidar_max = np.max(lidar_vals)
     lidar_range = lidar_max - lidar_min
     lines.append(
-        f"LIDAR距离: 平均{lidar_avg:.2f}米，最小{lidar_min:.2f}米，最大{lidar_max:.2f}米，范围{lidar_range:.2f}米"
+        f"LIDAR distance: average{lidar_avg:.2f}m, minimum{lidar_min:.2f}m, maximum{lidar_max:.2f}m, range{lidar_range:.2f}m"
     )
-    # 统计坡道信息
     if slope_info:
         lines.append(
-            f"坡道检测统计: delta_y均值{(slope_info.get('avg_delta_y') or 0):.4f}，最大{(slope_info.get('max_delta_y') or 0):.4f}，最小{(slope_info.get('min_delta_y') or 0):.4f}，范围{(slope_info.get('height_range') or 0):.4f}，上坡通道数{(slope_info.get('total_uphill_channels') or 0)}"
+            f"slope detection statistics: average delta_y{(slope_info.get('avg_delta_y') or 0):.4f}, maximum{(slope_info.get('max_delta_y') or 0):.4f}, minimum{(slope_info.get('min_delta_y') or 0):.4f}, range{(slope_info.get('height_range') or 0):.4f}, uphill channels{(slope_info.get('total_uphill_channels') or 0)}"
         )
         lines.append(
-            f"近距离LIDAR通道（<0.2米）: {slope_info.get('near_channels', [])}"
+            f"near LIDAR channels (<0.2m): {slope_info.get('near_channels', [])}"
         )
-        lines.append(f"远距离LIDAR通道（>0.8米）: {slope_info.get('far_channels', [])}")
+        lines.append(f"far LIDAR channels (>0.8m): {slope_info.get('far_channels', [])}")
     return "\n".join(lines)
 
 
 def initial_judgement(row, prev_row=None):
-    # 头部角度突变
     angle = row["hull_angle"]
     angle_warn = ""
     if prev_row is not None:
         delta_angle = abs(angle - prev_row["hull_angle"])
         if delta_angle > 0.1:
-            angle_warn = f"\n- 头部角度突变{delta_angle:.2f}，需注意。"
-    # 头部角度绝对值
+            angle_warn = f"\n- head angle changed{delta_angle:.2f}, need attention."
     if abs(angle) > 0.3:
-        angle_warn += f"\n- 头部倾斜过大({angle:.2f})，注意平衡。"
-    # x偏移突变
+        angle_warn += f"\n- head angle too large({angle:.2f}), need attention."
     px = row["package_x_offset"]
     px_warn = ""
     if prev_row is not None:
         delta_px = abs(px - prev_row["package_x_offset"])
         if delta_px > 0.05:
-            px_warn = f"\n- x偏移突变{delta_px:.2f}，需注意。"
-    # package_x_offset 只判断是否离开包裹
+            px_warn = f"\n- x offset changed{delta_px:.2f}, need attention."
     if px > 0.5 or px < -0.5:
-        px_warn += f"\n- 已离开包裹({px:.2f})，有脱离风险。"
-    # 掉队/拥挤风险判断
+        px_warn += f"\n- left package({px:.2f}), has。"
     left_offset = row.get("left_neighbor_x_offset", 0)
     right_offset = row.get("right_neighbor_x_offset", 0)
     neighbor_warn = ""
-    # 掉队风险（左侧距离大，且不是最左边）
     if left_offset == 0:
         neighbor_warn += " "
     elif abs(left_offset) < 0.25:
-        neighbor_warn += f"\n- 左侧与邻居距离小({left_offset:.2f})，有拥挤风险。"
-    # 拥挤风险（右侧距离大，且不是最右边）
+        neighbor_warn += f"\n- left neighbor distance small({left_offset:.2f}), has crowd risk."
     if right_offset == 0:
         neighbor_warn += " "
     elif abs(right_offset) > 0.45:
-        neighbor_warn += f"\n- 右侧与邻居距离大({right_offset:.2f})，有掉队风险。"
+        neighbor_warn += f"\n- right neighbor distance large({right_offset:.2f}), has drop risk."
     return " ".join([angle_warn, px_warn, neighbor_warn]).strip()
 
 
 def combine_judgement(lidar_vals, slope_info):
     lidar_min = min(lidar_vals)
-    # 优先障碍判断
-    if lidar_min < 0.2 and slope_info["status"] == "平地":
-        return f"前方有障碍但未检测到坡，LIDAR最小值{lidar_min:.2f}米"
-    if slope_info["status"] == "平地" and slope_info.get("info", ""):
-        return f"坡道检测：平地，{slope_info['info']}"
-    if slope_info["status"] == "平地":
-        return "坡道检测：平地"
-    # 增加统计量输出
-    stat = f"(delta_y均值{(slope_info.get('avg_delta_y') or 0):.4f}，最大{(slope_info.get('max_delta_y') or 0):.4f}，最小{(slope_info.get('min_delta_y') or 0):.4f})"
-    return f"坡道检测：{slope_info['status']}，{slope_info['info']} {stat}"
+    if lidar_min < 0.2 and slope_info["status"] == "flat":
+        return f"there is an obstacle but no slope detected, LIDAR minimum value{lidar_min:.2f}m"
+    if slope_info["status"] == "flat" and slope_info.get("info", ""):
+        return f"slope detection: flat, {slope_info['info']}"
+    if slope_info["status"] == "flat":
+        return "slope detection: flat"
+    stat = f"(average delta_y{(slope_info.get('avg_delta_y') or 0):.4f}, maximum{(slope_info.get('max_delta_y') or 0):.4f}, minimum{(slope_info.get('min_delta_y') or 0):.4f})"
+    return f"slope detection: {slope_info['status']}, {slope_info['info']} {stat}"
 
 
 def output_prompt(step, agent_rows, prev_agent_rows):
     prompt = [ENV_DESC, f"Step {step}："]
     for agent_id, row in agent_rows.items():
-        # 取最近一次坡道检测统计
         slope_info = row.get("slope_info", None)
         prompt.append(f"\n【Agent {agent_id}】")
-        prompt.append("观察语义化：" + semantic_observation(row, slope_info))
+        prompt.append("semantic observation:" + semantic_observation(row, slope_info))
         prompt.append(
-            "初步判断：" + initial_judgement(row, prev_agent_rows.get(agent_id))
+            "initial judgement:" + initial_judgement(row, prev_agent_rows.get(agent_id))
         )
         prompt.append(
-            "组合判断："
+            "combined judgement:"
             + combine_judgement(
                 [float(row[f"lidar_{j}"]) for j in range(10)], slope_info or {}
             )
         )
-        prompt.append("当前输出说明：本帧为每30帧采样一次的观测结果。\n")
+        prompt.append("current output:this frame is the observation result of every 30 frames.\n")
     return "\n".join(prompt)
 
 
 def generate_prompt_from_obs_dir(obs_dir: str) -> str:
     """
-    读取指定目录下所有agent的观测csv，生成多步prompt文本。
+    read all agent observation csv files in the specified directory, generate multi-step prompt text.
     Args:
-        obs_dir (str): 观测csv文件所在目录
+        obs_dir (str): observation csv file
     Returns:
-        str: 多步prompt文本（每步之间用\n分隔）
+        str: multi-step prompt text (each step is separated by \n)
     """
     agent_files = [f for f in os.listdir(obs_dir) if f.endswith("_observations.csv")]
     agent_dfs = [pd.read_csv(os.path.join(obs_dir, f)) for f in agent_files]
@@ -177,9 +165,7 @@ def generate_prompt_from_obs_dir(obs_dir: str) -> str:
 
 
 def generate_markdown_per_agent(obs_dir: str) -> None:
-    """
-    读取指定目录下所有agent的观测csv，每20步为每个agent单独生成markdown文件，存储到obs_dir/result/agent_{id}_step_{step}.md。
-    """
+
     import os
 
     agent_files = [f for f in os.listdir(obs_dir) if f.endswith("_observations.csv")]
@@ -208,15 +194,14 @@ def generate_markdown_per_agent(obs_dir: str) -> None:
                 )
                 row["slope_info"] = slope_info
                 prev_row = df.iloc[step - 1] if step > 0 else None
-                # 生成markdown内容
                 md_lines = [
                     f"# Multiwalker Agent {agent_name} Step {step}",
-                    "\n## 环境与任务简介",
+                    "\n## Environment and task description",
                     ENV_DESC,
-                    f"\n## 观察语义化\n{semantic_observation(row, slope_info)}",
-                    f"\n## 初步判断\n{initial_judgement(row, prev_row)}",
-                    f"\n## 组合判断\n{combine_judgement([float(row[f'lidar_{j}']) for j in range(10)], slope_info or {})}",
-                    "\n> 当前输出说明：本帧为每30帧采样一次的观测结果。\n",
+                    f"\n## semantic observation\n{semantic_observation(row, slope_info)}",
+                    f"\n## initial judgement\n{initial_judgement(row, prev_row)}",
+                    f"\n## combined judgement\n{combine_judgement([float(row[f'lidar_{j}']) for j in range(10)], slope_info or {})}",
+                    "\n> current output:this frame is the observation result of every 30 frames.\n",
                 ]
                 md_content = "\n".join(md_lines)
                 md_path = os.path.join(result_dir, f"agent_{agent_name}_step_{step}.md")
@@ -229,15 +214,7 @@ def generate_prompt(
     lidar_obses: Optional["list[np.ndarray]"] = None,
     ref_v: Optional["list[float]"] = None,
 ) -> str:
-    """
-    接收每个agent一帧的观测（顺序与csv一致），返回prompt字符串。
-    Args:
-        obses (list[np.ndarray]): 每个agent的观测，顺序与csv一致。
-        lidar_obses (list[np.ndarray], optional): 每个agent的lidar观测，如果提供则替换obses中的lidar读数。
-    Returns:
-        str: prompt字符串
-    """
-    # csv表头顺序
+
     header = [
         "hull_angle",
         "hull_angular_velocity",
@@ -274,15 +251,14 @@ def generate_prompt(
         "package_angle",
     ]
     agent_rows = {}
-    prev_agent_rows = {}  # 这里没有历史帧，先不支持
+    prev_agent_rows = {}
     for agent_id, obs in enumerate(obses):
-        obs = np.asarray(obs).reshape(-1)  # 保证是一维
+        obs = np.asarray(obs).reshape(-1)  
         row = {k: float(obs[i]) for i, k in enumerate(header)}
 
-        # 如果提供了lidar_obses，则替换lidar读数
         if lidar_obses is not None and agent_id < len(lidar_obses):
             lidar_obs = np.asarray(lidar_obses[agent_id]).reshape(-1)
-            # 替换lidar_0到lidar_9的值
+
             for j in range(10):
                 if j < len(lidar_obs):
                     row[f"lidar_{j}"] = float(lidar_obs[j])
@@ -292,24 +268,24 @@ def generate_prompt(
         slope_info = advanced_slope_detection(lidar_vals, frame_history=None)
         row["slope_info"] = slope_info
         agent_rows[agent_id] = row
-        # prev_agent_rows[agent_id] = None  # 没有历史
+        # prev_agent_rows[agent_id] = None 
     prompt = [
         ENV_DESC,
     ]
     for agent_id, row in agent_rows.items():
         slope_info = row.get("slope_info", None)
         prompt.append(f"\n【Agent {agent_id}】")
-        prompt.append("观察语义化：" + semantic_observation(row, slope_info))
-        prompt.append("初步判断：" + initial_judgement(row, None))
+        prompt.append("semantic observation:" + semantic_observation(row, slope_info))
+        prompt.append("initial judgement:" + initial_judgement(row, None))
         prompt.append(
-            "组合判断："
+            "combined judgement:"
             + combine_judgement(
                 [float(row[f"lidar_{j}"]) for j in range(10)], slope_info or {}
             )
         )
-        prompt.append("当前输出说明：本帧为每30帧采样一次的观测结果。\n")
+        prompt.append("current output:this frame is the observation result of every 30 frames.\n")
     if ref_v is not None:
-        prompt.append(f"当前的目标速度：{json.dumps(ref_v)}")
+        prompt.append(f"target speed:{json.dumps(ref_v)}")
     return "\n".join(prompt)
 
 
@@ -318,7 +294,7 @@ def main():
         obs_dir = sys.argv[1]
         if len(sys.argv) > 2 and sys.argv[2] == "--markdown":
             generate_markdown_per_agent(obs_dir)
-            print(f"已生成markdown到{os.path.join(obs_dir, 'result')}")
+            print(f"markdown generated to {os.path.join(obs_dir, 'result')}")
             return
     else:
         obs_path = os.path.join(os.path.dirname(__file__), "agent_0_observations.csv")

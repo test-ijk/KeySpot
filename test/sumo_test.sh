@@ -9,13 +9,11 @@ TARGETS=(
 )
 
 for t in "${TARGETS[@]}"; do
-  # 跳过空元素
   [[ -z "${t// }" ]] && continue
   
   echo "===== Running target ${t} ====="
   echo "current target: ${t}"
   
-  # 直接调用 eval.py，不再通过 run.sh
   CMD=(
     uv run python -m sources.skill.code.eval
     --config-name=sumo

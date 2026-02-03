@@ -5,22 +5,7 @@ import omegaconf
 
 @dataclass
 class MultiWalkerConfig:
-    """
-    MultiWalker 环境参数配置：
-    n_walkers:           环境中双足行走体（walker）智能体的数量。
-    position_noise:       施加在邻居和包裹位置观测上的噪声。
-    angle_noise:          施加在邻居和包裹角度观测上的噪声。
-    forward_reward:       每步奖励系数，奖励等于 forward_reward * 包裹位置变化。
-    terminate_reward:     当所有walker未能将包裹送到终点时，每个walker获得的奖励。
-    fall_reward:          walker跌倒时获得的惩罚。
-    shared_reward:        是否将奖励在所有智能体间平均分配。
-    terminate_on_fall:    若为True，任一walker跌倒则所有智能体都结束并获得terminate_reward。
-    remove_on_fall:       walker跌倒时是否将其移除（仅在terminate_on_fall为False时有效）。
-    terrain_length:       地形长度（步数）。
-    max_cycles:           最大步数，超过后所有智能体都结束。
-    scenario:             场景类型。
-    custom:               其他自定义参数（dict或None）。
-    """
+
 
     n_walkers: int = 3
     position_noise: float = 1e-3
@@ -40,22 +25,7 @@ class MultiWalkerConfig:
 
 @dataclass
 class MultiWalkerTweakConfig:
-    """
-    MultiWalker 环境参数配置：
-    n_walkers:           环境中双足行走体（walker）智能体的数量。
-    position_noise:       施加在邻居和包裹位置观测上的噪声。
-    angle_noise:          施加在邻居和包裹角度观测上的噪声。
-    forward_reward:       每步奖励系数，奖励等于 forward_reward * 包裹位置变化。
-    terminate_reward:     当所有walker未能将包裹送到终点时，每个walker获得的奖励。
-    fall_reward:          walker跌倒时获得的惩罚。
-    shared_reward:        是否将奖励在所有智能体间平均分配。
-    terminate_on_fall:    若为True，任一walker跌倒则所有智能体都结束并获得terminate_reward。
-    remove_on_fall:       walker跌倒时是否将其移除（仅在terminate_on_fall为False时有效）。
-    terrain_length:       地形长度（步数）。
-    max_cycles:           最大步数，超过后所有智能体都结束。
-    scenario:             场景类型。
-    custom:               其他自定义参数（dict或None）。
-    """
+
 
     tweak_types: List[str] = field(default_factory=list)
 
@@ -108,7 +78,7 @@ def multiwalker_customize_dict(cfg, algo_dict: dict, env_dict: dict):
     from ..task.train_type import TrainConfig
 
     cfg = cast(TrainConfig, cfg)
-    # disturbances的引入
+    # disturbances
     env_dict["custom"]["eval_disturb"] = _to_dict(cfg.eval_scenario).get(
         "disturbances", []
     )

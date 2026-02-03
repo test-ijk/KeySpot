@@ -76,7 +76,6 @@ def batch_disturbance_test():
                             os.makedirs(agent_mag_dir, exist_ok=True)
                             
                             def save_all_episode_angles(angle_data_grouped, terminate_arr, save_path, disturbance_config):
-                                """保存所有episodes的完整角度数据（按顺序）"""
                                 all_episodes = []
                                 
                                 for idx, (angles, term_step) in enumerate(zip(angle_data_grouped, terminate_arr)):

@@ -1,5 +1,5 @@
 name: mapdn_load_change
-desc: 负荷变化
+desc: mapdn_load_change
 events:
   - event_id: load_change
     should_trigger_by_given_timestep: true

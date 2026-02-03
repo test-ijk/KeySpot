@@ -82,10 +82,7 @@ class PGTester(object):
         return record
 
     def _single_episode(self, seed=None):
-        """
-        单独运行一集，返回info和终止步数。
-        """
-        # 可选：设置随机种子，保证每个进程独立
+   
         if seed is not None:
             np.random.seed(seed)
             import random
@@ -130,9 +127,7 @@ class PGTester(object):
         return infos, t_terminate
 
     def batch_run(self, num_epsiodes=100, gpus=[0, 1]):
-        """
-        使用joblib并行运行多个episode，统计所有episode的均值。
-        """
+
         from joblib import Parallel, delayed
         import time
 
@@ -140,14 +135,12 @@ class PGTester(object):
 
         def run_one(seed):
             env = copy.deepcopy(self.env)
-            # 使用对应GPU上的模型
-
+   
             args = copy.deepcopy(self.args)
             tester = PGTester(args, self.behaviour_net, env, self.render)
 
             result = tester._single_episode(seed)
 
-            # 只释放环境和测试器
             del env
             del tester
 
@@ -159,7 +152,6 @@ class PGTester(object):
         )
 
         elapsed = time.time() - start_time
-        # 聚合统计
         test_results = {}
         terminate_cnt = 0
         terminate_steps = []
@@ -188,10 +180,9 @@ class PGTester(object):
                 test_results[k] = np.mean(v)
         rich.print(test_results)
         wandb.log(test_results)
-        # 速度诊断
         avg_time = elapsed / num_epsiodes if num_epsiodes > 0 else 0
         print(
-            f"[速度诊断] 总用时: {elapsed:.2f} 秒, 单个episode平均用时: {avg_time:.2f} 秒"
+            f"total time: {elapsed:.2f} seconds, average time per episode: {avg_time:.2f} seconds"
         )
         return test_results
 

@@ -4,7 +4,6 @@
 
 class PVStop:
     """
-    指定一个或多个PV宕机
 
     disturbance_args: dict = {"pv_id": [1, 2]}
     """
@@ -16,7 +15,7 @@ class PVStop:
         self.disturbance_args = disturbance_args
 
     def start(self):
-        self.env = self.env  # 激活python类型推断
+        self.env = self.env 
 
         # update the record in the pandapower
         # self.env.powergrid.sgen["p_mw"] = self.env.powergrid.sgen["p_mw"] * self.disturbance_args["multiplier"]

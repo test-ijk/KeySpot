@@ -77,16 +77,14 @@ def _to_harl_dict(
 
 
 def export_gif(config_name, frames_arr, rewards_arr):
-    # 文件夹
 
     rich.print(f"Exporting gif for {config_name}")
     
-    # 尝试获取Hydra输出目录，如果失败则使用默认目录
     try:
         base_dir = hydra.core.hydra_config.HydraConfig.get().runtime.output_dir
         gif_dir = os.path.join(base_dir, "./videos/")
     except ValueError:
-        # HydraConfig未设置（使用hydra.compose时），使用默认目录
+
         gif_dir = "./results/renders/"
     
     gif_folder = os.path.join(gif_dir, f"{config_name}")
@@ -94,7 +92,7 @@ def export_gif(config_name, frames_arr, rewards_arr):
 
     # rich.print(frames_arr)
     for i, frames in enumerate(frames_arr):
-        # 1. gif生成
+
         rewards = rewards_arr[i]
         gif_path = os.path.join(
             gif_folder,
@@ -106,7 +104,7 @@ def export_gif(config_name, frames_arr, rewards_arr):
             fps=10,
         )
 
-        # 3. 视频生成
+
         clip = VideoFileClip(gif_path)
         clip.write_videofile(
             os.path.join(
@@ -117,7 +115,6 @@ def export_gif(config_name, frames_arr, rewards_arr):
             logger=None,
         )
 
-        # 删除前面的gif
         os.remove(gif_path)
 
 
@@ -126,7 +123,6 @@ def eval(
 ):
     rich.print(f"Evaluation started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
-    # 0. 处理参数
     (
         algo_dict,
         env_dict,
@@ -143,7 +139,6 @@ def eval(
         this_env == Env.PETTINGZOO_MW or this_env == Env.PETTINGZOO_MW_LLM
     )
 
-    # 1. 加载模型
     env_folder = ""
     if this_env == Env.PETTINGZOO_MW:
         env_folder = "multiwalker"
@@ -158,7 +153,6 @@ def eval(
     model_path = f"./results/models/{save_group}/{env_name}/{env_folder}/{algorithm_name}/[{algorithm_name}]<{scenario_name}>"
     rich.print(f"Loading model from {model_path}")
 
-    # 2. 通用的env_tweak方法
     name_suffix = ""
     rich.print(config.environment.env_tweak.tweak_types)
     tweak_types = config.environment.env_tweak.tweak_types
@@ -177,9 +171,8 @@ def eval(
     checkpoint_path = os.path.join(model_path, seed_folder, "models")
     rich.print(f"Loading model from {checkpoint_path}")
 
-    # 2. 修改参数为eval可用的
     def _modify_algo_and_env_dict():
-        algo_dict["train"]["model_dir"] = checkpoint_path  # 模型位置
+        algo_dict["train"]["model_dir"] = checkpoint_path 
 
         # eval thread
         algo_dict["eval"]["n_eval_rollout_threads"] = (
@@ -196,13 +189,11 @@ def eval(
         # logger
         algo_dict["logger"]["log_dir"] = f"./results/logs/{save_group}"
 
-        # FIXME: 为什么需要这个？
         if (this_env_is_mw_series) and algo_dict["train"].get(
             "num_env_steps"
         ) is not None:
-            algo_dict["train"]["num_env_steps"] = 1  # FIXME: ???
+            algo_dict["train"]["num_env_steps"] = 1 
 
-        # disturbances的引入
         if this_env_is_mw_series:
             env_dict["custom"]["is_eval"] = True
             env_dict["custom"]["eval_disturb"] = _to_dict(config.eval_scenario).get(
@@ -214,16 +205,13 @@ def eval(
     # rich.pretty.pprint(algo_dict, expand_all=True)
     # rich.pretty.pprint(env_dict, expand_all=True)
 
-    # 3. 初始化runner
-    print("初始化runner")
     runner = RUNNER_REGISTRY[algorithm_name](basic_info, algo_dict, env_dict)
     print("there!!!!!!!!!!!!!!!!!!!!!!!")
 
-    # 修改：
+
     try:
         print("\n--- Listing Environment Object Attributes ---")
     
-        # 打印 runner.envs 对象的所有属性和方法
         env_attributes = dir(runner.envs)
         rich.print(env_attributes)
 
@@ -235,7 +223,6 @@ def eval(
     
     # sys.stdout.flush()
     # sys.exit()
-    # 修改结束
 
     @atexit.register
     def _cleanup():
@@ -244,8 +231,8 @@ def eval(
 
     is_online_policy = hasattr(runner, "logger")
     start_time = time.time()
-    # 4. render？还是eval？
-    print("参数拿到了")
+
+
     if config.eval_settings.functions.render:
 
         def _render():
@@ -271,7 +258,7 @@ def eval(
                 )
             if not is_online_policy:
                 return
-            # 保存episode_obses_arr到JSON文件
+
             if (
                 episode_obses_arr is not None
                 and config.eval_settings.functions.export_angle_data
@@ -284,7 +271,7 @@ def eval(
 
                 json_path = os.path.join(json_dir, f"{config_name}_episode_obses.json")
 
-                # # 将numpy数组转换为列表以便JSON序列化
+
                 episode_obses_serializable = []
                 for episode in episode_obses_arr:
                     episode_serializable = []
@@ -297,7 +284,7 @@ def eval(
                 with open(json_path, "w", encoding="utf-8") as f:
                     json.dump(episode_obses_serializable, f, ensure_ascii=False)
 
-                # 和上面一样，也存一份lidar_obs_arr
+
                 json_path = os.path.join(json_dir, f"{config_name}_lidar_obs.json")
                 with open(json_path, "w", encoding="utf-8") as f:
                     json.dump(lidar_obs_arr, f, ensure_ascii=False)
@@ -311,7 +298,7 @@ def eval(
         end_time = time.time()
         print(f"Render time: {end_time - start_time} seconds")
     else:
-        # 根据是否是off-policy，选择不同的eval方式
+
         angle_arr = []
         package_contact_arr = []
         if is_online_policy:
@@ -319,7 +306,7 @@ def eval(
             runner = cast(OnPolicyMARunner, runner)
             logger: PettingZooMWLogger = runner.logger
             logger.is_testing = (
-                True  # 标识目前在eval；但是eval这个词被它用了，只能用test了。
+                True 
             )
             runner.eval()
             assert runner.eval_envs is not None
@@ -328,46 +315,39 @@ def eval(
             if this_env_is_mw_series:
                 angle_arr = logger.test_data.get("angle_data", [])
                 
-                # 将线程级别数据转换为episode级别数据
+
                 def convert_thread_data_to_episodes(thread_angle_data, terminate_arr, n_threads):
                     """
-                    将线程级别的角度数据转换为episode级别
-                    
                     Args:
-                        thread_angle_data: list of list, thread_angle_data[tid] = 该线程的所有角度
-                        terminate_arr: list, terminate_arr[i] = Episode i 的终止步数
-                        n_threads: int, 并行线程数
+                        thread_angle_data: list of list, thread_angle_data[tid]
+                        terminate_arr: list, terminate_arr[i] 
+                        n_threads: int, 
                     
                     Returns:
-                        episode_angles: list of list, episode_angles[i] = Episode i 的角度数据
+                        episode_angles: list of list, episode_angles[i] 
                     """
                     total_episodes = len(terminate_arr)
                     episode_angles = []
                     
-                    # 每个线程处理的episodes
-                    thread_cursors = [0] * n_threads  # 每个线程当前读取到的位置
+                    thread_cursors = [0] * n_threads  
                     
                     for ep_idx in range(total_episodes):
-                        thread_id = ep_idx % n_threads  # Episode被分配到哪个线程
+                        thread_id = ep_idx % n_threads  
                         start = thread_cursors[thread_id]
                         end = start + terminate_arr[ep_idx]
-                        
-                        # 从对应线程提取这个episode的数据
+
                         if thread_id < len(thread_angle_data) and end <= len(thread_angle_data[thread_id]):
                             ep_angles = thread_angle_data[thread_id][start:end]
                             episode_angles.append(ep_angles)
                             thread_cursors[thread_id] = end
                         else:
-                            # 数据不足，添加空列表
                             episode_angles.append([])
                     
                     return episode_angles
                 
-                # 应用转换：将线程级别数据转换为episode级别
                 n_threads = logger.algo_args["eval"]["n_eval_rollout_threads"]
                 angle_arr = convert_thread_data_to_episodes(angle_arr, terminate_arr, n_threads)
                 
-                # 获取package接触地面的数据
                 package_contact_arr = []
                 try:
                     # Method 1: Get from logger.package_contact_history (collected during eval)
@@ -398,15 +378,14 @@ def eval(
             terminate_arr = runner.eval_episode_lens
             angle_arr = runner.eval_episode_angles
 
-        # 开始计算
-        # 2.1 计算提前摔倒的次数
+
         terminate_cnt = 0
         package_x = []
         early_terminate_arr = []
         for i in range(len(terminate_arr)):
             if (
                 terminate_arr[i] + 2 < config.environment.env_tweak.max_cycles
-            ):  # +2 去除一点边际问题
+            ):
                 terminate_cnt += 1
                 early_terminate_arr.append(terminate_arr[i])
             if this_env_is_mw_series and is_online_policy:
@@ -415,7 +394,7 @@ def eval(
                     if is_online_policy
                     else runner.episode_xs[i]  # type: ignore
                 )
-        # 关闭eval_envs和runner
+
         if hasattr(runner, "eval_envs") and runner.eval_envs is not None:
             runner.eval_envs.close()
         runner.close()
@@ -452,8 +431,7 @@ def eval(
                 "angle_data_grouped": angle_arr,
                 "package_contact_arr": package_contact_arr,
             }
-            
-            # 添加扰动相关指标
+
             if hasattr(config.environment.env_tweak, 'disturbance_mode') and config.environment.env_tweak.disturbance_mode == 'adaptive':
                 return_result["disturbance_config"] = {
                     "target_agent": getattr(config.environment.env_tweak, 'disturb_target_agent', None),
@@ -495,22 +473,19 @@ def eval(
                     filepath = None
                 
                 if filepath and len(angle_flatten) > 0:
-                    # 计算大于6.5的数据比例
+
                     threshold = 6.5
                     count_above_threshold = sum(1 for angle in angle_flatten if angle > threshold)
                     percentage_above = (count_above_threshold / len(angle_flatten)) * 100
-                    
-                    # 检查是否超过10%
-                    # if percentage_above > 10:
-                    # 输出文件
+
                     with open(filepath, 'w') as f:
-                        f.write(f"数据统计报告\n")
+                        f.write(f"report\n")
                         f.write(f"==============\n")
-                        f.write(f"总数据点: {len(angle_flatten)}\n")
-                        f.write(f"阈值: {threshold}\n")
-                        f.write(f"超过阈值的数据点: {count_above_threshold}\n")
-                        f.write(f"比例: {percentage_above:.2f}%\n\n")
-                        f.write("超过阈值的数据详情:\n")
+                        f.write(f"all: {len(angle_flatten)}\n")
+                        f.write(f"threshold: {threshold}\n")
+                        f.write(f"over: {count_above_threshold}\n")
+                        f.write(f"rate: {percentage_above:.2f}%\n\n")
+                        f.write("over details:\n")
 
         elif this_env == Env.MAPDN:
             return_result = {
@@ -607,13 +582,7 @@ def eval(
 
 
 def plot_angle_time_graph(angle_data, save_path, config_info):
-    """绘制角度-时间变化图
-    
-    Args:
-        angle_data: 角度数据列表的列表 [[ep1_angles], [ep2_angles], ...]
-        save_path: 保存路径
-        config_info: 配置信息字典
-    """
+
     import matplotlib.pyplot as plt
     import numpy as np
     
@@ -626,11 +595,9 @@ def plot_angle_time_graph(angle_data, save_path, config_info):
         color = color_cycle[i % len(color_cycle)]
         plt.plot(x, y, label=f'Episode {i+1}', color=color, alpha=0.7)
     
-    # 绘制阈值线
     plt.axhline(y=6.5, color='red', linestyle='--', linewidth=2, label='Failure Threshold (6.5°)')
     plt.axhline(y=5.0, color='orange', linestyle='--', linewidth=2, label='Recovery Threshold (5.0°)')
     
-    # 标注扰动注入时间点
     if config_info.get('disturb_start_step'):
         plt.axvline(x=config_info['disturb_start_step'], color='green', 
                    linestyle=':', linewidth=2, label='Disturbance Injection')
@@ -653,7 +620,6 @@ def plot_angle_time_graph(angle_data, save_path, config_info):
 def main(cfg: EvalConfig):
     # rich.pretty.pprint(_to_dict(cfg), expand_all=True)
 
-    # 2. 整理参数，转换为dict以传导给harl
     (
         algo_dict,
         env_dict,
@@ -665,7 +631,6 @@ def main(cfg: EvalConfig):
         save_group,
     ) = _to_harl_dict(cfg)
 
-    # 3. 初始化wandb
     wandb.init(
         project=cfg.wandb.wandb_project,
         config={"original": _to_dict(cfg), "algo": algo_dict, "env": env_dict},
@@ -683,9 +648,7 @@ def main(cfg: EvalConfig):
     import numpy as np
 
     def convert_np(obj):
-        """
-        递归地将dict/list中的numpy类型转换为Python原生类型
-        """
+
         if isinstance(obj, dict):
             return {k: convert_np(v) for k, v in obj.items()}
         elif isinstance(obj, list):
@@ -697,36 +660,23 @@ def main(cfg: EvalConfig):
 
     # time.sleep(10000)
 
-    # 5. 启动训练
     print("start!!!!!!!!!!!!!!!!!!!!!!!!")
     result = eval(cfg)
-    # 保存结果到JSON文件
-    """
-    将评估结果保存为JSON格式文件
-    根据当前时间创建目录结构并保存结果
-    """
+
     if result is not None:
         import json
         from datetime import datetime
 
-        # 获取当前时间
         now = datetime.now()
         mmdd = now.strftime("%m%d")
         hhmm = now.strftime("%H%M%S")
 
-        # 创建保存路径
         save_dir = f"./results/runs/{mmdd}/{hhmm}"
         os.makedirs(save_dir, exist_ok=True)
 
-        # 保存为JSON文件
-        """
-        处理result中的numpy类型（如np.int32），将其转换为Python原生类型，确保可以被json序列化
-        """
-        
 
         result = convert_np(result)
         
-        # 获取 perturb_targets 用于文件名
         if hasattr(cfg.environment.env_tweak, 'perturb_targets'):
             perturb_targets = cfg.environment.env_tweak.perturb_targets
             if perturb_targets and len(perturb_targets) > 0:
@@ -753,14 +703,6 @@ def main(cfg: EvalConfig):
 
 def filter_recovered_episodes(angle_data_grouped, terminate_arr, max_cycles=1000, package_contact_arr=None):
     """
-    筛选"不稳定后恢复"的episodes
-    
-    过滤规则：
-    1. 正常完成（terminate_arr[i] == max_cycles）
-    2. Package未接触地面（新增，替代角度方差检查）
-    3. 曾经失稳（max(abs(angles)) > 6.5°）
-    4. 后来恢复（有步数 < 5.0°）
-    
     Returns:
         recovered: list of recovered episode info
         episode_details: list of all episodes with filter reasons
@@ -788,7 +730,6 @@ def filter_recovered_episodes(angle_data_grouped, terminate_arr, max_cycles=1000
             'unstable_duration': None
         }
         
-        # 基本检查
         if not angles or len(angles) < 10:
             msg = f"Too few data points: {len(angles) if angles else 0}"
             print(f"  ✗ {msg}")
@@ -797,20 +738,19 @@ def filter_recovered_episodes(angle_data_grouped, terminate_arr, max_cycles=1000
             episode_details.append(episode_info)
             continue
         
-        angles_array = np.abs(np.array(angles))  # 使用绝对值
+        angles_array = np.abs(np.array(angles))  
         max_angle = np.max(angles_array)
         std_angle = np.std(angles_array)
         episode_info['max_angle'] = float(max_angle)
         episode_info['std_angle'] = float(std_angle)
         
-        # 计算第一次和最后一次失稳的步数（对所有episodes，包括失败的）
         first_unstable_step = None
         last_unstable_step = None
         for j, angle in enumerate(angles):
             if abs(angle) > 6.5:
                 if first_unstable_step is None:
                     first_unstable_step = j
-                last_unstable_step = j  # 持续更新，记录最后一次
+                last_unstable_step = j 
         
         episode_info['first_unstable_step'] = first_unstable_step
         episode_info['last_unstable_step'] = last_unstable_step
@@ -824,12 +764,10 @@ def filter_recovered_episodes(angle_data_grouped, terminate_arr, max_cycles=1000
             if episode_info['unstable_duration'] is not None:
                 print(f"  Unstable duration: {episode_info['unstable_duration']} steps")
         
-        # 保存完整角度数据（对所有有足够数据的episodes，不要求达到max_cycles）
-        # 只要angles数据足够长（>= 10个点），就保存
+
         if len(angles) >= 10:
             episode_info['angles'] = [float(a) for a in angles]
         
-        # 过滤1：排除package接触地面的episodes（真正失败）
         if package_contact_arr and idx < len(package_contact_arr):
             if package_contact_arr[idx]:
                 msg = "Package touched ground (real failure)"
@@ -838,8 +776,7 @@ def filter_recovered_episodes(angle_data_grouped, terminate_arr, max_cycles=1000
                 episode_info['filter_reason'] = msg
                 episode_details.append(episode_info)
                 continue
-        
-        # 过滤2：排除角度数据异常的（全0）
+
         if np.all(angles_array == 0):
             msg = "Invalid data (all zeros)"
             print(f"  ✗ {msg}")
@@ -847,8 +784,7 @@ def filter_recovered_episodes(angle_data_grouped, terminate_arr, max_cycles=1000
             episode_info['filter_reason'] = msg
             episode_details.append(episode_info)
             continue
-        
-        # 过滤3：排除提前摔倒的
+
         if term_step < max_cycles:
             msg = f"Early termination ({term_step} < {max_cycles})"
             print(f"  ✗ {msg}")
@@ -857,7 +793,6 @@ def filter_recovered_episodes(angle_data_grouped, terminate_arr, max_cycles=1000
             episode_details.append(episode_info)
             continue
         
-        # 过滤4：排除全程稳定的（从未超过6.5°）
         if max_angle < 6.5:
             msg = f"Never unstable (max {max_angle:.2f}° < 6.5°)"
             print(f"  ✗ {msg}")
@@ -866,11 +801,9 @@ def filter_recovered_episodes(angle_data_grouped, terminate_arr, max_cycles=1000
             episode_details.append(episode_info)
             continue
         
-        # 查找失效和恢复点（复用已计算的first_unstable_step）
         failure_step = first_unstable_step
         recovery_step = None
         
-        # 从失效点之后找到第一个降到5°以下的点
         if failure_step is not None:
             for j in range(failure_step, len(angles)):
                 if abs(angles[j]) < 5.0:
@@ -882,7 +815,6 @@ def filter_recovered_episodes(angle_data_grouped, terminate_arr, max_cycles=1000
         
         print(f"  Failure at step: {failure_step}, Recovery at step: {recovery_step}")
         
-        # 只保留真正恢复的（既失稳过，又恢复了）
         if failure_step is not None and recovery_step is not None:
             recovery_time = recovery_step - failure_step
             episode_info['recovery_time'] = recovery_time
@@ -914,9 +846,7 @@ def filter_recovered_episodes(angle_data_grouped, terminate_arr, max_cycles=1000
 
 
 def plot_recovered_cases_only(recovered_cases, save_dir, config_info):
-    """
-    只绘制恢复的episodes，每5个episodes一张图
-    """
+
     import os
     import matplotlib.pyplot as plt
     
@@ -924,7 +854,6 @@ def plot_recovered_cases_only(recovered_cases, save_dir, config_info):
         print("⚠️  No recovered episodes to plot")
         return
     
-    # 每5个episodes一张图
     episodes_per_plot = 5
     num_plots = (len(recovered_cases) + episodes_per_plot - 1) // episodes_per_plot
     
@@ -940,23 +869,19 @@ def plot_recovered_cases_only(recovered_cases, save_dir, config_info):
             ep_idx = case['episode_idx']
             angles = case['angles']
             x = np.arange(len(angles))
-            y = np.abs(np.array(angles))  # 取绝对值
+            y = np.abs(np.array(angles))  
             
-            # 绘制曲线
             ax.plot(x, y, label=f'Ep {ep_idx+1}', 
                    alpha=0.8, linewidth=2.5, color=colors[i])
-            
-            # 标注失效点（红×）
+
             if case['failure_step']:
                 ax.scatter(case['failure_step'], abs(angles[case['failure_step']]), 
                           color='red', s=180, marker='x', zorder=10, linewidths=3)
             
-            # 标注恢复点（绿●）
             if case['recovery_step']:
                 ax.scatter(case['recovery_step'], abs(angles[case['recovery_step']]), 
                           color='green', s=180, marker='o', zorder=10, linewidths=2)
         
-        # 阈值线
         ax.axhline(y=6.5, color='red', linestyle='--', linewidth=2.5, 
                    label='Failure Threshold (6.5°)', alpha=0.9)
         ax.axhline(y=5.0, color='green', linestyle='--', linewidth=2.5, 
@@ -976,7 +901,6 @@ def plot_recovered_cases_only(recovered_cases, save_dir, config_info):
         ax.grid(True, alpha=0.3)
         plt.tight_layout()
         
-        # 保存图片
         if num_plots > 1:
             save_path = os.path.join(save_dir, f"recovered_episodes_set{plot_idx+1}.png")
         else:
@@ -991,7 +915,6 @@ def plot_recovered_cases_only(recovered_cases, save_dir, config_info):
 
 
 def print_recovery_stats(recovered_cases):
-    """打印恢复统计信息"""
     if not recovered_cases:
         print("\n⚠️  No recovered episodes found")
         return

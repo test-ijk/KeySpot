@@ -1,5 +1,5 @@
 name: raw
-desc: 初始场景
+desc: raw
 
 # vanilla
 env_tweak:

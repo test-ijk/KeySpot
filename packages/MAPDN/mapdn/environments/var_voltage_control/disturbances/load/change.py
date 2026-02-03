@@ -4,7 +4,6 @@
 
 class LoadChange:
     """
-    对负荷做扰动的类。
 
     disturbance_args: dict = {"multiplier": 2}
     """
@@ -16,7 +15,7 @@ class LoadChange:
         self.disturbance_args = disturbance_args
 
     def start(self):
-        self.env = self.env  # 激活python类型推断
+        self.env = self.env 
 
         # update the record in the pandapower
         # self.env.powergrid.sgen["p_mw"] = self.env.powergrid.sgen["p_mw"] * self.disturbance_args["multiplier"]

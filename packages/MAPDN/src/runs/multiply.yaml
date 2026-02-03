@@ -5,7 +5,7 @@ defaults:
 run_group: 250507_full_8t
 save_group: ori_8t
 
-description: 扰动8
+description: multiply
 
 steps:
   - type: eval
@@ -24,4 +24,4 @@ steps:
     config_name: default
     multirun: False
     args:
-      - 新扰动/重新测试完成
+      - multiply

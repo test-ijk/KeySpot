@@ -70,9 +70,7 @@ class LLMManager(ABC, Generic[TParentEnv, TEnv, TEnvRaw, ObsType, StateType]):
     def get_llm_decisions(
         self, obses: list[ObsType], global_state: StateType
     ) -> dict[str, Any]:
-        """
-        传入的obses是每个agent的obs，global_state是全局状态
-        """
+
         import json
 
         result = self.get_llm_result(obses, global_state)
@@ -124,7 +122,6 @@ class LLMManager(ABC, Generic[TParentEnv, TEnv, TEnvRaw, ObsType, StateType]):
             return f"Error: {str(e)}"
 
     def execute_llm(self, obses: list[ObsType], global_state: StateType) -> None:
-        """核心函数，应当在此完成全流程；即，obs->prompt,prompt->llm_response,llm_response->action"""
         decisions = self.get_llm_decisions(obses, global_state)
         self._llm_decision_in_env(decisions)
 
@@ -133,8 +130,6 @@ class LLMManager(ABC, Generic[TParentEnv, TEnv, TEnvRaw, ObsType, StateType]):
         self, obses: list[ObsType], global_state: StateType
     ) -> Union[tuple[dict[str, str], PromptTemplate], str]:
         """
-        生成semantic info + 决定使用哪个prompt。
-        可以返回一组dict和PromptTemplate，也可以返回一个str。
 
         Args:
             obses: list[ObsType]
@@ -160,7 +155,6 @@ class HarlEnvWithLLM(
     llm_frequency: int
 
     def __init__(self, *args, **kwargs):
-        """实际使用里这个__init__不会被调用，这只是一个参考代码而已"""
         super().__init__(*args, **kwargs)
         self.llm_manager = self._init_llm_manager()
         self.llm_frequency = 50

@@ -5,7 +5,7 @@ defaults:
 run_group: 250509_6t
 save_group: ori_8t
 
-description: 扰动8
+description: 8
 
 steps:
   - type: train

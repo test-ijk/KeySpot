@@ -57,7 +57,6 @@ def sumo_customize_dict(cfg, algo_dict: dict, env_dict: dict, save_group: str):
     from ..task.train_type import TrainConfig
 
     cfg = cast(TrainConfig, cfg)
-    # disturbances的引入
     if algo_dict["train"].get("episode_length") is not None:
         max_cycles = (env_dict["num_seconds"]) // env_dict["delta_time"]
         algo_dict["train"]["episode_length"] = max_cycles - 1

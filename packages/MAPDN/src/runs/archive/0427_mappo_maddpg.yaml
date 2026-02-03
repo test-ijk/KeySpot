@@ -5,7 +5,7 @@ defaults:
 run_group: latest
 save_group: 0425/1617
 
-description: 补充训练ippo和coma
+description: ippo and coma
 
 steps:
   # - type: train
@@ -23,5 +23,4 @@ steps:
   - type: bark
     config_name: default
     multirun: False
-    args:
-      - 测试
+

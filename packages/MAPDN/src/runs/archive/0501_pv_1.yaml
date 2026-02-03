@@ -5,7 +5,7 @@ defaults:
 run_group: 0503_pv_1_50eps
 save_group: 0501/1504
 
-description: pv_只屏蔽0
+description: pv_only_0
 
 steps:
   - type: eval
@@ -30,4 +30,4 @@ steps:
     config_name: default
     multirun: False
     args:
-      - pv扰动的训练已经完成
+      - pv_only_0

@@ -3,7 +3,6 @@ from harl.envs.pettingzoo_mw.walker.disturbances.world import DisturbanceWorldBa
 
 class DisturbanceWorldFrictionChange(DisturbanceWorldBase):
     """
-    对世界摩擦力做扰动的类。
 
     disturbance_args: dict = {"friction": 4.57}
     """

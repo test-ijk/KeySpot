@@ -23,10 +23,9 @@ from train_hydra_type import TrainHydraEntryConfig, TrainConfig
 )
 def run(configs: TrainHydraEntryConfig):
     rich.print(OmegaConf.to_container(configs, resolve=True))
-    # 1. 检查配置是否合法
+
     OmegaConf.structured(TrainConfig(**configs.train_config))
 
-    # 2. 运行
     rich.print(OmegaConf.to_container(configs, resolve=True))
     argv = configs.train_config
     global_prefix = "./mapdn"
@@ -195,7 +194,6 @@ def run(configs: TrainHydraEntryConfig):
 
     logger.close()
 
-    # requests.get("https://api.day.app/Ya5CADvAuDWf5NR4E8ZGt5/训练完成")
     wandb_run.log_model(
         path=save_path + "models/" + log_name + "/model.pt", name=wandb_name
     )

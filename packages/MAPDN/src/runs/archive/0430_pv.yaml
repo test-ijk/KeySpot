@@ -5,7 +5,7 @@ defaults:
 run_group: 0430_1745_pv_eval
 save_group: 0429/1308
 
-description: pv扰动的训练已经完成
+description: pv
 
 steps:
   - type: train
@@ -30,4 +30,4 @@ steps:
     config_name: default
     multirun: False
     args:
-      - pv扰动的训练已经完成
+      - pv

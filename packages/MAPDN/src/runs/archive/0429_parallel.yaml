@@ -5,7 +5,7 @@ defaults:
 run_group: latest
 save_group: 0429/1308
 
-description: 重新训练新的扰动
+description: parallel
 
 steps:
   # - type: train
@@ -24,4 +24,4 @@ steps:
   #   config_name: default
   #   multirun: False
   #   args:
-  #     - 新扰动!/训练完成
+  #     - parallel

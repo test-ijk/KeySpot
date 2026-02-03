@@ -178,7 +178,6 @@ def main(cfg: TrainConfig):
         summary="min",
     )
 
-    # 5. 启动训练
     runner.run()
 
     runner.close()

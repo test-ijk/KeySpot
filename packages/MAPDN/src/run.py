@@ -53,22 +53,19 @@ def main(config: HydraRunConfig):
     rich.print(config)
     if config.description == "_DEFAULT_DESCRIPTION_":
         raise ValueError(
-            "不允许使用默认文件，务必复制并新建一个run config以带来最好可复现性。"
+            ""
         )
 
-    # 组合存储的文件夹
     hydra_output_dir = hydra.core.hydra_config.HydraConfig.get().runtime.output_dir
     os.makedirs(hydra_output_dir + "/train", exist_ok=True)
     os.makedirs(hydra_output_dir + "/eval", exist_ok=True)
 
-    # 把latest改成当前时间
     current_time = datetime.now().strftime("%m%d/%H%M")
     if config.run_group == "latest":
         config.run_group = current_time
     if config.save_group == "latest":
         config.save_group = current_time
 
-    # 组合命令
     def _from_step_to_command(step: HydraStepConfig) -> HydraCommandConfig:
         rich.print(step)
         if HydraStepType(step.type) == HydraStepType.train:
@@ -108,12 +105,10 @@ def main(config: HydraRunConfig):
     commands += [_from_step_to_command(step) for step in config.steps]
     rich.print(commands)
 
-    # 保存命令供复现
     sh_reproduce = "\n".join(commands)
     with open(hydra_output_dir + "/reproduce.sh", "w") as f:
         f.write(sh_reproduce)
 
-    # 复制train和eval的yaml配置文件
     for step in config.steps:
         if step.type == HydraStepType.train:
             shutil.copy(
@@ -126,7 +121,6 @@ def main(config: HydraRunConfig):
                 hydra_output_dir + f"/eval/{step.config_name}.yaml",
             )
 
-    # 调用wandb存储代码和配置文件
     if config.wandb.use_wandb:
         run_run = wandb.init(
             project=config.wandb.project,
@@ -143,7 +137,6 @@ def main(config: HydraRunConfig):
         run_run.log_code(hydra_output_dir + "/eval")
         run_run.finish()
 
-    # 执行代码
     for command in commands:
         rich.print(f"Running command: 【{command}】")
         if command.startswith("bark||"):

@@ -3,8 +3,6 @@ from harl.envs.pettingzoo_mw.walker.disturbances.world import DisturbanceWorldBa
 
 class DisturbanceWorldWind(DisturbanceWorldBase):
     """
-    引入风？
-
     disturbance_args: dict = {"mass": 4.57}
     """
 

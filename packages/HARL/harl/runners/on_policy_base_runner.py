@@ -637,7 +637,6 @@ class OnPolicyBaseRunner:
         """Render the model."""
         print("start rendering")
         
-        # 收集所有episodes的角度数据（用于最后生成图表）
         all_angle_data_collected = []
         terminate_arr_collected = []
         package_contact_collected = []  # Track package ground contact
@@ -671,7 +670,7 @@ class OnPolicyBaseRunner:
                 eval_masks = np.ones(
                     (self.env_num, self.num_agents, 1), dtype=np.float32
                 )
-                rewards = 0  # 把此处的reward也返回出去
+                rewards = 0
                 steps = 0
                 while True:
                     steps += 1
@@ -722,12 +721,10 @@ class OnPolicyBaseRunner:
                         if steps < 500:
                             print(f"{_i} terminate early: {steps}")
                         
-                        # 收集角度数据（用于后续绘图）
                         print(f"\n[DEBUG] Attempting to collect angle data...")
                         print(f"[DEBUG] self.envs type: {type(self.envs)}")
                         print(f"[DEBUG] self.envs.env type: {type(self.envs.env)}")
                         
-                        # 尝试多种访问路径
                         env_instance = None
                         try:
                             env_instance = self.envs.env.unwrapped.env
@@ -756,7 +753,6 @@ class OnPolicyBaseRunner:
                                 print(f"[DEBUG] all_contact_history length: {len(all_contact_history)}")
                             
                             if len(all_angle_history) > 0:
-                                # 只取当前episode（最后一个）
                                 current_episode_angles = all_angle_history[-1]
                                 print(f"[DEBUG] Current episode has {len(current_episode_angles)} angle measurements")
                                 all_angle_data_collected.append(current_episode_angles)
@@ -773,9 +769,6 @@ class OnPolicyBaseRunner:
                                 print(f"[DEBUG] ✓ Angle data collected for episode {len(all_angle_data_collected)}")
                         else:
                             print(f"[DEBUG] ✗ get_all_angle_history method not found on {type(env_instance)}")
-                        # 旧的per-episode绘图代码已删除
-                        # 现在统一在所有episodes完成后生成图表
-                        
                         break
                 render_rgb_array.append(episode_rgb_array)
                 rewards_arr.append(rewards)
@@ -843,7 +836,6 @@ class OnPolicyBaseRunner:
             else:
                 self.envs.save_replay()
 
-        # 生成恢复episodes图表（在所有episodes完成后）
         print(f"\n[DEBUG] Finished all episodes. Collected {len(all_angle_data_collected)} angle datasets")
         if len(all_angle_data_collected) > 0:
             try:
@@ -858,7 +850,6 @@ class OnPolicyBaseRunner:
                 print(f"Total episodes: {len(all_angle_data_collected)}")
                 print(f"{'='*70}\n")
                 
-                # 过滤恢复的episodes
                 recovered = filter_recovered_episodes(
                     all_angle_data_collected,
                     terminate_arr_collected,
@@ -867,11 +858,9 @@ class OnPolicyBaseRunner:
                 )
                 
                 if recovered:
-                    # 生成图表（保存到renders目录）
                     render_dir = "./results/renders/multiwalker_recovered/"
                     os.makedirs(render_dir, exist_ok=True)
                     
-                    # 获取配置信息（如果可用）
                     target_agent = getattr(self.env_args, 'disturb_target_agent', 0)
                     magnitude = getattr(self.env_args, 'disturb_magnitude', 0.3)
                     
@@ -884,7 +873,6 @@ class OnPolicyBaseRunner:
                         }
                     )
                     
-                    # 打印统计
                     print_recovery_stats(recovered)
                     print(f"\n✓ Recovered episodes plots saved to: {render_dir}\n")
                 else:

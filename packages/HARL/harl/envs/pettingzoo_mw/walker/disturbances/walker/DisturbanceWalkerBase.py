@@ -2,11 +2,6 @@ from harl.envs.pettingzoo_mw.walker.disturbances import DisturbanceBase, MultiWa
 
 
 class DisturbanceWalkerBase(DisturbanceBase):
-    """
-    对双足机器人做扰动的基类。
-
-    提供colorize和un_colorize方法，在被扰动时，包裹会变色。
-    """
 
     def __init__(self, env: MultiWalkerEnv, disturbance_args: dict):
         super().__init__(env, disturbance_args)

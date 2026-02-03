@@ -184,7 +184,7 @@ class raw_env(AECEnv[str, ObsType, ActionType], EzPickle):
         assert (
             sum([self.disturbs[k]["disturb_enabled"] for k in self.disturbs.keys()])
             <= 1
-        ), "目前只支持同时启用一个扰动"
+        ), "only one disturbance is supported"
         assert (
             "friction" in self.disturbs
             or "motor" in self.disturbs
@@ -253,7 +253,7 @@ class raw_env(AECEnv[str, ObsType, ActionType], EzPickle):
             "end_at": 0,
             "disturbance_args": {},
         }
-        self.np_random = None  # 添加随机数生成器实例
+        self.np_random = None
 
     def get_raw_env(self) -> _env:
         return self.env
@@ -337,22 +337,18 @@ class raw_env(AECEnv[str, ObsType, ActionType], EzPickle):
             self._agent_selector.reinit(iter_agents)
 
             if self.is_eval:
-                # eval时引入的扰动
                 if self.turbances_array is not None and len(self.turbances_array) > 0:
                     for disturbance in self.turbances_array:
                         disturbance.execute_with_frame(self.env.frames)
             else:
-                # 训练时引入的扰动
                 if self.disturbs["friction"]["disturb_enabled"]:
                     if self.disturbance["is_disturbancing"]:
                         if self.env.frames >= self.disturbance["end_at"]:
-                            # print(f"扰动结束，{self.env.frames}")
                             self.disturbance["is_disturbancing"] = False
                             for ter in self.env.terrain:
                                 ter.fixtures[0].friction = 2.5
                     else:
                         if self.np_random.random() < 0.0025:
-                            # print(f"开始扰动，{self.env.frames}")
                             self.disturbance["is_disturbancing"] = True
                             self.disturbance["start_at"] = self.env.frames
                             self.disturbance["end_at"] = self.env.frames + 200

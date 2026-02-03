@@ -22,27 +22,20 @@ model:
 eval_settings:
   general:
     seed: 42
-    # eval轮数
     eval_episodes: 100
-    # 并行度
     eval_threads: 50
 
   functions:
-    # 是否只读取文件，进行数值计算
     load_results: False
     result_file_name: hi
 
-    # 是否渲染
     render: True
     render_episodes: 5
 
-    # 是否进行ablation
     ablation: False
     
-    # 是否使用gpu
     use_gpu: False
 
-    # 是否导出角度数据
     export_angle_data: False
 
 

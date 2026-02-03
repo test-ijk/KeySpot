@@ -1,6 +1,6 @@
 # KeySpot
 
-A research framework for **Multi-Agent Reinforcement Learning (MARL)** focused on **disturbance resilience**, **skill-based control**, and LLM integration across multiple domains.
+A research framework for **Multi-Agent Reinforcement Learning (MARL)** focused on **disturbance resilience**, **skill-based control**.
 
 ## Overview
 
@@ -9,8 +9,9 @@ This project implements a unified MARL training framework with support for:
 - **Multi-Agent Hierarchical Actor-Critic Algorithms**: MAPPO, MATD3, MADDPG, and more
 - **Disturbance Testing Framework**: Comprehensive tools for testing agent resilience under various disturbances
 - **Skill-Based Learning**: Custom skill implementations and evaluation mechanisms
-- **LLM Integration**: Natural language processing support for intelligent agent decision-making
 - **Multi-Domain Environments**: Robotics (MultiWalker), Traffic Control (SUMO), Power Systems (MAPDN)
+
+![Overview](test/overview.png)
 
 ## Project Structure
 

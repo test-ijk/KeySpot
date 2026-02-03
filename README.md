@@ -1,6 +1,6 @@
-# MultiWalker-HARL
+# KeySpot
 
-A research framework for **Multi-Agent Reinforcement Learning (MARL)** focused on disturbance resilience, skill-based control, and LLM integration across multiple domains.
+A research framework for **Multi-Agent Reinforcement Learning (MARL)** focused on **disturbance resilience**, **skill-based control**, and LLM integration across multiple domains.
 
 ## Overview
 
@@ -15,7 +15,7 @@ This project implements a unified MARL training framework with support for:
 ## Project Structure
 
 ```
-2507-multiwalker-harl/
+KeySpot/
 ├── packages/
 │   ├── HARL/          # Core MARL framework and algorithms
 │   ├── SUMO/          # Traffic simulation environment
@@ -234,6 +234,3 @@ This project builds upon:
 - [PettingZoo](https://github.com/Farama-Foundation/PettingZoo) - Multi-agent RL environments
 - [SUMO](https://www.eclipse.org/sumo/) - Simulation of Urban MObility
 
-## Contact
-
-For questions and issues, please open a GitHub issue or contact [your-email@example.com].

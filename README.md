@@ -26,8 +26,7 @@ KeySpot/
 ├── test/              # Testing and evaluation scripts
 │   ├── *.py           # Batch testing scripts
 │   └── *.sh           # Shell scripts for various tests
-├── results/           # Experiment outputs and models
-└── *.py              # Batch testing and evaluation scripts
+└── results/           # Experiment outputs and models
 ```
 
 ## Installation
@@ -111,23 +110,6 @@ The project uses [Hydra](https://hydra.cc/) for flexible configuration managemen
 - **Algorithm configs**: `packages/HARL/harl/configs/algos_cfgs/`
 - **Environment configs**: `packages/HARL/harl/configs/envs_cfgs/`
 
-### Example Configuration
-
-```yaml
-# sources/skill/1.config/task/train/pettingzoo_mw.yaml
-defaults:
-  - algorithm: mappo
-  - environment: pettingzoo_mw
-  - scenario: move
-
-wandb:
-  wandb_project: mw_skill
-  wandb_group: latest
-
-model:
-  save_group: latest
-```
-
 ## Supported Environments
 
 ### 1. PettingZoo MultiWalker (`pettingzoo_mw`)
@@ -169,18 +151,6 @@ Active voltage control in power distribution networks.
 | MAA2C | On-Policy | Multi-Agent Advantage Actor-Critic |
 | HA2C | On-Policy | Hierarchical Actor-Critic A2C |
 
-## Results and Logging
-
-Training results are saved to:
-- Models: `./results/models/`
-- Outputs: `./results/outputs/`
-- Batch tests: `./results/batch_disturbance/`
-
-The project integrates with:
-- **W&B**: Experiment tracking and visualization
-- **TensorBoard**: Training metrics
-- **Neptune**: Alternative experiment tracking
-
 ## Key Features
 
 ### Disturbance Testing Framework
@@ -191,12 +161,6 @@ Comprehensive disturbance testing with:
 - Recovery time analysis
 - Episode filtering and statistics
 - Visualization tools
-
-### LLM Integration
-
-- Natural language explanations for agent decisions
-- Target-based coordination through LLM prompts
-- Configurable prompt templates
 
 ### Skill-Based Learning
 
@@ -223,10 +187,6 @@ Comprehensive disturbance testing with:
 - `sources/skill/1.config/`: Hydra configurations
 - `sources/skill/code/types/`: Type definitions for configs
 
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 
